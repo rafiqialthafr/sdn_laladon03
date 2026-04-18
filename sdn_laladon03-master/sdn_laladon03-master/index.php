@@ -56,7 +56,7 @@ include 'header.php';
                 <div class="carousel-caption hero-content-gold">
                     <div class="hero-badge-gold animate-fade-in-1">
                         <span class="badge-icon">🏆</span>
-                        <span>Juara Nasional 2024</span>
+                        <span>Juara Nasional 2026</span>
                     </div>
                     <h3 class="hero-pretitle animate-fade-in-2">Prestasi Membanggakan</h3>
                     <h1 class="hero-title-gold animate-fade-in-3">
@@ -217,7 +217,7 @@ include 'header.php';
                         <i data-lucide="star" style="width:26px;height:26px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Program Unggulan</h5>
-                    <p class="text-muted small mb-0">Murotal Qur'an, Literasi Sekolah, Adiwiyata, dan Pembiasaan
+                    <p class="text-muted small mb-0">Murotal Qur'an, Literasi Sekolah, dan Pembiasaan
                         Karakter Islami.</p>
                 </div>
             </div>
@@ -227,7 +227,7 @@ include 'header.php';
                         <i data-lucide="zap" style="width:26px;height:26px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Ekstrakurikuler</h5>
-                    <p class="text-muted small mb-0">Pramuka, Dan Pencak Silat.</p>
+                    <p class="text-muted small mb-0">Pramuka, Dan Karate.</p>
                 </div>
             </div>
         </div>

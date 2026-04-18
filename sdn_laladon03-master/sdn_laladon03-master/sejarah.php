@@ -38,39 +38,23 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-year-badge">1985</span>
+                    <span class="timeline-year-badge">1984</span>
                     <h5>Awal Berdiri</h5>
-                    <p>SDN Laladon 03 didirikan pada tahun 1985 sebagai respons terhadap kebutuhan pendidikan dasar di wilayah Desa Laladon yang semakin berkembang. Dengan bangunan sederhana yang terdiri dari 3 ruang kelas, sekolah ini mulai menerima siswa angkatan pertama.</p>
+                    <p>Pada awalnya terdapat dua sekolah dasar yaitu Sdn ciherang 03 & Sdn Ciherang 05. Kemudian kedua sekolah itu melakukan merger atau penggabungan menjadi satu nama yaitu SDN Ciherang 05 pada tahun 1984.</p>
                 </div>
             </div>
 
-            <!-- Item 2 — Kanan -->
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <span class="timeline-year-badge">1995</span>
-                    <h5>Penambahan Tenaga Pendidik</h5>
-                    <p>Pertumbuhan jumlah siswa mendorong sekolah untuk merekrut guru-guru berpengalaman baru. Program ekstrakurikuler pertama pun mulai diperkenalkan, memperluas cakupan pendidikan di luar kurikulum utama.</p>
-                </div>
-            </div>
+            
 
-            <!-- Item 3 — Kiri -->
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <span class="timeline-year-badge">2000</span>
-                    <h5>Renovasi & Perluasan</h5>
-                    <p>Seiring bertambahnya jumlah siswa, dilakukan renovasi besar-besaran dan penambahan ruang kelas baru. Fasilitas pendukung seperti perpustakaan dan ruang guru yang lebih representatif juga mulai dibangun.</p>
-                </div>
-            </div>
+            
 
             <!-- Item 4 — Kanan -->
             <div class="timeline-item right">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-year-badge">2010</span>
-                    <h5>Era Teknologi Pendidikan</h5>
-                    <p>Laboratorium komputer pertama dibangun, membawa SDN Laladon 03 memasuki era literasi digital. Program pelatihan komputer untuk siswa dan guru mulai berjalan secara rutin setiap semester.</p>
+                    <span class="timeline-year-badge">2013</span>
+                    <h5>Peningkatan Layanan Pendidikan</h5>
+                    <p>Pada tahun ini perpustakaan sekolah dibangun membawa SDN Laladon 03 memasuki era literasi digital. Program peningkatan Literasi untuk siswa dan guru mulai berjalan secara rutin setiap semester.</p>
                 </div>
             </div>
 
@@ -78,7 +62,7 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-year-badge">2016</span>
+                    <span class="timeline-year-badge">2023</span>
                     <h5>Raih Akreditasi A</h5>
                     <p>Berkat kerja keras seluruh dewan guru, staf, dan dukungan komite sekolah, SDN Laladon 03 berhasil meraih Akreditasi A dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-SM) dengan nilai memuaskan.</p>
                 </div>
