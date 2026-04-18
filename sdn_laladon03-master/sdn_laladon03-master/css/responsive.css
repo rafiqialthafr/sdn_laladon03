@@ -1,0 +1,753 @@
+/* ==============================================
+   RESPONSIVE.CSS — SDN LALADON 03
+   Media queries & responsive utilities.
+
+   BREAKPOINTS:
+   Desktop  (default / ≥ 1200px)
+   Tablet   (@media max-width: 1024px)
+   Mobile   (@media max-width: 767.98px)
+   Mobile S (@media max-width: 480px)
+   Mobile XS(@media max-width: 375px)
+
+   Bootstrap compat:
+   lg ≥ 992px · md ≥ 768px · xs < 576px
+   ============================================== */
+
+/* ============================================
+   GLOBAL — BASE RESETS
+   ============================================ */
+
+/* Container padding */
+.container,
+.container-fluid {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
+/* Semua section bebas overflow horizontal */
+section {
+    overflow-x: hidden;
+}
+
+/* ============================================
+   NAVBAR — DESKTOP HOVER DROPDOWN (≥ 992px)
+   ============================================ */
+@media (min-width: 992px) {
+    #mainNavbar .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        margin-top: 0;
+    }
+}
+
+/* ============================================
+   NAVBAR — TABLET & MOBILE COLLAPSE (< 992px)
+   ============================================ */
+@media (max-width: 991.98px) {
+    .hamburger-btn { display: flex; }
+
+    #mainNavbar .navbar-nav {
+        align-items: flex-start;
+        width: 100%;
+        padding-right: 0;
+        gap: 0;
+    }
+
+    #mainNavbar .navbar-collapse {
+        background: #fff;
+        padding: 0.75rem 1rem 1.25rem;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.09);
+        margin-top: 8px;
+        border-top: 2px solid var(--gold);
+    }
+
+    #mainNavbar .nav-link {
+        padding: 10px 4px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    #mainNavbar .dropdown-menu {
+        box-shadow: none;
+        border: none;
+        padding-left: 1rem;
+        margin-top: 0;
+        animation: none;
+    }
+
+    /* Stagger slide-in item menu */
+    .navbar-collapse.show .nav-item {
+        animation: navSlideIn 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    .navbar-collapse.show .nav-item:nth-child(1) { animation-delay: 0.05s; }
+    .navbar-collapse.show .nav-item:nth-child(2) { animation-delay: 0.10s; }
+    .navbar-collapse.show .nav-item:nth-child(3) { animation-delay: 0.15s; }
+    .navbar-collapse.show .nav-item:nth-child(4) { animation-delay: 0.20s; }
+    .navbar-collapse.show .nav-item:nth-child(5) { animation-delay: 0.25s; }
+    .navbar-collapse.show .nav-item:nth-child(6) { animation-delay: 0.30s; }
+}
+
+/* ============================================
+   NAVBAR BRAND — TABLET (< 768px)
+   ============================================ */
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        max-width: 80%;
+        white-space: nowrap;
+        overflow: visible;
+    }
+    .navbar-brand img {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+    }
+    .brand-text {
+        font-size: clamp(1.2rem, 5.5vw, 1.55rem);
+        letter-spacing: 0.5px;
+        font-weight: 900;
+    }
+    #mainNavbar .container-fluid {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+}
+
+/* ============================================
+   NAVBAR BRAND — MOBILE (< 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    .navbar-brand img {
+        width: 42px;
+        height: 42px;
+    }
+    .brand-text {
+        font-size: clamp(1.1rem, 6vw, 1.4rem);
+        font-weight: 900;
+        letter-spacing: 0.3px;
+    }
+}
+
+
+/* ============================================
+   HERO SLIDER — LARGE DESKTOP (>= 1200px)
+   ============================================ */
+@media (min-width: 1200px) {
+    #heroCarousel .carousel-caption {
+        max-width: 700px;
+    }
+}
+
+/* ============================================
+   HERO SLIDER — TABLET LANDSCAPE (≤ 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+    .hero-overlay-gold {
+        background: linear-gradient(to right,
+            rgba(26,26,46,0.98) 0%,
+            rgba(26,26,46,0.92) 45%,
+            rgba(26,26,46,0.75) 65%,
+            transparent 90%);
+    }
+    #heroCarousel .carousel-caption {
+        max-width: 520px;
+        left: 4%;
+        padding: 1.5rem;
+    }
+    .carousel-control-prev { right: 40px; }
+    .carousel-control-next { right: 40px; }
+}
+
+/* ================================================================
+   HERO SLIDER — MOBILE PORTRAIT (≤ 768px)
+   ✅ Portrait 9:16 (100dvh)           ✅ CENTER semua konten
+   ✅ Multi-layer overlay + vignette   ✅ Tombol full-width
+   ✅ Arrows kiri-kanan sejajar gold   ✅ Stagger animations
+   ✅ Touch feedback + accessibility   ✅ GPU-accelerated 60fps
+   ================================================================ */
+@media (max-width: 768px) {
+
+    /* 1. Ukuran hero: portrait full-height */
+    #heroCarousel,
+    .carousel-item {
+        height: 100dvh;
+        min-height: 520px;
+        will-change: transform;
+    }
+
+    /* 2. Overlay hitam — keterbacaan teks tinggi */
+    .hero-overlay-gold {
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.10) 0%,
+            rgba(0, 0, 0, 0.45) 40%,
+            rgba(0, 0, 0, 0.80) 75%,
+            rgba(0, 0, 0, 0.92) 100%
+        );
+    }
+
+    /* 3. Konten: Flex CENTER */
+    #heroCarousel .carousel-caption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: none;
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5rem 3.5rem 6rem;
+        box-sizing: border-box;
+        gap: 0;
+    }
+
+    /* 4. Stagger Animations */
+    .carousel-item.active .hero-badge-gold { animation: heroStagger 0.6s ease both; animation-delay: 0.15s; }
+    .carousel-item.active .hero-pretitle   { animation: heroStagger 0.6s ease both; animation-delay: 0.25s; }
+    .carousel-item.active .hero-title-gold { animation: heroStagger 0.6s ease both; animation-delay: 0.35s; }
+    .carousel-item.active .hero-subtitle   { animation: heroStagger 0.6s ease both; animation-delay: 0.45s; }
+    .carousel-item.active .hero-buttons    { animation: heroStagger 0.6s ease both; animation-delay: 0.55s; }
+
+    /* 5. Typography */
+    .hero-badge-gold {
+        font-size: 0.82rem;
+        padding: 0.45rem 1.1rem;
+        margin-bottom: 1.25rem;
+        display: inline-flex;
+        will-change: transform, opacity;
+    }
+    .hero-pretitle {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        will-change: transform, opacity;
+    }
+    .hero-title-gold {
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+        text-shadow:
+            0 2px 4px  rgba(0, 0, 0, 0.45),
+            0 4px 12px rgba(0, 0, 0, 0.30),
+            0 8px 24px rgba(0, 0, 0, 0.15);
+        will-change: transform, opacity;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        margin-bottom: 2rem;
+        text-align: center;
+        max-width: 300px;
+        width: 100%;
+        display: block;
+        overflow: visible;
+        text-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.35),
+            0 4px 8px rgba(0, 0, 0, 0.20);
+        will-change: transform, opacity;
+    }
+
+    /* 6. Tombol: full-width + touch feedback */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 300px;
+        gap: 1.5rem;
+        will-change: transform, opacity;
+    }
+    .btn-gold-primary,
+    .btn-gold-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 0.95rem 1.5rem;
+        font-size: 0.95rem;
+        border-radius: 50px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.15s ease, box-shadow 0.2s ease;
+        will-change: transform;
+    }
+
+
+    /* Ripple effect */
+    .btn-gold-primary::after,
+    .btn-gold-outline::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.30) 0%,
+            transparent 65%);
+        opacity: 0;
+        transform: scale(0);
+        transition: transform 0.45s ease, opacity 0.45s ease;
+        border-radius: inherit;
+        pointer-events: none;
+    }
+    .btn-gold-primary:active::after,
+    .btn-gold-outline:active::after {
+        transform: scale(2.5);
+        opacity: 1;
+        transition: 0s;
+    }
+    #hero-section .btn-gold-primary:active,
+    #hero-section .btn-gold-outline:active {
+        transform: scale(0.97);
+    }
+    .btn-gold-primary:focus-visible,
+    .btn-gold-outline:focus-visible {
+        outline: 3px solid #FFD700;
+        outline-offset: 3px;
+    }
+
+    /* 7. Carousel Arrow Controls */
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: flex;
+        width: 45px;
+        height: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        bottom: auto;
+        border-radius: 50%;
+        background-color: rgba(15, 20, 50, 0.60);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        opacity: 0.90;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.30);
+        transition:
+            opacity      0.3s ease,
+            background   0.3s ease,
+            border-color 0.3s ease,
+            box-shadow   0.3s ease,
+            transform    0.15s ease;
+        will-change: transform, opacity;
+    }
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        opacity: 1;
+        background-color: rgba(255, 215, 0, 0.20);
+        border-color: rgba(255, 215, 0, 0.80);
+        box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.30),
+            0 0 0 3px rgba(255, 215, 0, 0.25);
+    }
+    .carousel-control-prev:active,
+    .carousel-control-next:active {
+        transform: translateY(-50%) scale(0.93);
+    }
+    .carousel-control-prev:focus-visible,
+    .carousel-control-next:focus-visible {
+        outline: 2px solid #FFD700;
+        outline-offset: 4px;
+    }
+    .carousel-control-prev { left: 12px; right: auto; }
+    .carousel-control-next { right: 12px; left: auto; }
+
+    /* 8. Carousel Dots Indicators */
+    .carousel-indicators {
+        bottom: 1.5rem;
+        margin-bottom: 0;
+        gap: 8px;
+        column-gap: 8px;
+    }
+    .carousel-indicators [data-bs-target] {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.55);
+        border: none;
+        margin: 0 4px;
+        opacity: 1;
+        transition:
+            width            0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            background-color 0.35s ease,
+            box-shadow       0.35s ease;
+        will-change: width, background-color;
+    }
+    .carousel-indicators .active {
+        width: 28px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #FFD700;
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.55);
+    }
+}
+
+/* HP Sangat Kecil (< 375px) */
+@media (max-width: 375px) {
+    .hero-title-gold { font-size: clamp(1.85rem, 10vw, 2.5rem); }
+    .hero-subtitle   { font-size: 0.875rem; max-width: 260px; }
+    #heroCarousel .carousel-caption { padding: 4.5rem 3rem 5.5rem; }
+    .hero-buttons    { max-width: 260px; }
+}
+
+
+/* ============================================
+   PAGE HEADER (semua halaman)
+   ============================================ */
+@media (max-width: 1024px) {
+    .page-header > .container > .row { padding-top: 3rem; padding-bottom: 3rem; }
+}
+
+@media (max-width: 767.98px) {
+    .page-header > .container > .row { padding-top: 4rem; padding-bottom: 4rem; }
+    .page-header-title       { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+    .page-header-subtitle    { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .page-header > .container > .row { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .page-header-title       { font-size: clamp(1.2rem, 6vw, 1.5rem); }
+    .page-header-subtitle    { font-size: 0.85rem; }
+}
+
+
+/* ============================================
+   STATS BAR — BERANDA (index.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .stats-bar-item { padding: 0.85rem 1rem; }
+}
+
+@media (max-width: 767.98px) {
+    .stats-bar-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-bar-item {
+        width: 100%;
+        padding: 0.875rem 0.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .stats-bar-number { font-size: 1.75rem; }
+    .stats-bar-label  { font-size: 0.7rem; }
+}
+
+
+/* ============================================
+   SECTION TITLES — GLOBAL
+   ============================================ */
+@media (max-width: 1024px) {
+    .section-title-wrapper { margin-bottom: 2.5rem; }
+}
+
+@media (max-width: 767.98px) {
+    .section-title         { font-size: clamp(1.3rem, 4vw, 1.5rem); }
+    .section-desc          { font-size: 0.9rem; }
+    .section-title-wrapper { margin-bottom: 2rem; }
+}
+
+@media (max-width: 480px) {
+    .section-title { font-size: clamp(1.15rem, 5vw, 1.35rem); }
+    .section-desc  { font-size: 0.85rem; padding: 0 0.5rem; }
+}
+
+
+/* ============================================
+   CONTENT CARDS — GLOBAL
+   ============================================ */
+@media (max-width: 480px) {
+    .content-card    { border-radius: 12px; }
+    .card-icon-wrap  { width: 48px; height: 48px; border-radius: 12px; }
+}
+
+
+
+
+
+/* ============================================
+   WELCOME / SAMBUTAN SECTION (index.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    #welcomeSection { padding: 3.5rem 1rem; }
+    #welcomeSection .col-md-4 img {
+        width: clamp(140px, 30vw, 220px);
+        height: clamp(140px, 30vw, 220px);
+    }
+}
+
+@media (max-width: 767.98px) {
+    #welcomeSection { padding: 3rem 1rem; }
+    #welcomeSection .col-md-4 img {
+        width: clamp(120px, 45vw, 180px);
+        height: clamp(120px, 45vw, 180px);
+    }
+    .principal-quote { font-size: 0.88rem; padding: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+    #welcomeSection { padding: 2.5rem 0.75rem; }
+    #welcomeSection .col-md-4 img {
+        width: clamp(110px, 50vw, 160px);
+        height: clamp(110px, 50vw, 160px);
+    }
+    .principal-quote { font-size: 0.83rem; padding: 1rem; border-radius: 12px; }
+}
+
+
+/* ============================================
+   TEACHER CARDS (guru_staf.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .teacher-card-img-wrap { height: 200px; }
+}
+
+@media (max-width: 480px) {
+    .teacher-card-img-wrap { height: 175px; }
+    .teacher-name          { font-size: 0.95rem; }
+    .teacher-position      { font-size: 0.78rem; }
+    .teacher-bio           { font-size: 0.8rem; }
+}
+
+
+/* ============================================
+   FACILITY CARDS (fasilitas.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .facility-img-wrap { height: 190px; }
+}
+
+@media (max-width: 767.98px) {
+    .facility-img-wrap { height: 175px; }
+}
+
+@media (max-width: 480px) {
+    .facility-name     { font-size: 1rem; }
+    .facility-desc     { font-size: 0.85rem; }
+    .facility-body     { padding: 1rem; }
+    .facility-img-wrap { height: 160px; }
+}
+
+
+/* ============================================
+   TIMELINE (sejarah.php, kepala_sekolah.php)
+   ============================================ */
+@media (max-width: 767.98px) {
+    .timeline-container::before { left: 18px; transform: none; }
+    .timeline-item,
+    .timeline-item.right {
+        padding-left: 3.5rem;
+        padding-right: 0;
+        justify-content: flex-start;
+    }
+    .timeline-item.right .timeline-card {
+        border-right: none;
+        border-left: 4px solid #FFA500;
+    }
+    .timeline-dot { left: 18px; transform: none; }
+    .timeline-card { max-width: 100%; padding: 1.25rem; }
+    .timeline-card h5 { font-size: 0.95rem; }
+    .timeline-card p  { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+    .timeline-item { margin-bottom: 2rem; }
+    .timeline-card { padding: 1rem; }
+}
+
+
+/* ============================================
+   VISI MISI CARDS (visimisi.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .vismis-card      { padding: 2rem 1.75rem; }
+    .vismis-icon-wrap { width: 64px; height: 64px; }
+}
+
+@media (max-width: 767.98px) {
+    .vismis-card      { padding: 1.75rem 1.5rem; }
+    .vismis-icon-wrap { width: 58px; height: 58px; }
+}
+
+@media (max-width: 480px) {
+    .vismis-card      { padding: 1.5rem 1.25rem; border-radius: 14px; }
+    .vismis-card h4   { font-size: 1.1rem; }
+    .vismis-card p,
+    .vismis-card li   { font-size: 0.9rem; }
+}
+
+
+/* ============================================
+   KEPALA SEKOLAH (kepala_sekolah.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .principal-info-card { padding: 2rem; }
+    .principal-name      { font-size: 1.6rem; }
+}
+
+@media (max-width: 767.98px) {
+    .principal-photo-wrap img   { max-width: 240px; margin: 0 auto; }
+    #welcomeSection .principal-photo-wrap { max-width: 100%; }
+    .principal-info-card        { padding: 1.5rem; }
+    .principal-name             { font-size: 1.4rem; }
+    .principal-quote            { font-size: 0.88rem; padding: 1.25rem; }
+    .info-chip                  { font-size: 0.8rem; }
+    .principal-history-card     { padding: 1.25rem; }
+    .principal-avatar           { width: 64px; height: 64px; }
+}
+
+@media (max-width: 480px) {
+    .principal-photo-wrap img { max-width: 200px; }
+    .principal-name           { font-size: 1.25rem; }
+    .principal-quote          { font-size: 0.83rem; }
+}
+
+
+/* ============================================
+   BERITA & PENGUMUMAN (berita.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .news-filter-bar {
+        gap: 0.35rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .news-filter-bar {
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 16px;
+        padding: 0.6rem;
+    }
+    .news-filter-btn { font-size: 0.8rem; padding: 0.45rem 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .news-card-title           { font-size: 0.95rem; }
+    .news-card-excerpt         { font-size: 0.82rem; }
+    .news-card-content         { padding: 1.25rem; }
+    .news-card-modern .img-wrap { height: 175px; }
+}
+
+
+/* ============================================
+   BERITA DETAIL (berita_detail.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .article-title { font-size: clamp(1.4rem, 3.5vw, 1.8rem); }
+}
+
+@media (max-width: 767.98px) {
+    .article-title     { font-size: clamp(1.25rem, 4vw, 1.4rem); }
+    .article-hero      { border-radius: 12px; margin-bottom: 1.25rem; }
+    .news-sidebar-card { margin-top: 0; }
+}
+
+@media (max-width: 480px) {
+    .article-title { font-size: clamp(1.1rem, 5vw, 1.25rem); }
+    .article-body  { font-size: 0.9rem; }
+}
+
+
+/* ============================================
+   CONTACT PAGE (contact.php)
+   ============================================ */
+@media (max-width: 1024px) {
+    .contact-form-card,
+    .contact-map-card,
+    .contact-hours-card { padding: 1.75rem; }
+}
+
+@media (max-width: 767.98px) {
+    .contact-info-card  { padding: 1.5rem 1.25rem; }
+    .contact-icon-wrap  { width: 46px; height: 46px; }
+    .contact-card-title { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+    .contact-form-card,
+    .contact-map-card,
+    .contact-hours-card { padding: 1.25rem; border-radius: 14px; }
+    .faq-question       { font-size: 0.8rem; }
+    .map-embed-wrap iframe { height: 200px; }
+}
+
+
+/* ============================================
+   FOOTER — RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    footer.site-footer { padding-top: 3rem; }
+}
+
+@media (max-width: 480px) {
+    footer.site-footer { padding-top: 2rem; }
+    .footer-col-title  { font-size: 0.8125rem; }
+}
+
+
+/* ============================================
+   GLOBAL SECTION PADDING — MOBILE OVERRIDE
+   ============================================ */
+@media (max-width: 1024px) {
+    body .py-5 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+}
+
+@media (max-width: 767.98px) {
+    body .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+}
+
+@media (max-width: 480px) {
+    body .py-5 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    .g-4  { --bs-gutter-y: 1rem; }
+}
+
+
+/* ============================================
+   GRID KOLOM — PAKSA FULL-WIDTH DI MOBILE (< 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    .col-md-6,
+    .col-md-6.col-lg-3,
+    .col-md-4,
+    .col-md-8 { flex: 0 0 100%; max-width: 100%; }
+}
+
+
+/* ============================================
+   TIPOGRAFI — PROPORSIONAL SKALA
+   ============================================ */
+@media (max-width: 1024px) {
+    body { font-size: 0.97rem; }
+}
+
+@media (max-width: 480px) {
+    body { font-size: 0.9rem; }
+    h1, h2, h3, h4, h5, h6 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+
+/* ============================================
+   HAMBURGER BUTTON — SMALL MOBILE
+   ============================================ */
+@media (max-width: 480px) {
+    .hamburger-btn { width: 40px; height: 40px;}
+}

@@ -1,0 +1,86 @@
+/* ==============================================
+   ANIMATIONS.CSS
+   ============================================== */
+
+/* ==========================================
+   @keyframes
+========================================== */
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes dropFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navSlideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   HERO SLIDER: .animate-fade-in-*
+   Smooth, sinematik — dari kiri.
+   HANYA dipakai di hero slider index.php.
+========================================== */
+.animate-fade-in-1 { animation: fadeInLeft 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.10s both; }
+.animate-fade-in-2 { animation: fadeInLeft 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both; }
+.animate-fade-in-3 { animation: fadeInLeft 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.60s both; }
+.animate-fade-in-4 { animation: fadeInLeft 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.85s both; }
+.animate-fade-in-5 { animation: fadeInLeft 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.10s both; }
+
+/* ==========================================
+   MOBILE HERO — stagger slide-up
+   Dipakai di responsive.css:
+   .carousel-item.active .hero-{element}
+========================================== */
+@keyframes heroStagger {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   CAROUSEL ITEM — smoother slide transition
+   Hanya percepat/haluskan timing Bootstrap,
+   TIDAK override display/position agar JS tetap bekerja
+========================================== */
+@media (max-width: 768px) {
+    /* Percepat transisi slide Bootstrap (default 600ms → 550ms) */
+    #heroCarousel .carousel-item {
+        transition-duration: 0.55s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+
+/* ==========================================
+   SCROLL REVEAL — fade-in-up
+   Dipakai di semua halaman via JS
+========================================== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
