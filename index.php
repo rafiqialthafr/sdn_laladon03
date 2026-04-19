@@ -5,7 +5,7 @@ include 'header.php';
 
 
 <!-- ══════════════════════════════════════════
-     HERO SLIDER ══════════════════════════════════════════ -->
+         HERO SLIDER ══════════════════════════════════════════ -->
 <section id="hero-section">
     <div id="heroCarousel" class="carousel slide hero-modern" data-bs-ride="carousel" data-bs-touch="true"
         data-bs-interval="5000">
