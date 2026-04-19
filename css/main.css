@@ -1,14 +1,14 @@
 /* ==============================================
-   MAIN.CSS
-   Berisi: Base styles, CSS variables, Navbar,
-   Footer, semua page-specific styles, component
-   styles (cards, buttons, forms, dll).
-   TIDAK termasuk: @keyframes dan @media queries
-   (lihat animations.css dan responsive.css)
+    MAIN.CSS
+    Berisi: Base styles, CSS variables, Navbar,
+    Footer, semua page-specific styles, component
+    styles (cards, buttons, forms, dll).
+    TIDAK termasuk: @keyframes dan @media queries
+(lihat animations.css dan responsive.css)
    ============================================== */
 
 /* ==========================================
-   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+    CSS CUSTOM PROPERTIES (DESIGN TOKENS)
 ========================================== */
 :root {
     /* Brand Colors */
