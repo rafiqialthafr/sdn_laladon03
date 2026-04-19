@@ -37,11 +37,10 @@ include 'header.php';
                     </p>
                     <div class="hero-buttons animate-fade-in-5">
                         <a href="sejarah.php" class="btn-gold-primary">
-                            <span>📝 Tentang Kami</span>
-                            <span class="btn-arrow">→</span>
+                            <span>Tentang Kami</span>
                         </a>
                         <a href="visimisi.php" class="btn-gold-outline">
-                            <span>📚 Visi & Misi</span>
+                            <span>Visi & Misi</span>
                         </a>
                     </div>
                 </div>
@@ -67,11 +66,10 @@ include 'header.php';
                     </p>
                     <div class="hero-buttons animate-fade-in-5">
                         <a href="berita.php" class="btn-gold-primary">
-                            <span>🏅 Lihat Berita</span>
-                            <span class="btn-arrow">→</span>
+                            <span>Lihat Berita</span>
                         </a>
                         <a href="fasilitas.php" class="btn-gold-outline">
-                            <span>📸 Fasilitas</span>
+                            <span>Fasilitas</span>
                         </a>
                     </div>
                 </div>
@@ -97,11 +95,10 @@ include 'header.php';
                     </p>
                     <div class="hero-buttons animate-fade-in-5">
                         <a href="fasilitas.php" class="btn-gold-primary">
-                            <span>🏫 Lihat Fasilitas</span>
-                            <span class="btn-arrow">→</span>
+                            <span>Lihat Fasilitas</span>
                         </a>
                         <a href="guru_staf.php" class="btn-gold-outline">
-                            <span>👩‍🏫 Tim Pengajar</span>
+                            <span>Tim Pengajar</span>
                         </a>
                     </div>
                 </div>

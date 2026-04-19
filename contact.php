@@ -27,7 +27,8 @@ include 'header.php';
                         <i data-lucide="map-pin" style="width:24px;height:24px;"></i>
                     </div>
                     <h5 class="contact-card-title">Alamat</h5>
-                    <p class="contact-card-text">Gg. Amil No.1, Laladon, Kec. Ciomas,<br>Kabupaten Bogor, Jawa Barat 16610</p>
+                    <p class="contact-card-text">Gg. Amil No.1, Laladon, Kec. Ciomas,<br>Kabupaten Bogor, Jawa Barat
+                        16610</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -64,54 +65,52 @@ include 'header.php';
                     </div>
 
                     <?php
-$success = false;
-$error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama = trim(mysqli_real_escape_string($koneksi, $_POST['nama'] ?? ''));
-    $email = trim(mysqli_real_escape_string($koneksi, $_POST['email'] ?? ''));
-    $subjek = trim(mysqli_real_escape_string($koneksi, $_POST['subjek'] ?? ''));
-    $pesan = trim(mysqli_real_escape_string($koneksi, $_POST['pesan'] ?? ''));
+                    $success = false;
+                    $error = '';
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        $nama = trim(mysqli_real_escape_string($koneksi, $_POST['nama'] ?? ''));
+                        $email = trim(mysqli_real_escape_string($koneksi, $_POST['email'] ?? ''));
+                        $subjek = trim(mysqli_real_escape_string($koneksi, $_POST['subjek'] ?? ''));
+                        $pesan = trim(mysqli_real_escape_string($koneksi, $_POST['pesan'] ?? ''));
 
-    if ($nama && $email && $subjek && $pesan) {
-        $sql = "INSERT INTO contact_messages (nama, email, subjek, pesan) VALUES ('$nama', '$email', '$subjek', '$pesan')";
-        if (mysqli_query($koneksi, $sql)) {
-            $success = true;
-        }
-        else {
-            $error = 'Gagal menyimpan pesan. Silakan coba lagi.';
-        }
-    }
-    else {
-        $error = 'Semua kolom wajib diisi.';
-    }
-}
-?>
+                        if ($nama && $email && $subjek && $pesan) {
+                            $sql = "INSERT INTO contact_messages (nama, email, subjek, pesan) VALUES ('$nama', '$email', '$subjek', '$pesan')";
+                            if (mysqli_query($koneksi, $sql)) {
+                                $success = true;
+                            } else {
+                                $error = 'Gagal menyimpan pesan. Silakan coba lagi.';
+                            }
+                        } else {
+                            $error = 'Semua kolom wajib diisi.';
+                        }
+                    }
+                    ?>
 
                     <?php if ($success): ?>
                         <div class="contact-success-msg">
                             <i data-lucide="check-circle" style="width:28px;height:28px;color:#15803d;"></i>
                             <div>
                                 <strong>Pesan Terkirim!</strong>
-                                <p style="margin:0;font-size:0.9rem;color:#6b7280;">Terima kasih, kami akan segera menghubungi Anda.</p>
+                                <p style="margin:0;font-size:0.9rem;color:#6b7280;">Terima kasih, kami akan segera
+                                    menghubungi Anda.</p>
                             </div>
                         </div>
-                    <?php
-endif; ?>
+                        <?php
+                    endif; ?>
 
                     <?php if ($error): ?>
                         <div class="contact-error-msg">
                             <i data-lucide="alert-circle" style="width:20px;height:20px;"></i>
                             <?php echo htmlspecialchars($error); ?>
                         </div>
-                    <?php
-endif; ?>
+                        <?php
+                    endif; ?>
 
                     <form method="POST" action="contact.php" class="contact-form" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label class="contact-label" for="nama">Nama Lengkap</label>
-                                <input type="text" id="nama" name="nama" class="contact-input"
-                                    placeholder="Nama Anda"
+                                <input type="text" id="nama" name="nama" class="contact-input" placeholder="Nama Anda"
                                     value="<?php echo htmlspecialchars($_POST['nama'] ?? ''); ?>" required>
                             </div>
                             <div class="col-sm-6">
@@ -129,10 +128,12 @@ endif; ?>
                             <div class="col-12">
                                 <label class="contact-label" for="pesan">Pesan</label>
                                 <textarea id="pesan" name="pesan" class="contact-input contact-textarea"
-                                    placeholder="Tulis pesan Anda di sini..." required><?php echo htmlspecialchars($_POST['pesan'] ?? ''); ?></textarea>
+                                    placeholder="Tulis pesan Anda di sini..."
+                                    required><?php echo htmlspecialchars($_POST['pesan'] ?? ''); ?></textarea>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn-gold-primary w-100 justify-content-center" style="padding:0.9rem;">
+                                <button type="submit" class="btn-gold-primary w-100 justify-content-center"
+                                    style="padding:0.9rem;">
                                     <i data-lucide="send" style="width:18px;height:18px;"></i>
                                     Kirim Pesan
                                 </button>
@@ -150,15 +151,18 @@ endif; ?>
                     <div class="faq-list">
                         <details class="faq-item">
                             <summary class="faq-question">Bagaimana cara mendaftar sebagai siswa baru?</summary>
-                            <p class="faq-answer">Pendaftaran siswa baru dilakukan setiap tahun ajaran baru. Hubungi kami atau kunjungi sekolah langsung untuk informasi lebih lanjut.</p>
+                            <p class="faq-answer">Pendaftaran siswa baru dilakukan setiap tahun ajaran baru. Hubungi
+                                kami atau kunjungi sekolah langsung untuk informasi lebih lanjut.</p>
                         </details>
                         <details class="faq-item">
                             <summary class="faq-question">Berapa lama biasanya pesan dibalas?</summary>
-                            <p class="faq-answer">Pesan melalui formulir ini akan kami balas dalam 1×24 jam pada hari kerja. Untuk respons lebih cepat, gunakan WhatsApp.</p>
+                            <p class="faq-answer">Pesan melalui formulir ini akan kami balas dalam 1×24 jam pada hari
+                                kerja. Untuk respons lebih cepat, gunakan WhatsApp.</p>
                         </details>
                         <details class="faq-item">
                             <summary class="faq-question">Apakah bisa berkunjung langsung ke sekolah?</summary>
-                            <p class="faq-answer">Tentu! Anda bisa berkunjung pada hari dan jam operasional yang tertera. Disarankan membuat janji terlebih dahulu.</p>
+                            <p class="faq-answer">Tentu! Anda bisa berkunjung pada hari dan jam operasional yang
+                                tertera. Disarankan membuat janji terlebih dahulu.</p>
                         </details>
                     </div>
                 </div>
@@ -178,8 +182,7 @@ endif; ?>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5034889805406!2d106.75638967355988!3d-6.5841596643603735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4fcb2dbba71%3A0xddc59b73fb7e05da!2sSDN%20Laladon%2003!5e0!3m2!1sid!2sid!4v1771216995269!5m2!1sid!2sid"
                             width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Lokasi SDN Laladon 03 di Google Maps">
+                            referrerpolicy="no-referrer-when-downgrade" title="Lokasi SDN Laladon 03 di Google Maps">
                         </iframe>
                     </div>
                 </div>
@@ -214,12 +217,12 @@ endif; ?>
                     <div class="mt-4 pt-3" style="border-top:1px solid #f3f4f6;">
                         <p class="contact-label mb-2">Ikuti Kami</p>
                         <div class="d-flex gap-2">
-                            <a href="https://www.instagram.com/sdnlaladonnnn03" target="_blank" rel="noopener noreferrer"
-                               class="contact-social-btn instagram" title="Instagram">
+                            <a href="https://www.instagram.com/sdnlaladonnnn03" target="_blank"
+                                rel="noopener noreferrer" class="contact-social-btn instagram" title="Instagram">
                                 <i data-lucide="instagram" style="width:18px;height:18px;"></i>
                             </a>
                             <a href="https://www.youtube.com/@SDNLaladon03" target="_blank" rel="noopener noreferrer"
-                               class="contact-social-btn youtube" title="YouTube">
+                                class="contact-social-btn youtube" title="YouTube">
                                 <i data-lucide="youtube" style="width:18px;height:18px;"></i>
                             </a>
                             <a href="#" class="contact-social-btn tiktok" title="TikTok">
@@ -236,263 +239,368 @@ endif; ?>
 
 <!-- Inline Styles khusus halaman contact -->
 <style>
-/* ── Info Cards ── */
-.contact-info-card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 2rem 1.75rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    height: 100%;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.contact-info-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.11);
-}
-.contact-icon-wrap {
-    width: 56px; height: 56px;
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.25rem;
-}
-.contact-icon-wrap.gold  { background: linear-gradient(135deg,#FFF3CD,#FFE082); color:#c8890a; }
-.contact-icon-wrap.blue  { background: linear-gradient(135deg,#dbeafe,#bfdbfe); color:#1d4ed8; }
-.contact-icon-wrap.green { background: linear-gradient(135deg,#dcfce7,#bbf7d0); color:#15803d; }
-.contact-card-title { font-size:1.05rem; font-weight:700; color:#1a1a2e; margin-bottom:0.5rem; }
-.contact-card-text  { font-size:0.9rem; color:#6b7280; line-height:1.6; margin:0; }
+    /* ── Info Cards ── */
+    .contact-info-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 2rem 1.75rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        height: 100%;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-/* ── Form Card ── */
-.contact-form-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-}
-.contact-label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.3px;
-}
-.contact-input {
-    width: 100%;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    font-size: 0.92rem;
-    font-family: 'Poppins', sans-serif;
-    color: #1a1a2e;
-    background: #fafafa;
-    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
-    outline: none;
-}
-.contact-input:focus {
-    border-color: #FFD700;
-    box-shadow: 0 0 0 3px rgba(255,215,0,0.18);
-    background: #fff;
-}
-.contact-textarea {
-    resize: vertical;
-    min-height: 130px;
-}
-.contact-success-msg {
-    display: flex; align-items: center; gap: 1rem;
-    background: linear-gradient(135deg,#dcfce7,#bbf7d0);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.25rem;
-    border: 1px solid #bbf7d0;
-}
-.contact-error-msg {
-    display: flex; align-items: center; gap: 0.6rem;
-    background: #fef2f2;
-    color: #dc2626;
-    border-radius: 10px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.88rem;
-    font-weight: 500;
-}
+    .contact-info-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.11);
+    }
 
-/* ── Map Card ── */
-.contact-map-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-}
-.map-embed-wrap {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid #f3f4f6;
-}
+    .contact-icon-wrap {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+    }
 
-/* ── Hours Card ── */
-.contact-hours-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-}
-.hours-list { display: flex; flex-direction: column; gap: 0.5rem; }
-.hours-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.55rem 0.75rem;
-    border-radius: 8px;
-    background: #f9fafb;
-    font-size: 0.875rem;
-}
-.hours-row.closed { background: #fef2f2; }
-.hours-day  { font-weight: 600; color: #374151; }
-.hours-time { color: #6b7280; font-weight: 500; }
-.hours-row.closed .hours-time { color: #dc2626; font-weight: 600; }
+    .contact-icon-wrap.gold {
+        background: linear-gradient(135deg, #FFF3CD, #FFE082);
+        color: #c8890a;
+    }
 
-/* ── Social Buttons ── */
-.contact-social-btn {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none;
-    transition: transform 0.3s, box-shadow 0.3s;
-    color: #fff;
-}
-.contact-social-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); color: #fff; }
-.contact-social-btn.instagram { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
-.contact-social-btn.youtube   { background: #ff0000; }
-.contact-social-btn.tiktok    { background: #010101; }
+    .contact-icon-wrap.blue {
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        color: #1d4ed8;
+    }
 
-/* ── WhatsApp Card ── */
-.contact-whatsapp-card {
-    background: linear-gradient(135deg, #e7fbe6 0%, #dcfce7 100%);
-    border: 1.5px solid #bbf7d0;
-    border-radius: 20px;
-    padding: 1.5rem 1.75rem;
-    position: relative;
-    overflow: hidden;
-}
-.contact-whatsapp-card::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 110px; height: 110px;
-    background: rgba(37,211,102,0.1);
-    border-radius: 50%;
-}
-.wa-badge {
-    display: inline-block;
-    background: #25d366;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 0.2rem 0.65rem;
-    border-radius: 20px;
-    margin-bottom: 0.85rem;
-    text-transform: uppercase;
-}
-.wa-icon-wrap {
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    background: #25d366;
-    color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 4px 14px rgba(37,211,102,0.35);
-}
-.wa-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #14532d;
-    margin: 0 0 0.15rem;
-}
-.wa-sub {
-    font-size: 0.78rem;
-    color: #16a34a;
-    margin: 0;
-}
-.btn-whatsapp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #25d366;
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 12px;
-    padding: 0.75rem 1.25rem;
-    text-decoration: none;
-    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-    box-shadow: 0 4px 14px rgba(37,211,102,0.3);
-}
-.btn-whatsapp:hover {
-    background: #128c7e;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(37,211,102,0.4);
-}
+    .contact-icon-wrap.green {
+        background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+        color: #15803d;
+    }
 
-/* ── FAQ Card ── */
-.contact-faq-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 1.5rem 1.75rem;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    border: 1.5px solid #fef9c3;
-}
-.faq-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #1a1a2e;
-}
-.faq-list { display: flex; flex-direction: column; gap: 0.5rem; }
-.faq-item {
-    border-radius: 10px;
-    background: #fafafa;
-    border: 1px solid #f3f4f6;
-    overflow: hidden;
-    transition: border-color 0.2s;
-}
-.faq-item[open] {
-    border-color: #FFD700;
-    background: #fffdf0;
-}
-.faq-question {
-    cursor: pointer;
-    padding: 0.7rem 1rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #374151;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    user-select: none;
-}
-.faq-question::-webkit-details-marker { display: none; }
-.faq-question::after {
-    content: '+';
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #c8890a;
-    transition: transform 0.2s;
-    flex-shrink: 0;
-}
-.faq-item[open] .faq-question::after {
-    transform: rotate(45deg);
-}
-.faq-answer {
-    padding: 0 1rem 0.75rem;
-    font-size: 0.82rem;
-    color: #6b7280;
-    line-height: 1.65;
-    margin: 0;
-}
+    .contact-card-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-card-text {
+        font-size: 0.9rem;
+        color: #6b7280;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* ── Form Card ── */
+    .contact-form-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    .contact-label {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.3px;
+    }
+
+    .contact-input {
+        width: 100%;
+        border: 1.5px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        font-size: 0.92rem;
+        font-family: 'Poppins', sans-serif;
+        color: #1a1a2e;
+        background: #fafafa;
+        transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+        outline: none;
+    }
+
+    .contact-input:focus {
+        border-color: #FFD700;
+        box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.18);
+        background: #fff;
+    }
+
+    .contact-textarea {
+        resize: vertical;
+        min-height: 130px;
+    }
+
+    .contact-success-msg {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.25rem;
+        border: 1px solid #bbf7d0;
+    }
+
+    .contact-error-msg {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: #fef2f2;
+        color: #dc2626;
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+    }
+
+    /* ── Map Card ── */
+    .contact-map-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    .map-embed-wrap {
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid #f3f4f6;
+    }
+
+    /* ── Hours Card ── */
+    .contact-hours-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    .hours-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hours-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.55rem 0.75rem;
+        border-radius: 8px;
+        background: #f9fafb;
+        font-size: 0.875rem;
+    }
+
+    .hours-row.closed {
+        background: #fef2f2;
+    }
+
+    .hours-day {
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .hours-time {
+        color: #6b7280;
+        font-weight: 500;
+    }
+
+    .hours-row.closed .hours-time {
+        color: #dc2626;
+        font-weight: 600;
+    }
+
+    /* ── Social Buttons ── */
+    .contact-social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.3s, box-shadow 0.3s;
+        color: #fff;
+    }
+
+    .contact-social-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+
+    .contact-social-btn.instagram {
+        background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+
+    .contact-social-btn.youtube {
+        background: #ff0000;
+    }
+
+    .contact-social-btn.tiktok {
+        background: #010101;
+    }
+
+    /* ── WhatsApp Card ── */
+    .contact-whatsapp-card {
+        background: linear-gradient(135deg, #e7fbe6 0%, #dcfce7 100%);
+        border: 1.5px solid #bbf7d0;
+        border-radius: 20px;
+        padding: 1.5rem 1.75rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact-whatsapp-card::before {
+        content: '';
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 110px;
+        height: 110px;
+        background: rgba(37, 211, 102, 0.1);
+        border-radius: 50%;
+    }
+
+    .wa-badge {
+        display: inline-block;
+        background: #25d366;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 0.2rem 0.65rem;
+        border-radius: 20px;
+        margin-bottom: 0.85rem;
+        text-transform: uppercase;
+    }
+
+    .wa-icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #25d366;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+
+    .wa-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #14532d;
+        margin: 0 0 0.15rem;
+    }
+
+    .wa-sub {
+        font-size: 0.78rem;
+        color: #16a34a;
+        margin: 0;
+    }
+
+    .btn-whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: #25d366;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border-radius: 12px;
+        padding: 0.75rem 1.25rem;
+        text-decoration: none;
+        transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+        box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+        background: #128c7e;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ── FAQ Card ── */
+    .contact-faq-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 1.5rem 1.75rem;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+        border: 1.5px solid #fef9c3;
+    }
+
+    .faq-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #1a1a2e;
+    }
+
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .faq-item {
+        border-radius: 10px;
+        background: #fafafa;
+        border: 1px solid #f3f4f6;
+        overflow: hidden;
+        transition: border-color 0.2s;
+    }
+
+    .faq-item[open] {
+        border-color: #FFD700;
+        background: #fffdf0;
+    }
+
+    .faq-question {
+        cursor: pointer;
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #374151;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        user-select: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+        display: none;
+    }
+
+    .faq-question::after {
+        content: '+';
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #c8890a;
+        transition: transform 0.2s;
+        flex-shrink: 0;
+    }
+
+    .faq-item[open] .faq-question::after {
+        transform: rotate(45deg);
+    }
+
+    .faq-answer {
+        padding: 0 1rem 0.75rem;
+        font-size: 0.82rem;
+        color: #6b7280;
+        line-height: 1.65;
+        margin: 0;
+    }
 </style>
 
 <?php include 'footer.php'; ?>

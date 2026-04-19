@@ -333,6 +333,11 @@ section {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    max-width: 500px;
+}
+.btn-gold-primary, .btn-gold-outline{
+    flex: 1;
+    justify-content: center;
 }
 
 .btn-gold-primary {
@@ -356,15 +361,6 @@ section {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     background: var(--gold-dark);
     color: var(--dark-text);
-}
-
-.btn-arrow {
-    font-size: 1.3rem;
-    transition: transform var(--transition-base);
-}
-
-.btn-gold-primary:hover .btn-arrow {
-    transform: translateX(5px);
 }
 
 .btn-gold-outline {
