@@ -26,7 +26,7 @@
             <div class="col-md-4 text-center">
                 <div class="principal-photo-wrap mx-auto" style="max-width:300px;">
                     <img src="kepsek.png" alt="Metkopwati, S.Pd."
-                         onerror="this.src='https://ui-avatars.com/api/?name=Metkopwati&background=FFD700&color=3d1f00&size=300&bold=true'">
+                         onerror="this.src='https://ui-avatars.com/api/?name=Metkopwati&background=FFD700&color=3d1f00&size=300&bold=true'; ">
                     <div class="principal-deco-1"></div>
                     <div class="principal-deco-2"></div>
                 </div>

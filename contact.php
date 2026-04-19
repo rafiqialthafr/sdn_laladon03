@@ -36,7 +36,7 @@ include 'header.php';
                         <i data-lucide="phone" style="width:24px;height:24px;"></i>
                     </div>
                     <h5 class="contact-card-title">Telepon</h5>
-                    <p class="contact-card-text">(0251) 1234567</p>
+                    <p class="contact-card-text">089531497117</p>
                     <p class="contact-card-text" style="margin-top:-0.5rem;">Senin – Jumat, 07.00 – 14.00 WIB</p>
                 </div>
             </div>
@@ -46,7 +46,7 @@ include 'header.php';
                         <i data-lucide="mail" style="width:24px;height:24px;"></i>
                     </div>
                     <h5 class="contact-card-title">Email</h5>
-                    <p class="contact-card-text">info@sdnlaladon03.sch.id</p>
+                    <p class="contact-card-text">sdnlaladon@gmail.com</p>
                 </div>
             </div>
         </div>

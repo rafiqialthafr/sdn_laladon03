@@ -56,22 +56,7 @@
                 </div>
             </div>
 
-            <!-- Lab Komputer -->
-            <div class="col-md-6 col-lg-4">
-                <div class="facility-card">
-                    <div class="facility-img-wrap">
-                        <img src="img/foto3.jpeg" alt="Laboratorium Komputer">
-                        <div class="facility-img-overlay"></div>
-                        <div class="facility-img-icon">
-                            <i data-lucide="cpu" style="width:22px;height:22px;"></i>
-                        </div>
-                    </div>
-                    <div class="facility-body">
-                        <h5 class="facility-name">Laboratorium Komputer</h5>
-                        <p class="facility-desc">Fasilitas komputer modern dengan akses internet cepat untuk mengenalkan teknologi dan literasi digital sejak dini.</p>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- Lapangan Olahraga -->
             <div class="col-md-6 col-lg-4">
@@ -107,25 +92,7 @@
                 </div>
             </div>
 
-            <!-- Kantin Sehat -->
-            <div class="col-md-6 col-lg-4">
-                <div class="facility-card">
-                    <div class="facility-img-wrap">
-                        <img src="img/foto3.jpeg" alt="Kantin Sehat">
-                        <div class="facility-img-overlay"></div>
-                        <div class="facility-img-icon">
-                            <i data-lucide="coffee" style="width:22px;height:22px;"></i>
-                        </div>
-                    </div>
-                    <div class="facility-body">
-                        <h5 class="facility-name">Kantin Sehat</h5>
-                        <p class="facility-desc">Menyediakan makanan dan minuman yang higienis, sehat, dan bergizi untuk mendukung tumbuh kembang siswa secara optimal.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            
 
 <!-- Highlights / Fitur Unggulan -->
 <section class="py-5" style="background-color: #f8f9fc;">
