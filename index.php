@@ -140,8 +140,8 @@ include 'header.php';
                         <i data-lucide="trophy" style="width:26px;height:26px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Terakreditasi A</h5>
-                    <p class="text-muted small mb-0">Sejak 2016 mendapatkan akreditasi dari BANSM dengan No SK:
-                        048/BAP-SM/HK/XI/2016</p>
+                    <p class="text-muted small mb-0">Sejak 2016 mendapatkan akreditasi dari BNSM dengan No SK:
+                        555/BAN-SM/HK/2023</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -178,9 +178,7 @@ include 'header.php';
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     VISI MISI — PROGRAM CARDS
-══════════════════════════════════════════ -->
+<!-- VISI MISI -->
 <section class="py-5" style="background:#f8f9fc;">
     <div class="container">
         <div class="section-title-wrapper">
@@ -232,9 +230,7 @@ include 'header.php';
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SAMBUTAN KEPALA SEKOLAH
-══════════════════════════════════════════ -->
+<!-- SAMBUTAN KEPALA SEKOLAH -->
 <section id="welcomeSection" class="py-5 bg-white">
     <div class="container">
         <div class="row align-items-center g-5">
@@ -276,9 +272,7 @@ include 'header.php';
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     GURU & STAF
-══════════════════════════════════════════ -->
+<!-- GURU & STAF -->
 <section id="teachersSection" class="py-5" style="background:#f8f9fc;">
     <div class="container">
         <div class="section-title-wrapper">
@@ -337,9 +331,7 @@ include 'header.php';
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     BERITA TERBARU
-══════════════════════════════════════════ -->
+<!-- BERITA TERBARU -->
 <section id="blogSection" class="py-5 bg-white">
     <div class="container">
         <div class="section-title-wrapper">

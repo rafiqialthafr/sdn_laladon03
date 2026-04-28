@@ -26,7 +26,7 @@
             <div class="col-md-4 text-center">
                 <div class="principal-photo-wrap mx-auto" style="max-width:300px;">
                     <img src="kepsek.png" alt="Metkopwati, S.Pd."
-                         onerror="this.src='https://ui-avatars.com/api/?name=Metkopwati&background=FFD700&color=3d1f00&size=300&bold=true'; ">
+                        onerror="this.src='https://ui-avatars.com/api/?name=Metkopwati&background=FFD700&color=3d1f00&size=300&bold=true'; ">
                     <div class="principal-deco-1"></div>
                     <div class="principal-deco-2"></div>
                 </div>
@@ -59,12 +59,15 @@
                             Visi & Misi Kepemimpinan
                         </h6>
                         <p class="text-muted" style="line-height:1.75; font-size:0.95rem;">
-                            Mewujudkan kepemimpinan yang inklusif, inovatif, dan berorientasi pada mutu pendidikan. Berkomitmen menciptakan lingkungan sekolah yang aman, nyaman, dan mampu mengembangkan potensi setiap peserta didik secara optimal.
+                            Mewujudkan kepemimpinan yang inklusif, inovatif, dan berorientasi pada mutu pendidikan.
+                            Berkomitmen menciptakan lingkungan sekolah yang aman, nyaman, dan mampu mengembangkan
+                            potensi setiap peserta didik secara optimal.
                         </p>
                     </div>
 
                     <blockquote class="principal-quote">
-                        "Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang."
+                        "Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama
+                        menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang."
                         <cite>— Metkopwati, S.Pd.</cite>
                     </blockquote>
                 </div>
@@ -98,7 +101,8 @@
                         <div class="timeline-card">
                             <span class="timeline-year-badge">2000</span>
                             <h5>Guru Kelas — SDN Ciomas 01</h5>
-                            <p>Memulai karir sebagai guru kelas dan aktif dalam kegiatan Kelompok Kerja Guru (KKG) Kecamatan Ciomas.</p>
+                            <p>Memulai karir sebagai guru kelas dan aktif dalam kegiatan Kelompok Kerja Guru (KKG)
+                                Kecamatan Ciomas.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -106,7 +110,8 @@
                         <div class="timeline-card">
                             <span class="timeline-year-badge">2015</span>
                             <h5>Wakil Kepala Sekolah Bid. Kurikulum</h5>
-                            <p>SDN Laladon 01 — Memimpin transformasi kurikulum dan penerapan standar pembelajaran nasional.</p>
+                            <p>SDN Laladon 01 — Memimpin transformasi kurikulum dan penerapan standar pembelajaran
+                                nasional.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
@@ -114,7 +119,8 @@
                         <div class="timeline-card">
                             <span class="timeline-year-badge">2022</span>
                             <h5>Kepala Sekolah — SDN Laladon 03</h5>
-                            <p>Menjabat sebagai Kepala Sekolah SDN Laladon 03 hingga sekarang, membawa visi sekolah digital dan akreditasi A+.</p>
+                            <p>Menjabat sebagai Kepala Sekolah SDN Laladon 03 hingga sekarang, membawa visi sekolah
+                                digital dan akreditasi A+.</p>
                         </div>
                     </div>
                 </div>
@@ -130,30 +136,32 @@
             <span class="section-label">Sejarah Kepemimpinan</span>
             <h2 class="section-title mt-2">Kepala Sekolah dari Masa ke Masa</h2>
             <div class="section-divider"></div>
-            <p class="section-desc">Dedikasi para pemimpin yang telah membangun SDN Laladon 03 menjadi sekolah yang kita banggakan hari ini.</p>
+            <p class="section-desc">Dedikasi para pemimpin yang telah membangun SDN Laladon 03 menjadi sekolah yang kita
+                banggakan hari ini.</p>
         </div>
 
         <div class="row g-4">
             <?php
             $history = [
-                ['name' => 'Drs. H. Ahmad Sanusi',      'period' => '1985 – 1995'],
-                ['name' => 'Hj. Siti Aminah, S.Pd.',    'period' => '1995 – 2005'],
-                ['name' => 'Budi Santoso, M.Pd.',        'period' => '2005 – 2015'],
-                ['name' => 'Ratna Dewi, S.Pd.SD.',       'period' => '2015 – 2022'],
+                ['name' => 'Drs. H. Ahmad Sanusi', 'period' => '1985 – 1995'],
+                ['name' => 'Hj. Siti Aminah, S.Pd.', 'period' => '1995 – 2005'],
+                ['name' => 'Budi Santoso, M.Pd.', 'period' => '2005 – 2015'],
+                ['name' => 'Ratna Dewi, S.Pd.SD.', 'period' => '2015 – 2022'],
             ];
             foreach ($history as $i => $person):
-            ?>
-            <div class="col-md-6 col-lg-3 fade-delay-<?php echo $i + 1; ?>">
-                <div class="principal-history-card">
-                    <div class="principal-avatar">
-                        <i data-lucide="user" style="width:36px;height:36px;color:#94a3b8;"></i>
+                ?>
+                <div class="col-md-6 col-lg-3 fade-delay-<?php echo $i + 1; ?>">
+                    <div class="principal-history-card">
+                        <div class="principal-avatar">
+                            <i data-lucide="user" style="width:36px;height:36px;color:#94a3b8;"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1" style="color:#;"><?php echo $person['name']; ?></h6>
+                        <span
+                            style="font-size:0.8rem;font-weight:700;padding:0.25rem 0.85rem;border-radius:50px;background:#FFD700;color:#;">
+                            <?php echo $person['period']; ?>
+                        </span>
                     </div>
-                    <h6 class="fw-bold mb-1" style="color:#;"><?php echo $person['name']; ?></h6>
-                    <span style="font-size:0.8rem;font-weight:700;padding:0.25rem 0.85rem;border-radius:50px;background:#FFD700;color:#;">
-                        <?php echo $person['period']; ?>
-                    </span>
                 </div>
-            </div>
             <?php endforeach; ?>
         </div>
     </div>
