@@ -21,7 +21,7 @@ include 'header.php';
             <!-- SLIDE 1 -->
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="hero-overlay-gold"></div>
-                <img src="img/foto1.jpeg" class="d-block w-100 hero-img"
+                <img src="img/foto4.jpeg" class="d-block w-100 hero-img"
                     alt="Siswa-siswi SDN Laladon 03 dalam kegiatan upacara sekolah" width="1920" height="700"
                     fetchpriority="high" loading="eager">
                 <div class="carousel-caption hero-content-gold">

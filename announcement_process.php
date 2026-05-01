@@ -18,7 +18,7 @@ if (isset($_POST['save'])) {
 
     $query = "INSERT INTO announcements (title, content, category, image, is_published) VALUES ('$title', '$content', '$category', '$image_url', '$is_published')";
     if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin_berita.php?success=saved");
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
     }
@@ -42,7 +42,7 @@ if (isset($_POST['update'])) {
 
     $query = "UPDATE announcements SET title='$title', content='$content', category='$category', image='$image_url', is_published='$is_published' WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin_berita.php?success=saved");
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
     }
@@ -52,7 +52,7 @@ if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $query = "DELETE FROM announcements WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin_berita.php?success=deleted");
     } else {
         echo "Error: " . mysqli_error($koneksi);
     }

@@ -92,53 +92,6 @@
                 </div>
             </div>
 
-            
-
-<!-- Highlights / Fitur Unggulan -->
-<section class="py-5" style="background-color: #f8f9fc;">
-    <div class="container">
-        <div class="section-title-wrapper">
-            <span class="section-label">Keunggulan</span>
-            <h2 class="section-title mt-2">Mengapa Memilih Kami?</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4">
-                    <div class="card-icon-wrap gold mb-3">
-                        <i data-lucide="shield-check" style="width:24px;height:24px;"></i>
-                    </div>
-                    <h6 class="fw-bold mb-2" style="color:#1a1a2e;">Lingkungan Aman</h6>
-                    <p class="text-muted small mb-0">Area sekolah yang aman dengan CCTV dan penjagaan keamanan setiap hari sekolah.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4">
-                    <div class="card-icon-wrap blue mb-3">
-                        <i data-lucide="wifi" style="width:24px;height:24px;"></i>
-                    </div>
-                    <h6 class="fw-bold mb-2" style="color:#1a1a2e;">Internet Cepat</h6>
-                    <p class="text-muted small mb-0">Jaringan WiFi yang menjangkau seluruh area sekolah untuk mendukung pembelajaran digital.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4">
-                    <div class="card-icon-wrap green mb-3">
-                        <i data-lucide="leaf" style="width:24px;height:24px;"></i>
-                    </div>
-                    <h6 class="fw-bold mb-2" style="color:#1a1a2e;">Sekolah Hijau</h6>
-                    <p class="text-muted small mb-0">Program adiwiyata dengan taman dan penghijauan di seluruh area sekolah untuk kenyamanan belajar.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4">
-                    <div class="card-icon-wrap gold mb-3">
-                        <i data-lucide="accessibility" style="width:24px;height:24px;"></i>
-                    </div>
-                    <h6 class="fw-bold mb-2" style="color:#1a1a2e;">Inklusif</h6>
-                    <p class="text-muted small mb-0">Fasilitas ramah anak berkebutuhan khusus dengan akses yang mudah di seluruh area sekolah.</p>
-                </div>
-            </div>
         </div>
     </div>
 </section>

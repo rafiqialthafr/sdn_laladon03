@@ -18,7 +18,7 @@ if (isset($_POST['save'])) {
 
     $query = "INSERT INTO teachers (name, position, photo, bio) VALUES ('$name', '$position', '$photo_url', '$bio')";
     if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin_guru.php?success=saved");
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
     }
@@ -42,7 +42,7 @@ if (isset($_POST['update'])) {
 
     $query = "UPDATE teachers SET name='$name', position='$position', photo='$photo_url', bio='$bio' WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin_guru.php?success=saved");
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
     }
@@ -53,7 +53,7 @@ if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $query = "DELETE FROM teachers WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_dashboard.php");
+        header("Location: admin_guru.php?success=deleted");
     } else {
         echo "Error: " . mysqli_error($koneksi);
     }

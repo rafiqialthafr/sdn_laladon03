@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS contact_messages (
 
 -- Admin default (password: admin123)
 INSERT INTO users (username, password) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('admin', '$2y$10$Ka/E/GWU.0oG7ZrM.qkxbOKFw5L0VxFC6Oe/MY5zPy9lxTsE1mNY.');
 
 -- Data guru contoh
 INSERT INTO teachers (name, position, photo, bio) VALUES

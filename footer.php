@@ -207,7 +207,7 @@
     }
 </style>
 
-<footer class="site-footer text-white">
+<footer class="site-footer text-white mt-auto">
     <div class="container">
         <div class="row">
 

@@ -96,7 +96,7 @@
     </script>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <!-- Main Navbar -->
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-2" role="navigation"
