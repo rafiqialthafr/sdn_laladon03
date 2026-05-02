@@ -464,7 +464,7 @@ section {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
-.principal-welcome-img {
+.kepsek-welcome-img {
     width: clamp(140px, 20vw, 220px);
     height: clamp(140px, 20vw, 220px);
     display: block;
@@ -846,7 +846,7 @@ footer a:hover {
    KEPALA SEKOLAH PAGE
 ========================================== */
 /* ── Foto Kepala Sekolah (kepala_sekolah.php) ── */
-.principal-photo-wrap {
+.kepsek-photo-wrap {
     position: relative;
     display: inline-block;
     border-radius: 22px;
@@ -854,7 +854,7 @@ footer a:hover {
 }
 
 /* Border offset modern — dua layer subtle */
-.principal-photo-wrap::before {
+.kepsek-photo-wrap::before {
     content: '';
     position: absolute;
     inset: -3px;
@@ -865,7 +865,7 @@ footer a:hover {
 }
 
 /* Subtle ambient shadow layer */
-.principal-photo-wrap::after {
+.kepsek-photo-wrap::after {
     content: '';
     position: absolute;
     inset: 6px;
@@ -875,7 +875,7 @@ footer a:hover {
     pointer-events: none;
 }
 
-.principal-photo-wrap img {
+.kepsek-photo-wrap img {
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     width: 100%;
@@ -889,7 +889,7 @@ footer a:hover {
 }
 
 /* Dekorasi geometric — subtle accent */
-.principal-deco-1 {
+.kepsek-deco-1 {
     position: absolute;
     bottom: -12px;
     right: -12px;
@@ -901,7 +901,7 @@ footer a:hover {
     z-index: -1;
 }
 
-.principal-deco-2 {
+.kepsek-deco-2 {
     position: absolute;
     top: -12px;
     left: -12px;
@@ -913,7 +913,7 @@ footer a:hover {
     z-index: -1;
 }
 
-.principal-info-card {
+.kepsek-info-card {
     background: #fff;
     border-radius: 20px;
     padding: 2.5rem;
@@ -922,14 +922,14 @@ footer a:hover {
     height: 100%;
 }
 
-.principal-name {
+.kepsek-name {
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--navy);
     margin-bottom: 0.2rem;
 }
 
-.principal-position {
+.kepsek-position {
     font-size: 1rem;
     color: var(--gray-mid);
     font-weight: 500;
@@ -951,7 +951,7 @@ footer a:hover {
 
 .info-chip strong { color: var(--navy); }
 
-.principal-quote {
+.kepsek-quote {
     background: linear-gradient(135deg, #fffbeb, #fef3c7);
     border-radius: 16px;
     padding: 1.5rem;
@@ -963,7 +963,7 @@ footer a:hover {
     font-size: 0.95rem;
 }
 
-.principal-quote cite {
+.kepsek-quote cite {
     display: block;
     margin-top: 0.75rem;
     font-style: normal;
@@ -972,7 +972,7 @@ footer a:hover {
     color: var(--gold-amber);
 }
 
-.principal-history-card {
+.kepsek-history-card {
     background: #fff;
     border-radius: 16px;
     padding: 1.75rem;
@@ -982,12 +982,12 @@ footer a:hover {
     height: 100%;
 }
 
-.principal-history-card:hover {
+.kepsek-history-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 36px rgba(0,0,0,0.12);
 }
 
-.principal-avatar {
+.kepsek-avatar {
     width: 80px; height: 80px;
     border-radius: 50%;
     background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
@@ -1021,7 +1021,7 @@ footer a:hover {
 .teacher-card-img-wrap {
     position: relative;
     overflow: hidden;
-    height: 220px;
+    height: 280px;
 }
 
 .teacher-card-img-wrap img {

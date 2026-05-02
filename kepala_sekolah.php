@@ -1,5 +1,25 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'koneksi.php';
+include 'header.php'; 
 
+$query = "SELECT * FROM kepsek ORDER BY id DESC LIMIT 1";
+$result = mysqli_query($koneksi, $query);
+$kepsek = mysqli_fetch_assoc($result);
+
+if(!$kepsek) {
+    // Fallback data
+    $kepsek = [
+        'name' => 'Metkopwati, S.Pd.',
+        'position' => 'Kepala Sekolah SDN Laladon 03',
+        'photo' => 'img/kepsek.jpeg',
+        'nip' => '19751204 200501 2 005',
+        'education' => 'S1 PGSD – UPI Bandung',
+        'period' => '2022',
+        'vision_mission' => 'Mewujudkan kepemimpinan yang inklusif, inovatif, dan berorientasi pada mutu pendidikan. Berkomitmen menciptakan lingkungan sekolah yang aman, nyaman, dan mampu mengembangkan potensi setiap peserta didik secara optimal.',
+        'quote' => 'Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang.'
+    ];
+}
+?>
 <!-- Page Header -->
 <section class="page-header">
     <div class="container">
@@ -24,32 +44,31 @@
         <div class="row g-5 align-items-center">
             <!-- Foto -->
             <div class="col-md-4 text-center">
-                <div class="principal-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="kepsek.png" alt="Metkopwati, S.Pd."
-                        onerror="this.src='https://ui-avatars.com/api/?name=Metkopwati&background=FFD700&color=3d1f00&size=300&bold=true'; ">
-                    <div class="principal-deco-1"></div>
-                    <div class="principal-deco-2"></div>
+                <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
+                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>" alt="<?php echo htmlspecialchars($kepsek['name']); ?>">
+                    <div class="kepsek-deco-1"></div>
+                    <div class="kepsek-deco-2"></div>
                 </div>
             </div>
 
             <!-- Info -->
             <div class="col-12 col-md-8">
-                <div class="principal-info-card">
-                    <h2 class="principal-name">Metkopwati, S.Pd.</h2>
-                    <p class="principal-position">Kepala Sekolah SDN Laladon 03</p>
+                <div class="kepsek-info-card">
+                    <h2 class="kepsek-name"><?php echo htmlspecialchars($kepsek['name']); ?></h2>
+                    <p class="kepsek-position"><?php echo htmlspecialchars($kepsek['position']); ?></p>
 
                     <div class="d-flex flex-wrap gap-2 mb-4">
                         <span class="info-chip">
                             <i data-lucide="id-card" style="width:16px;height:16px;color:#c8890a;"></i>
-                            <strong>NIP:</strong> 19751204 200501 2 005
+                            <strong>NIP:</strong> <?php echo htmlspecialchars($kepsek['nip']); ?>
                         </span>
                         <span class="info-chip">
                             <i data-lucide="graduation-cap" style="width:16px;height:16px;color:#c8890a;"></i>
-                            <strong>Pendidikan:</strong> S1 PGSD – UPI Bandung
+                            <strong>Pendidikan:</strong> <?php echo htmlspecialchars($kepsek['education']); ?>
                         </span>
                         <span class="info-chip">
                             <i data-lucide="briefcase" style="width:16px;height:16px;color:#c8890a;"></i>
-                            <strong>Jabatan sejak:</strong> 2022
+                            <strong>Jabatan sejak:</strong> <?php echo htmlspecialchars($kepsek['period']); ?>
                         </span>
                     </div>
 
@@ -59,16 +78,13 @@
                             Visi & Misi Kepemimpinan
                         </h6>
                         <p class="text-muted" style="line-height:1.75; font-size:0.95rem;">
-                            Mewujudkan kepemimpinan yang inklusif, inovatif, dan berorientasi pada mutu pendidikan.
-                            Berkomitmen menciptakan lingkungan sekolah yang aman, nyaman, dan mampu mengembangkan
-                            potensi setiap peserta didik secara optimal.
+                            <?php echo nl2br(htmlspecialchars($kepsek['vision_mission'])); ?>
                         </p>
                     </div>
 
-                    <blockquote class="principal-quote">
-                        "Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama
-                        menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang."
-                        <cite>— Metkopwati, S.Pd.</cite>
+                    <blockquote class="kepsek-quote">
+                        "<?php echo htmlspecialchars($kepsek['quote']); ?>"
+                        <cite>— <?php echo htmlspecialchars($kepsek['name']); ?></cite>
                     </blockquote>
                 </div>
             </div>
@@ -151,7 +167,7 @@
             foreach ($history as $i => $person):
                 ?>
                 <div class="col-md-6 col-lg-3 fade-delay-<?php echo $i + 1; ?>">
-                    <div class="principal-history-card">
+                    <div class="kepsek-history-card">
                         <div class="principal-avatar">
                             <i data-lucide="user" style="width:36px;height:36px;color:#94a3b8;"></i>
                         </div>

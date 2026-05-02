@@ -147,7 +147,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="galeri.php">
-                            <i data-lucide="image" class="me-2" aria-hidden="true"></i>Galeri
+                            <i data-lucide="layout-dashboard" class="me-2" aria-hidden="true"></i>Galeri
                         </a>
                     </li>
 
@@ -161,9 +161,7 @@
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════════
-     MOBILE SIDEBAR (kiri) — navy + gold
-═══════════════════════════════════════ -->
+    <!--MOBILE SIDEBAR (kiri) — navy + gold-->
 
     <!-- Backdrop overlay -->
     <div id="sidebarBackdrop" class="snav-backdrop" aria-hidden="true"></div>

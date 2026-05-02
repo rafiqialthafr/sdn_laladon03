@@ -123,7 +123,7 @@ include 'header.php';
 <!-- ══════════════════════════════════════════
      TENTANG SEKOLAH — ACHIEVEMENT CARDS
 ══════════════════════════════════════════ -->
-<section id="aboutSection" class="py-5 bg-white">
+<section id="aboutSection" class="py-5" style="background:#fff;">
     <div class="container">
         <div class="section-title-wrapper">
             <span class="section-label">Tentang Kami</span>
@@ -170,8 +170,7 @@ include 'header.php';
                         <i data-lucide="layers" style="width:26px;height:26px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Fasilitas Lengkap</h5>
-                    <p class="text-muted small mb-0">Ruang kelas, perpustakaan, lapangan olahraga, dan
-                        musholla</p>
+                    <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, dan Musholla</p>
                 </div>
             </div>
         </div>
@@ -231,23 +230,35 @@ include 'header.php';
 </section>
 
 <!-- SAMBUTAN KEPALA SEKOLAH -->
-<section id="welcomeSection" class="py-5 bg-white">
+<?php
+$query_kepsek = "SELECT * FROM kepsek ORDER BY id DESC LIMIT 1";
+$result_kepsek = mysqli_query($koneksi, $query_kepsek);
+$kepsek = mysqli_fetch_assoc($result_kepsek);
+if(!$kepsek) {
+    // Fallback data
+    $kepsek = [
+        'name' => 'Metkopwati, S.Pd.',
+        'position' => 'Kepala Sekolah SDN Laladon 03',
+        'photo' => 'img/kepsek.jpeg',
+        'quote' => 'Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang.'
+    ];
+}
+?>
+<section id="welcomeSection" class="py-5" style="background:#fff;">
     <div class="container">
         <div class="row align-items-center g-5">
             <!-- Foto -->
             <div class="col-md-4 text-center">
-                <div class="principal-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="kepsek.png" alt="Kepala Sekolah SDN Laladon 03, Metkopwati S.Pd."
-                        onerror="this.src='https://ui-avatars.com/api/?name=Metkopwati&background=FFD700&color=3d1f00&size=300&bold=true'">
-                    <div class="principal-deco-1"></div>
-                    <div class="principal-deco-2"></div>
+                <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
+                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>" alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
+                    <div class="kepsek-deco-1"></div>
+                    <div class="kepsek-deco-2"></div>
                 </div>
                 <div class="mt-4">
-                    <h5 class="fw-bold mb-1" style="color:#1a1a2e;">Metkopwati, S.Pd.</h5>
+                    <h5 class="fw-bold mb-1" style="color:#1a1a2e;"><?php echo htmlspecialchars($kepsek['name']); ?></h5>
                     <span class="section-label" style="display:inline-block;">Kepala Sekolah</span>
                 </div>
             </div>
-
             <!-- Teks -->
             <div class="col-md-8">
                 <span class="section-label">Sambutan Pimpinan</span>
@@ -258,10 +269,9 @@ include 'header.php';
                     dan komunikasi yang efektif antara sekolah, orang tua, siswa, dan masyarakat. Kami terus berkomitmen
                     untuk meningkatkan kualitas pendidikan dan pelayanan prima kepada seluruh peserta didik.
                 </p>
-                <blockquote class="principal-quote mb-4">
-                    "Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama
-                    menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang."
-                    <cite>— Metkopwati, S.Pd.</cite>
+                <blockquote class="kepsek-quote mb-4">
+                    "<?php echo htmlspecialchars($kepsek['quote']); ?>"
+                    <cite>— <?php echo htmlspecialchars($kepsek['name']); ?></cite>
                 </blockquote>
                 <a href="kepala_sekolah.php" class="news-read-more mt-2" style="display:inline-flex;font-weight:700;">
                     Profil Lengkap
@@ -304,7 +314,6 @@ include 'header.php';
                             <div class="teacher-card-body">
                                 <h5 class="teacher-name"><?php echo htmlspecialchars($row['name']); ?></h5>
                                 <p class="teacher-position"><?php echo htmlspecialchars($row['position']); ?></p>
-                                <p class="teacher-bio"><?php echo htmlspecialchars(substr($row['bio'], 0, 80)); ?>...</p>
                             </div>
                         </div>
                     </div>
@@ -332,7 +341,7 @@ include 'header.php';
 </section>
 
 <!-- BERITA TERBARU -->
-<section id="blogSection" class="py-5 bg-white">
+<section id="blogSection" class="py-5" style="background:#fff;">
     <div class="container">
         <div class="section-title-wrapper">
             <span class="section-label">Informasi Terkini</span>

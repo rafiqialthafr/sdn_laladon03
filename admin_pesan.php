@@ -166,7 +166,8 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                         </div>
                     </div>
                     <div class="col-6 col-md-4">
-                        <div class="stat-card" style="<?php echo $unread_messages > 0 ? 'border-color:#fcd34d;' : '' ?>">
+                        <div class="stat-card"
+                            style="<?php echo $unread_messages > 0 ? 'border-color:#fcd34d;' : '' ?>">
                             <div class="stat-icon amber"><i data-lucide="mail-open" style="width:22px;height:22px;"></i>
                             </div>
                             <div class="stat-info">
@@ -200,7 +201,8 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                 <option value="">Semua Pesan</option>
                                 <option value="unread" <?php echo $filter === 'unread' ? 'selected' : ''; ?>>Belum Dibaca
                                 </option>
-                                <option value="read" <?php echo $filter === 'read' ? 'selected' : ''; ?>>Sudah Dibaca</option>
+                                <option value="read" <?php echo $filter === 'read' ? 'selected' : ''; ?>>Sudah Dibaca
+                                </option>
                             </select>
                             <button type="submit" class="btn-admin btn-admin-secondary">Filter</button>
                             <?php if ($search || $filter): ?>

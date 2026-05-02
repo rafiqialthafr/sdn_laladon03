@@ -6,6 +6,7 @@
         --footer-bg: linear-gradient(165deg, #0a1228 0%, #06102e 35%, #050a1a 100%);
         --footer-bg-gold-tint: linear-gradient(165deg, rgba(255, 215, 0, 0.03) 0%, transparent 40%, rgba(255, 165, 0, 0.02) 100%);
     }
+
     footer.site-footer {
         font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: var(--footer-bg);
@@ -15,6 +16,7 @@
         position: relative;
         overflow: hidden;
     }
+
     footer.site-footer::after {
         content: '';
         position: absolute;
@@ -22,7 +24,12 @@
         background: var(--footer-bg-gold-tint);
         pointer-events: none;
     }
-    footer.site-footer .container { position: relative; z-index: 1; }
+
+    footer.site-footer .container {
+        position: relative;
+        z-index: 1;
+    }
+
     footer.site-footer::before {
         content: '';
         position: absolute;
@@ -45,7 +52,10 @@
         border: none;
         text-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
     }
-    .footer-col-title::after { display: none; }
+
+    .footer-col-title::after {
+        display: none;
+    }
 
     /* Kontak — ikon gold */
     .footer-contact p {
@@ -57,7 +67,11 @@
         margin-bottom: 0.875rem;
         line-height: 1.6;
     }
-    .footer-contact p:last-of-type { margin-bottom: 0; }
+
+    .footer-contact p:last-of-type {
+        margin-bottom: 0;
+    }
+
     .footer-contact i {
         width: 18px;
         height: 18px;
@@ -72,6 +86,7 @@
         gap: 0.5rem;
         margin-top: 1.25rem;
     }
+
     .social-icon-btn {
         width: 42px;
         height: 42px;
@@ -85,6 +100,7 @@
         transition: all 0.2s ease;
         text-decoration: none;
     }
+
     .social-icon-btn:hover {
         background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.15));
         border-color: var(--footer-gold);
@@ -92,8 +108,18 @@
         transform: translateY(-2px);
         box-shadow: 0 4px 16px rgba(255, 215, 0, 0.25);
     }
-    .social-icon-btn.yt:hover { color: #fff; border-color: #ff4444; background: rgba(255, 68, 68, 0.85); }
-    .social-icon-btn.tiktok:hover { color: #000; border-color: #00f2ea; background: rgba(0, 242, 234, 0.2); }
+
+    .social-icon-btn.yt:hover {
+        color: #fff;
+        border-color: #ff4444;
+        background: rgba(255, 68, 68, 0.85);
+    }
+
+    .social-icon-btn.tiktok:hover {
+        color: #000;
+        border-color: #00f2ea;
+        background: rgba(0, 242, 234, 0.2);
+    }
 
     /* Link list — hover gold */
     .footer-link-list {
@@ -101,7 +127,11 @@
         padding: 0;
         margin: 0;
     }
-    .footer-link-list li { margin-bottom: 0.5rem; }
+
+    .footer-link-list li {
+        margin-bottom: 0.5rem;
+    }
+
     .footer-link-list a {
         color: rgba(226, 232, 240, 0.85);
         text-decoration: none;
@@ -110,6 +140,7 @@
         transition: color 0.2s, padding-left 0.2s;
         display: inline-block;
     }
+
     .footer-link-list a:hover {
         color: var(--footer-gold);
         padding-left: 4px;
@@ -123,10 +154,12 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 215, 0, 0.05);
         transition: border-color 0.2s, box-shadow 0.2s;
     }
+
     .map-container:hover {
         border-color: rgba(255, 215, 0, 0.35);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 24px rgba(255, 215, 0, 0.08);
     }
+
     .map-container iframe {
         display: block;
         filter: grayscale(0.1) contrast(1.02);
@@ -143,12 +176,14 @@
     .footer-bottom {
         padding-bottom: 1.25rem;
     }
+
     .footer-copy {
         font-size: 0.8125rem;
         color: rgba(226, 232, 240, 0.55);
         margin: 0;
         font-weight: 500;
     }
+
     .footer-copy strong {
         color: var(--footer-gold);
         font-weight: 600;
@@ -168,6 +203,7 @@
         transition: all 0.2s ease;
         text-decoration: none;
     }
+
     .back-to-top:hover {
         background: linear-gradient(135deg, var(--footer-gold), var(--footer-gold-dark));
         border-color: var(--footer-gold);
@@ -178,20 +214,42 @@
 
     /* Responsive — diseragamkan dengan sistem baru */
     @media (max-width: 1024px) {
-        footer.site-footer { padding-top: 3rem; }
+        footer.site-footer {
+            padding-top: 3rem;
+        }
     }
+
     @media (max-width: 767.98px) {
-        footer.site-footer { padding-top: 2.5rem; }
+        footer.site-footer {
+            padding-top: 2.5rem;
+        }
+
         footer.site-footer,
-        footer.site-footer p, footer.site-footer h4,
-        footer.site-footer ul, footer.site-footer li,
-        footer.site-footer .text-center, footer.site-footer .text-md-end {
+        footer.site-footer p,
+        footer.site-footer h4,
+        footer.site-footer ul,
+        footer.site-footer li,
+        footer.site-footer .text-center,
+        footer.site-footer .text-md-end {
             text-align: left !important;
         }
-        footer.site-footer .d-flex:not(.footer-social-wrap):not(.back-to-top) { justify-content: flex-start !important; }
-        .map-container iframe { height: 200px !important; }
-        footer.site-footer .row > div { margin-bottom: 1.5rem; }
-        footer.site-footer .row > div:last-child { margin-bottom: 0; }
+
+        footer.site-footer .d-flex:not(.footer-social-wrap):not(.back-to-top) {
+            justify-content: flex-start !important;
+        }
+
+        .map-container iframe {
+            height: 200px !important;
+        }
+
+        footer.site-footer .row>div {
+            margin-bottom: 1.5rem;
+        }
+
+        footer.site-footer .row>div:last-child {
+            margin-bottom: 0;
+        }
+
         footer.site-footer .footer-bottom .col-md-4 {
             text-align: right !important;
             display: flex !important;
@@ -199,16 +257,40 @@
             margin-top: 0.75rem;
         }
     }
+
     @media (max-width: 480px) {
-        footer.site-footer { padding-top: 2rem; }
-        .map-container iframe { height: 165px !important; }
-        .footer-col-title {letter-spacing: 0.075em; }
-        .footer-copy { font-size: 0.75rem; }
+        footer.site-footer {
+            padding-top: 2rem;
+        }
+
+        .map-container iframe {
+            height: 165px !important;
+        }
+
+        .footer-col-title {
+            letter-spacing: 0.075em;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+        }
     }
 </style>
 
 <footer class="site-footer text-white mt-auto">
     <div class="container">
+        <!-- Brand / Logo Header -->
+        <div class="d-flex align-items-center gap-3 mb-4 pb-4" style="border-bottom: 1px solid rgba(255,215,0,0.12);">
+            <img src="img/logo.png" alt="Logo SDN Laladon 03" width="56" height="56"
+                style="border-radius:50%;box-shadow:0 0 0 3px rgba(255,215,0,0.2), 0 4px 16px rgba(0,0,0,0.4);">
+            <div>
+                <div style="font-size:1.1rem;font-weight:700;color:#FFD700;letter-spacing:0.05em;line-height:1.2;">SDN
+                    LALADON 03</div>
+                <div style="font-size:0.8rem;color:rgba(226,232,240,0.6);margin-top:2px;">Sekolah Ramah Anak ·
+                    Terakreditasi A</div>
+            </div>
+        </div>
+
         <div class="row">
 
             <!-- Kolom 1: Hubungi Kami -->
@@ -229,24 +311,18 @@
                     </p>
                 </div>
                 <div class="footer-social-wrap">
-                    <a href="https://www.instagram.com/sdnlaladonnnn03?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+                    <a href="https://www.instagram.com/sdnlaladonnnn03?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
                         <i data-lucide="instagram" style="width:18px;height:18px;"></i>
                     </a>
-                    <a href="https://www.youtube.com/@SDNLaladon03" target="_blank" rel="noopener noreferrer" class="social-icon-btn yt" title="YouTube">
+                    <a href="https://www.youtube.com/@SDNLaladon03" target="_blank" rel="noopener noreferrer"
+                        class="social-icon-btn yt" title="YouTube">
                         <i data-lucide="youtube" style="width:18px;height:18px;"></i>
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon-btn tiktok" title="TikTok">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18" height="18"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                         </svg>
                     </a>
                 </div>
@@ -269,13 +345,8 @@
                 <div class="map-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5034889805406!2d106.75638967355988!3d-6.5841596643603735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4fcb2dbba71%3A0xddc59b73fb7e05da!2sSDN%20Laladon%2003!5e0!3m2!1sid!2sid!4v1771216995269!5m2!1sid!2sid"
-                        width="100%"
-                        height="220"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Lokasi SDN Laladon 03 di Google Maps">
+                        width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Lokasi SDN Laladon 03 di Google Maps">
                     </iframe>
                 </div>
             </div>
@@ -291,7 +362,8 @@
                 </p>
             </div>
             <div class="col-md-4 text-md-end mt-2 mt-md-0">
-                <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" title="Kembali ke atas" aria-label="Kembali ke atas halaman">
+                <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+                    title="Kembali ke atas" aria-label="Kembali ke atas halaman">
                     <i data-lucide="chevron-up" style="width:18px;height:18px;" aria-hidden="true"></i>
                 </a>
             </div>

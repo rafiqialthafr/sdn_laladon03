@@ -12,6 +12,7 @@ body {
     background: #f0f2f7;
     margin: 0;
     color: #1e2a3b;
+    overflow-x: hidden; /* prevent horizontal scroll on mobile */
 }
 
 /* ── SCROLLBAR ── */
@@ -21,7 +22,7 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
 /* ── LAYOUT ── */
-.admin-wrapper { display: flex; min-height: 100vh; }
+.admin-wrapper { display: flex; min-height: 100vh; overflow-x: hidden; }
 
 /* ─────────────────────────────────────────
    SIDEBAR
@@ -142,6 +143,13 @@ body {
     backdrop-filter: blur(2px);
 }
 .sidebar-overlay.show { display: block; }
+
+/* Sticky form panel (desktop only) */
+.form-panel-sticky { position: sticky; top: 80px; }
+@media (max-width: 991px) {
+    .form-panel-sticky { position: static; }
+}
+
 
 /* ─────────────────────────────────────────
    CONTENT AREA
@@ -587,20 +595,189 @@ textarea.form-control-admin { resize: vertical; min-height: 100px; }
 .alert-warning { background: #fffbeb; border-color: #fcd34d; color: #92400e; }
 
 /* ─────────────────────────────────────────
-   RESPONSIVE
+   RESPONSIVE — COMPREHENSIVE
 ───────────────────────────────────────── */
+
+/* ── ≤1024px: Sidebar collapse (tablet landscape / small desktop) ── */
 @media (max-width: 1024px) {
-    #admin-sidebar { transform: translateX(-260px); }
-    #admin-sidebar.open { transform: translateX(0); }
+    #admin-sidebar {
+        transform: translateX(-260px);
+        box-shadow: none;
+    }
+    #admin-sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 24px rgba(0,0,0,.18);
+    }
     #admin-content { margin-left: 0; }
     .sidebar-toggle { display: flex; }
 }
+
+/* ── ≤768px: Tablet portrait ── */
+@media (max-width: 768px) {
+    .admin-page { padding: 1.25rem; }
+    .admin-topbar { padding: .75rem 1.25rem; }
+
+    /* Topbar: shrink user info earlier */
+    .topbar-user-name,
+    .topbar-user-role { font-size: .75rem; }
+
+    /* Page header stacks */
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .85rem;
+    }
+    .page-header .btn-admin { width: 100%; justify-content: center; }
+
+    /* Stat cards: slightly smaller values */
+    .stat-value { font-size: 1.6rem; }
+    .stat-card  { padding: 1rem 1.15rem; }
+    .stat-icon  { width: 46px; height: 46px; }
+
+    /* Card header stacks */
+    .admin-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .65rem;
+    }
+    .admin-card-header .btn-admin { width: 100%; justify-content: center; }
+
+    /* Table toolbar stacks */
+    .table-toolbar { flex-direction: column; align-items: stretch; }
+    .search-wrap   { max-width: 100%; }
+    .filter-select { width: 100%; }
+    .table-toolbar form { flex-direction: column; gap: .6rem !important; }
+    .table-toolbar .btn-admin { width: 100%; justify-content: center; }
+
+    /* Activity items */
+    .activity-item { padding: .75rem 0; }
+
+    /* Alert admin */
+    .alert-admin { padding: .75rem 1rem; font-size: .82rem; }
+}
+
+/* ── ≤640px: Mobile landscape / large phones ── */
 @media (max-width: 640px) {
     .admin-page { padding: 1rem; }
-    .admin-topbar { padding: .75rem 1rem; }
-    .page-header { flex-direction: column; align-items: flex-start; }
-    .stat-value { font-size: 1.5rem; }
-    .admin-card-header { flex-direction: column; align-items: flex-start; }
-    .table-toolbar { flex-direction: column; align-items: stretch; }
-    .search-wrap { max-width: 100%; }
+    .admin-topbar { padding: .6rem 1rem; }
+    .topbar-title  { font-size: .9rem; }
+    .topbar-subtitle { font-size: .68rem; }
+
+    /* Stat values */
+    .stat-value { font-size: 1.45rem; }
+    .stat-label { font-size: .72rem; }
+    .stat-card  { padding: .9rem 1rem; gap: .85rem; }
+    .stat-icon  { width: 42px; height: 42px; border-radius: 12px; }
+
+    /* Table: make horizontally scrollable — contained inside its wrapper */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100%;
+    }
+    /* min-width forces scroll INSIDE .table-responsive, not the whole page */
+    .admin-table { min-width: 480px; }
+
+    /* Hide less-important table columns on mobile */
+    .admin-table .hide-mobile { display: none; }
+
+    /* Action buttons compact */
+    .action-wrap { gap: .25rem; }
+    .btn-tbl { width: 28px; height: 28px; }
+
+    /* Gallery grid: 2 columns minimum */
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .75rem; padding: 1rem; }
+
+    /* Message card tighter */
+    .msg-card { padding: 1rem; }
+
+    /* Form panel full width on mobile */
+    .form-panel { border-radius: 12px; }
 }
+
+/* ── ≤480px: Small mobile phones ── */
+@media (max-width: 480px) {
+    .admin-page { padding: .875rem; }
+    .admin-topbar { padding: .55rem .875rem; gap: .5rem; }
+
+    /* Hide user text, keep avatar only */
+    .topbar-right .d-none { display: none !important; }
+    .topbar-avatar { width: 32px; height: 32px; font-size: .75rem; }
+    .topbar-notif  { width: 32px; height: 32px; }
+
+    /* Page title smaller */
+    .page-title { font-size: 1.1rem; }
+    .page-breadcrumb { font-size: .72rem; }
+
+    /* Stat cards: 2-col layout with compact design */
+    .stat-value { font-size: 1.3rem; }
+    .stat-card  { padding: .75rem .875rem; gap: .75rem; border-radius: 12px; }
+    .stat-icon  { width: 38px; height: 38px; border-radius: 10px; }
+    .stat-icon svg,
+    .stat-icon i { width: 18px !important; height: 18px !important; }
+
+    /* Admin card */
+    .admin-card { border-radius: 12px; }
+    .admin-card-header { padding: .875rem 1rem; }
+    .admin-card-body   { padding: 1rem; }
+    .admin-card-title  { font-size: .875rem; }
+
+    /* Table: compact cells on tiny phones */
+    .admin-table thead th { padding: .65rem .875rem; font-size: .65rem; }
+    .admin-table td       { padding: .7rem .875rem; font-size: .78rem; }
+
+    /* Gallery grid: smaller phones use 1 or 2 columns */
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; padding: .875rem; }
+    .gallery-info { padding: .65rem .75rem; }
+    .gallery-title { font-size: .78rem; }
+
+    /* Message cards */
+    .msg-card { padding: .875rem; border-radius: 12px; }
+
+    /* Toolbar */
+    .table-toolbar { padding: .875rem; }
+    .search-input  { font-size: .78rem; }
+    .filter-select { font-size: .78rem; }
+
+    /* Buttons */
+    .btn-admin { font-size: .75rem; padding: .5rem .875rem; }
+    .btn-tbl   { width: 26px; height: 26px; }
+
+    /* Sidebar brand adjust */
+    .sidebar-brand-text { font-size: .88rem; }
+    .sidebar-brand-sub  { font-size: .68rem; }
+
+    /* Activity items */
+    .activity-item { gap: .75rem; }
+    .activity-dot  { width: 30px; height: 30px; border-radius: 8px; }
+    .activity-text { font-size: .78rem; }
+    .activity-time { font-size: .68rem; }
+
+    /* Alert */
+    .alert-admin { font-size: .78rem; padding: .65rem .875rem; }
+
+    /* Form controls */
+    .form-control-admin { font-size: .82rem; padding: .6rem .875rem; }
+    .form-label-admin   { font-size: .75rem; }
+}
+
+/* ── Galeri page: form panel stack on mobile ── */
+@media (max-width: 991px) {
+    /* On tablet, form panel comes first (order swap via Bootstrap col) */
+    .galeri-form-col { order: -1; }
+}
+
+/* ── Message list: responsive header ── */
+@media (max-width: 560px) {
+    .msg-card .d-flex.align-items-center.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: .4rem;
+    }
+    .msg-card .d-flex.align-items-center.gap-2 {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+

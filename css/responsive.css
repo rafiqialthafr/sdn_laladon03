@@ -477,45 +477,39 @@ section {
 
 
 
-/* ============================================
-   WELCOME / SAMBUTAN SECTION (index.php)
-   ============================================ */
-@media (max-width: 1024px) {
-    #welcomeSection { padding: 3.5rem 1rem; }
-    #welcomeSection .col-md-4 img {
-        width: clamp(140px, 30vw, 220px);
-        height: clamp(140px, 30vw, 220px);
-    }
+/* WELCOME / SAMBUTAN SECTION */
+/* Definisikan sekali di luar media query */
+#welcomeSection .col-md-4 img {
+    width: clamp(240px, 50vw, 300px); /* Range yang cukup untuk semua layar */
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover; /* Agar gambar tidak penyet jika rasionya beda */
+    display: block;
+    margin: 0 auto; /* Supaya rata tengah di layar kecil */
 }
 
+/* Gunakan media query hanya untuk padding atau layout besar */
 @media (max-width: 767.98px) {
     #welcomeSection { padding: 3rem 1rem; }
-    #welcomeSection .col-md-4 img {
-        width: clamp(120px, 45vw, 180px);
-        height: clamp(120px, 45vw, 180px);
-    }
-    .principal-quote { font-size: 0.88rem; padding: 1.25rem; }
 }
 
 @media (max-width: 480px) {
     #welcomeSection { padding: 2.5rem 0.75rem; }
-    #welcomeSection .col-md-4 img {
-        width: clamp(110px, 50vw, 160px);
-        height: clamp(110px, 50vw, 160px);
-    }
-    .principal-quote { font-size: 0.83rem; padding: 1rem; border-radius: 12px; }
+    #welcomeSection .col-md-4 img {height: 280px;}
+    .kepsek-quote { font-size: 0.83rem; padding: 1rem; }
 }
+
 
 
 /* ============================================
    TEACHER CARDS (guru_staf.php)
    ============================================ */
 @media (max-width: 1024px) {
-    .teacher-card-img-wrap { height: 200px; }
+    .teacher-card-img-wrap { height: 280px; }
 }
 
 @media (max-width: 480px) {
-    .teacher-card-img-wrap { height: 175px; }
+    .teacher-card-img-wrap { height: 280px; }
     .teacher-name          { font-size: 0.95rem; }
     .teacher-position      { font-size: 0.78rem; }
     .teacher-bio           { font-size: 0.8rem; }
@@ -593,25 +587,25 @@ section {
    KEPALA SEKOLAH (kepala_sekolah.php)
    ============================================ */
 @media (max-width: 1024px) {
-    .principal-info-card { padding: 2rem; }
-    .principal-name      { font-size: 1.6rem; }
+    .kepsek-info-card { padding: 2rem; }
+    .kepsek-name      { font-size: 1.6rem; }
 }
 
 @media (max-width: 767.98px) {
-    .principal-photo-wrap img   { max-width: 240px; margin: 0 auto; }
-    #welcomeSection .principal-photo-wrap { max-width: 100%; }
-    .principal-info-card        { padding: 1.5rem; }
-    .principal-name             { font-size: 1.4rem; }
-    .principal-quote            { font-size: 0.88rem; padding: 1.25rem; }
+    .kepsek-photo-wrap img   { max-width: 280px; margin: 0 auto; height: auto; aspect-ratio: 3/4; }
+    #welcomeSection .kepsek-photo-wrap { max-width: 100%; }
+    .kepsek-info-card        { padding: 1.5rem; }
+    .kepsek-name             { font-size: 1.4rem; }
+    .kepsek-quote            { font-size: 0.88rem; padding: 1.25rem; }
     .info-chip                  { font-size: 0.8rem; }
-    .principal-history-card     { padding: 1.25rem; }
-    .principal-avatar           { width: 64px; height: 64px; }
+    .kepsek-history-card     { padding: 1.25rem; }
+    .kepsek-avatar           { width: 64px; height: 64px; }
 }
 
 @media (max-width: 480px) {
-    .principal-photo-wrap img { max-width: 200px; }
-    .principal-name           { font-size: 1.25rem; }
-    .principal-quote          { font-size: 0.83rem; }
+    .kepsek-photo-wrap img { max-width: 260px; height: auto; aspect-ratio: 3/4; }
+    .kepsek-name           { font-size: 1.25rem; }
+    .kepsek-quote          { font-size: 0.83rem; }
 }
 
 
@@ -720,12 +714,13 @@ section {
 
 /* ============================================
    GRID KOLOM — PAKSA FULL-WIDTH DI MOBILE (< 480px)
+   HANYA untuk halaman publik, bukan admin
    ============================================ */
 @media (max-width: 480px) {
-    .col-md-6,
-    .col-md-6.col-lg-3,
-    .col-md-4,
-    .col-md-8 { flex: 0 0 100%; max-width: 100%; }
+    /* Hanya paksa full-width di luar admin-wrapper */
+    body:not(:has(.admin-wrapper)) .col-md-6,
+    body:not(:has(.admin-wrapper)) .col-md-4,
+    body:not(:has(.admin-wrapper)) .col-md-8 { flex: 0 0 100%; max-width: 100%; }
 }
 
 
@@ -750,4 +745,237 @@ section {
    ============================================ */
 @media (max-width: 480px) {
     .hamburger-btn { width: 40px; height: 40px;}
+}
+
+
+/* ============================================================
+   ADMIN PANEL — RESPONSIVE
+   Semua aturan di sini menggunakan .admin-wrapper sebagai
+   scope agar tidak bentrok dengan CSS halaman publik.
+   ============================================================ */
+
+/* ── Prevent horizontal overflow — targeted, NOT blanket ── */
+/* JANGAN gunakan .admin-wrapper * { max-width:100% } — itu merusak Bootstrap grid */
+.admin-wrapper { overflow-x: hidden; }
+#admin-content { overflow-x: hidden; min-width: 0; }
+.admin-page    { overflow-x: hidden; min-width: 0; }
+
+/* ── Sidebar overlay for mobile ── */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 199;
+    backdrop-filter: blur(2px);
+}
+.sidebar-overlay.show { display: block; }
+
+/* ── Sticky form panel (desktop only) ── */
+.form-panel-sticky { position: sticky; top: 80px; }
+
+/* ── Chart responsive container ── */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+}
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ============================================================
+   ≤ 1024px — Sidebar collapse (tablet landscape)
+   ============================================================ */
+@media (max-width: 1024px) {
+    #admin-sidebar {
+        transform: translateX(-260px);
+        box-shadow: none;
+    }
+    #admin-sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 24px rgba(0,0,0,.18);
+    }
+    #admin-content { margin-left: 0; }
+    .sidebar-toggle { display: flex; }
+    .form-panel-sticky { position: static; }
+}
+
+/* ============================================================
+   ≤ 768px — Tablet portrait
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Layout */
+    .admin-page    { padding: 1rem; }
+    .admin-topbar  { padding: .75rem 1rem; }
+
+    /* Page header stacks */
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .75rem;
+    }
+    .page-header .btn-admin {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ── STAT CARDS: 2 kolom di tablet ── */
+    .admin-wrapper .row.g-3 > [class*="col-6"] {
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 50%;
+    }
+    .stat-value { font-size: 1.55rem; }
+    .stat-card  { padding: 1rem 1.1rem; gap: 1rem; }
+    .stat-icon  { width: 46px; height: 46px; }
+
+    /* ── CHART: full width di tablet ── */
+    .chart-container { max-width: 220px; }
+
+    /* Card header stacks */
+    .admin-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .65rem;
+    }
+    .admin-card-header .btn-admin {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Table toolbar stacks */
+    .table-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .65rem;
+    }
+    .search-wrap   { max-width: 100%; }
+    .filter-select { width: 100%; }
+    .table-toolbar .btn-admin { width: 100%; justify-content: center; }
+
+    /* Table scrollable inside wrapper — NO page overflow */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100%;
+    }
+    .admin-table { min-width: 520px; }
+
+    /* Activity */
+    .activity-item { padding: .75rem 0; }
+
+    /* Alert */
+    .alert-admin { padding: .75rem 1rem; font-size: .82rem; }
+
+    /* Galeri form stacks first */
+    .galeri-form-col { order: -1; }
+}
+
+/* ============================================================
+   ≤ 480px — Mobile phones
+   ============================================================ */
+@media (max-width: 480px) {
+    /* Layout */
+    .admin-page   { padding: .875rem; }
+    .admin-topbar { padding: .55rem .875rem; gap: .5rem; }
+
+    /* Topbar: hide user label, keep avatar */
+    .topbar-user-name,
+    .topbar-user-role { display: none; }
+    .topbar-avatar { width: 32px; height: 32px; font-size: .75rem; }
+    .topbar-notif  { width: 32px; height: 32px; }
+
+    /* Page title */
+    .page-title      { font-size: 1.05rem; }
+    .page-breadcrumb { font-size: .72rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* ── STAT CARDS: tetap 2 kolom di HP ── */
+    .admin-wrapper .row.g-3 > [class*="col-6"] {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
+    }
+    .stat-value { font-size: 1.25rem; }
+    .stat-card  { padding: .75rem .875rem; gap: .75rem; border-radius: 12px; }
+    .stat-icon  { width: 38px; height: 38px; border-radius: 10px; }
+    .stat-icon svg,
+    .stat-icon i { width: 18px !important; height: 18px !important; }
+    .stat-label { font-size: .72rem; }
+
+    /* ── CHART: compact di HP ── */
+    .chart-container { max-width: 180px; }
+
+    /* Admin cards */
+    .admin-card        { border-radius: 12px; }
+    .admin-card-header { padding: .875rem 1rem; }
+    .admin-card-body   { padding: 1rem; }
+    .admin-card-title  { font-size: .875rem; }
+
+    /* Tables */
+    .admin-table { min-width: 480px; }
+    .admin-table thead th { padding: .6rem .875rem; font-size: .65rem; }
+    .admin-table td       { padding: .65rem .875rem; font-size: .78rem; }
+    .admin-table .hide-mobile { display: none; }
+    .action-wrap { gap: .2rem; }
+    .btn-tbl     { width: 26px; height: 26px; }
+
+    /* Gallery grid */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .6rem;
+        padding: .875rem;
+    }
+    .gallery-info  { padding: .65rem .75rem; }
+    .gallery-title { font-size: .78rem; }
+
+    /* Message cards */
+    .msg-card { padding: .875rem; border-radius: 12px; }
+
+    /* Toolbar */
+    .table-toolbar { padding: .875rem; }
+    .search-input  { font-size: .78rem; }
+    .filter-select { font-size: .78rem; }
+
+    /* Buttons */
+    .btn-admin { font-size: .75rem; padding: .5rem .875rem; }
+
+    /* Sidebar brand */
+    .sidebar-brand-text { font-size: .88rem; }
+    .sidebar-brand-sub  { font-size: .68rem; }
+
+    /* Activity */
+    .activity-item { gap: .75rem; }
+    .activity-dot  { width: 30px; height: 30px; border-radius: 8px; }
+    .activity-text { font-size: .78rem; }
+    .activity-time { font-size: .68rem; }
+
+    /* Alert */
+    .alert-admin { font-size: .78rem; padding: .65rem .875rem; }
+
+    /* Form controls */
+    .form-control-admin { font-size: .82rem; padding: .6rem .875rem; }
+    .form-label-admin   { font-size: .75rem; }
+}
+
+/* ============================================================
+   ≤ 360px — Very small phones
+   ============================================================ */
+@media (max-width: 360px) {
+    .stat-value { font-size: 1.1rem; }
+    .stat-card  { padding: .65rem .75rem; gap: .6rem; }
+    .stat-icon  { width: 34px; height: 34px; }
+    .chart-container { max-width: 150px; }
+}
+
+/* ── Message card: header stacks on narrow screens ── */
+@media (max-width: 560px) {
+    .msg-card .d-flex.align-items-center.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: .4rem;
+    }
 }

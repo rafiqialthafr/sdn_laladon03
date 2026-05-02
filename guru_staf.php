@@ -45,7 +45,7 @@ include 'header.php';
                     <div class="teacher-card-body">
                         <h5 class="teacher-name"><?php echo htmlspecialchars($row['name']); ?></h5>
                         <p class="teacher-position"><?php echo htmlspecialchars($row['position']); ?></p>
-                        <p class="teacher-bio"><?php echo htmlspecialchars(substr($row['bio'], 0, 100)); ?>...</p>
+
                     </div>
                 </div>
             </div>
