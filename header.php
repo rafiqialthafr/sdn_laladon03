@@ -132,8 +132,8 @@
                                         aria-hidden="true"></i>Sejarah Singkat</a></li>
                             <li><a class="dropdown-item" href="visimisi.php"><i data-lucide="rocket" class="me-2"
                                         aria-hidden="true"></i>Visi Misi</a></li>
-                            <li><a class="dropdown-item" href="kepala_sekolah.php"><i data-lucide="user" class="me-2"
-                                        aria-hidden="true"></i>Kepala Sekolah</a></li>
+                            <li><a class="dropdown-item" href="kepala_sekolah.php"><i data-lucide="user-round-cog"
+                                        class="me-2" aria-hidden="true"></i>Kepala Sekolah</a></li>
                             <li><a class="dropdown-item" href="guru_staf.php"><i data-lucide="users" class="me-2"
                                         aria-hidden="true"></i>Guru dan Staf</a></li>
                             <li><a class="dropdown-item" href="fasilitas.php"><i data-lucide="building-2" class="me-2"

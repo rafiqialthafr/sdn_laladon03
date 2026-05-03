@@ -36,10 +36,17 @@ function getCatLabel($cat)
 
 <!-- Page Header -->
 <section class="page-header">
+    <!-- Floating Geometric Shapes -->
+    <div class="geom-shape shape-1"></div>
+    <div class="geom-shape shape-2"></div>
+    <div class="geom-shape shape-3"></div>
+    
     <div class="container">
         <div class="row py-5">
             <div class="col-12 text-center">
-                <h1 class="page-header-title">Berita & Pengumuman</h1>
+                <h1 class="page-header-title"><i data-lucide="newspaper"
+                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Berita
+                    & Pengumuman</h1>
                 <p class="page-header-subtitle">Informasi terbaru dari SDN Laladon 03</p>
             </div>
         </div>
@@ -98,7 +105,8 @@ function getCatLabel($cat)
                                 </div>
                                 <h5 class="news-card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
                                 <p class="news-card-excerpt">
-                                    <?php echo htmlspecialchars(substr(strip_tags($row['content']), 0, 120)); ?>...</p>
+                                    <?php echo htmlspecialchars(substr(strip_tags($row['content']), 0, 120)); ?>...
+                                </p>
                                 <a href="berita_detail.php?id=<?php echo $row['id']; ?>" class="news-read-more">
                                     Baca Selengkapnya
                                     <i data-lucide="arrow-right" style="width:15px;height:15px;"></i>

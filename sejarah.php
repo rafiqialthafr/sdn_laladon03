@@ -1,11 +1,18 @@
-﻿<?php include 'header.php'; ?>
+<?php include 'header.php'; ?>
 
 <!-- Page Header -->
 <section class="page-header">
+    <!-- Floating Geometric Shapes -->
+    <div class="geom-shape shape-1"></div>
+    <div class="geom-shape shape-2"></div>
+    <div class="geom-shape shape-3"></div>
+    
     <div class="container">
         <div class="row py-5">
             <div class="col-12 text-center">
-                <h1 class="page-header-title">Sejarah Singkat</h1>
+                <h1 class="page-header-title"><i data-lucide="compass"
+                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Sejarah
+                    Singkat</h1>
                 <p class="page-header-subtitle">Perjalanan panjang SDN Laladon 03</p>
             </div>
         </div>
@@ -40,13 +47,15 @@
                 <div class="timeline-card">
                     <span class="timeline-year-badge">1984</span>
                     <h5>Awal Berdiri</h5>
-                    <p>Pada awalnya terdapat dua sekolah dasar yaitu Sdn ciherang 03 & Sdn Ciherang 05. Kemudian kedua sekolah itu melakukan merger atau penggabungan menjadi satu nama yaitu SDN Ciherang 05 pada tahun 1984.</p>
+                    <p>Pada awalnya terdapat dua sekolah dasar yaitu Sdn ciherang 03 & Sdn Ciherang 05. Kemudian kedua
+                        sekolah itu melakukan merger atau penggabungan menjadi satu nama yaitu SDN Ciherang 05 pada
+                        tahun 1984.</p>
                 </div>
             </div>
 
-            
 
-            
+
+
 
             <!-- Item 4 — Kanan -->
             <div class="timeline-item right">
@@ -54,7 +63,9 @@
                 <div class="timeline-card">
                     <span class="timeline-year-badge">2013</span>
                     <h5>Peningkatan Layanan Pendidikan</h5>
-                    <p>Pada tahun ini perpustakaan sekolah dibangun membawa SDN Laladon 03 memasuki era literasi digital. Program peningkatan Literasi untuk siswa dan guru mulai berjalan secara rutin setiap semester.</p>
+                    <p>Pada tahun ini perpustakaan sekolah dibangun membawa SDN Laladon 03 memasuki era literasi
+                        digital. Program peningkatan Literasi untuk siswa dan guru mulai berjalan secara rutin setiap
+                        semester.</p>
                 </div>
             </div>
 
@@ -64,7 +75,9 @@
                 <div class="timeline-card">
                     <span class="timeline-year-badge">2023</span>
                     <h5>Raih Akreditasi A</h5>
-                    <p>Berkat kerja keras seluruh dewan guru, staf, dan dukungan komite sekolah, SDN Laladon 03 berhasil meraih Akreditasi A dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-SM) dengan nilai memuaskan.</p>
+                    <p>Berkat kerja keras seluruh dewan guru, staf, dan dukungan komite sekolah, SDN Laladon 03 berhasil
+                        meraih Akreditasi A dari Badan Akreditasi Nasional Sekolah/Madrasah (BAN-SM) dengan nilai
+                        memuaskan.</p>
                 </div>
             </div>
 
@@ -74,7 +87,9 @@
                 <div class="timeline-card">
                     <span class="timeline-year-badge">2026</span>
                     <h5>Menuju Sekolah Digital</h5>
-                    <p>Saat ini, SDN Laladon 03 terus berinovasi menjadi sekolah ramah anak berbasis digital, dengan menerapkan sistem manajemen sekolah terintegrasi dan fasilitas pembelajaran multimedia yang modern.</p>
+                    <p>Saat ini, SDN Laladon 03 terus berinovasi menjadi sekolah ramah anak berbasis digital, dengan
+                        menerapkan sistem manajemen sekolah terintegrasi dan fasilitas pembelajaran multimedia yang
+                        modern.</p>
                 </div>
             </div>
 

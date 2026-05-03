@@ -2,10 +2,17 @@
 
 <!-- Page Header -->
 <section class="page-header">
+    <!-- Floating Geometric Shapes -->
+    <div class="geom-shape shape-1"></div>
+    <div class="geom-shape shape-2"></div>
+    <div class="geom-shape shape-3"></div>
+    
     <div class="container">
         <div class="row py-5">
             <div class="col-12 text-center">
-                <h1 class="page-header-title">Hubungi Kami</h1>
+                <h1 class="page-header-title"><i data-lucide="phone"
+                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Hubungi
+                    Kami</h1>
                 <p class="page-header-subtitle">Kami siap menjawab pertanyaan dan menerima masukan Anda</p>
             </div>
         </div>

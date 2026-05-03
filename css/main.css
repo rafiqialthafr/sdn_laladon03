@@ -512,18 +512,18 @@ footer a:hover {
 .page-header {
     position: relative;
     overflow: hidden;
+    /* Gradasi kuning/emas cerah premium yang elegan dan tidak gelap */
     background: linear-gradient(135deg,
-        #b8860b 0%,
-        #d4a017 20%,
-        #e8b923 40%,
-        #f5c842 55%,
-        var(--gold) 70%,
-        #ffbe00 85%,
-        var(--gold-deep) 100%
+        #ffe44d 0%,
+        #FFD700 30%,
+        #FFC107 70%,
+        #FFB300 100%
     );
     color: var(--dark-text);
     padding: 0;
 }
+
+
 
 /* Diamond/lattice pattern overlay */
 .page-header::before {
@@ -579,6 +579,8 @@ footer a:hover {
         0 1px 0 rgba(255, 255, 255, 0.4),
         0 2px 6px rgba(0, 0, 0, 0.15);
     letter-spacing: -0.5px;
+    opacity: 0;
+    animation: fadeInUpHeader 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .page-header-subtitle {
@@ -586,6 +588,75 @@ footer a:hover {
     font-weight: 500;
     color: rgba(61, 31, 0, 0.75);
     margin-bottom: 0;
+    opacity: 0;
+    animation: fadeInUpHeader 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+/* Animasi Fade In Up Ekstra Smooth */
+@keyframes fadeInUpHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   FLOATING GEOMETRIC SHAPES
+========================================== */
+.geom-shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1; /* Di bawah teks (z-index: 2) */
+    pointer-events: none;
+    backdrop-filter: blur(2px); /* Sedikit efek glassmorphism */
+}
+
+.shape-1 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top: -20px;
+    left: 10%;
+    animation: floatShape1 12s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    bottom: -50px;
+    right: 5%;
+    animation: floatShape2 18s ease-in-out infinite;
+}
+
+.shape-3 {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    top: 25%;
+    right: 35%;
+    animation: floatShape3 10s ease-in-out infinite;
+}
+
+@keyframes floatShape1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@keyframes floatShape2 {
+    0%, 100% { transform: rotate(45deg) translate(0, 0); }
+    33% { transform: rotate(135deg) translate(50px, -40px); }
+    66% { transform: rotate(225deg) translate(-30px, 30px); }
+}
+
+@keyframes floatShape3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-50px, -60px) scale(1.2); }
 }
 
 /* ==========================================

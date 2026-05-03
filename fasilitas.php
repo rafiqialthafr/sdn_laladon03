@@ -2,10 +2,17 @@
 
 <!-- Page Header -->
 <section class="page-header">
+    <!-- Floating Geometric Shapes -->
+    <div class="geom-shape shape-1"></div>
+    <div class="geom-shape shape-2"></div>
+    <div class="geom-shape shape-3"></div>
+    
     <div class="container">
         <div class="row py-5">
             <div class="col-12 text-center">
-                <h1 class="page-header-title">Fasilitas Sekolah</h1>
+                <h1 class="page-header-title"><i data-lucide="building-2"
+                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Fasilitas
+                    Sekolah</h1>
                 <p class="page-header-subtitle">Sarana dan prasarana penunjang pembelajaran</p>
             </div>
         </div>
@@ -18,7 +25,8 @@
         <div class="section-title-wrapper">
             <h2 class="section-title mt-2">Fasilitas Penunjang Belajar</h2>
             <div class="section-divider"></div>
-            <p class="section-desc">Kami menyediakan lingkungan belajar yang nyaman, aman, dan memadai untuk mendukung perkembangan optimal setiap peserta didik.</p>
+            <p class="section-desc">Kami menyediakan lingkungan belajar yang nyaman, aman, dan memadai untuk mendukung
+                perkembangan optimal setiap peserta didik.</p>
         </div>
 
         <div class="row g-4">
@@ -34,7 +42,8 @@
                     </div>
                     <div class="facility-body">
                         <h5 class="facility-name">Ruang Kelas Nyaman</h5>
-                        <p class="facility-desc">Ruang kelas dengan sirkulasi udara yang baik, pencahayaan cukup, dan dilengkapi dengan kipas angin/AC serta proyektor untuk pembelajaran interaktif.</p>
+                        <p class="facility-desc">Ruang kelas dengan sirkulasi udara yang baik, pencahayaan cukup, dan
+                            dilengkapi dengan kipas angin/AC serta proyektor untuk pembelajaran interaktif.</p>
                     </div>
                 </div>
             </div>
@@ -51,12 +60,13 @@
                     </div>
                     <div class="facility-body">
                         <h5 class="facility-name">Perpustakaan</h5>
-                        <p class="facility-desc">Koleksi buku lengkap mulai dari buku pelajaran, cerita anak, hingga ensiklopedia. Tempat yang tenang untuk menumbuhkan minat baca siswa.</p>
+                        <p class="facility-desc">Koleksi buku lengkap mulai dari buku pelajaran, cerita anak, hingga
+                            ensiklopedia. Tempat yang tenang untuk menumbuhkan minat baca siswa.</p>
                     </div>
                 </div>
             </div>
 
-            
+
 
             <!-- Lapangan Olahraga -->
             <div class="col-md-6 col-lg-4">
@@ -70,7 +80,8 @@
                     </div>
                     <div class="facility-body">
                         <h5 class="facility-name">Lapangan Olahraga</h5>
-                        <p class="facility-desc">Lapangan luas untuk kegiatan upacara bendera, senam pagi, dan berbagai cabang olahraga seperti futsal, basket, dan voli.</p>
+                        <p class="facility-desc">Lapangan luas untuk kegiatan upacara bendera, senam pagi, dan berbagai
+                            cabang olahraga seperti futsal, basket, dan voli.</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +98,8 @@
                     </div>
                     <div class="facility-body">
                         <h5 class="facility-name">Musholla</h5>
-                        <p class="facility-desc">Tempat ibadah yang bersih dan nyaman untuk kegiatan sholat berjamaah, duha, dan kegiatan keagamaan lainnya bagi warga sekolah.</p>
+                        <p class="facility-desc">Tempat ibadah yang bersih dan nyaman untuk kegiatan sholat berjamaah,
+                            duha, dan kegiatan keagamaan lainnya bagi warga sekolah.</p>
                     </div>
                 </div>
             </div>

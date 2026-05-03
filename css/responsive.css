@@ -399,23 +399,47 @@ section {
     .hero-buttons    { max-width: 260px; }
 }
 
+/* ============================================
+   RESPONSIVE FLOATING SHAPES
+   ============================================ */
+@media (max-width: 1024px) {
+    .shape-1 { width: 120px; height: 120px; }
+    .shape-2 { width: 150px; height: 150px; }
+    .shape-3 { width: 70px; height: 70px; right: 25%; }
+}
+
+@media (max-width: 767.98px) {
+    .shape-1 { width: 90px; height: 90px; left: -10px; }
+    .shape-2 { width: 120px; height: 120px; bottom: -30px; right: -20px; }
+    .shape-3 { width: 50px; height: 50px; top: 15%; right: 15%; }
+}
+
+@media (max-width: 480px) {
+    .shape-1 { width: 70px; height: 70px; }
+    .shape-2 { width: 100px; height: 100px; }
+    .shape-3 { display: none; /* Sembunyikan di layar sangat kecil */ }
+}
+
 
 /* ============================================
    PAGE HEADER (semua halaman)
    ============================================ */
+/* Default untuk Desktop (override py-5 bawaan bootstrap) */
+.page-header > .container > .row { padding-top: 5.5rem !important; padding-bottom: 5.5rem !important; }
+
 @media (max-width: 1024px) {
-    .page-header > .container > .row { padding-top: 3rem; padding-bottom: 3rem; }
+    .page-header > .container > .row { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
 }
 
 @media (max-width: 767.98px) {
-    .page-header > .container > .row { padding-top: 4rem; padding-bottom: 4rem; }
-    .page-header-title       { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+    .page-header > .container > .row { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    .page-header-title       { font-size: clamp(1.8rem, 5vw, 2.4rem); }
     .page-header-subtitle    { font-size: 0.9rem; }
 }
 
 @media (max-width: 480px) {
-    .page-header > .container > .row { padding-top: 3.5rem; padding-bottom: 3.5rem; }
-    .page-header-title       { font-size: clamp(1.2rem, 6vw, 1.5rem); }
+    .page-header > .container > .row { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+    .page-header-title       { font-size: clamp(1.6rem, 6vw, 2.0rem); }
     .page-header-subtitle    { font-size: 0.85rem; }
 }
 

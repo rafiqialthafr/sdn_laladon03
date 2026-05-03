@@ -1,12 +1,12 @@
-<?php 
+<?php
 include 'koneksi.php';
-include 'header.php'; 
+include 'header.php';
 
 $query = "SELECT * FROM kepsek ORDER BY id DESC LIMIT 1";
 $result = mysqli_query($koneksi, $query);
 $kepsek = mysqli_fetch_assoc($result);
 
-if(!$kepsek) {
+if (!$kepsek) {
     // Fallback data
     $kepsek = [
         'name' => 'Metkopwati, S.Pd.',
@@ -22,10 +22,17 @@ if(!$kepsek) {
 ?>
 <!-- Page Header -->
 <section class="page-header">
+    <!-- Floating Geometric Shapes -->
+    <div class="geom-shape shape-1"></div>
+    <div class="geom-shape shape-2"></div>
+    <div class="geom-shape shape-3"></div>
+    
     <div class="container">
         <div class="row py-5">
             <div class="col-12 text-center">
-                <h1 class="page-header-title">Kepala Sekolah</h1>
+                <h1 class="page-header-title"><i data-lucide="user-round-cog"
+                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Kepala
+                    Sekolah</h1>
                 <p class="page-header-subtitle">Pemimpin yang menginspirasi generasi penerus bangsa</p>
             </div>
         </div>
@@ -45,7 +52,8 @@ if(!$kepsek) {
             <!-- Foto -->
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>" alt="<?php echo htmlspecialchars($kepsek['name']); ?>">
+                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>"
+                        alt="<?php echo htmlspecialchars($kepsek['name']); ?>">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
                 </div>

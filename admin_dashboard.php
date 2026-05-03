@@ -73,7 +73,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                         <p class="topbar-user-name">Administrator</p>
                         <p class="topbar-user-role">Super Admin</p>
                     </div>
-                    <div class="topbar-avatar">A</div>
+                    <div class="topbar-avatar">R</div>
                 </div>
             </div>
 

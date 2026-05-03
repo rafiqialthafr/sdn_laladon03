@@ -62,6 +62,12 @@ if (!isset($unread_messages)) {
                 <?php endif; ?>
             </a>
         </li>
+        <li>
+            <a href="admin_kepsek.php" class="<?php echo $current_page === 'admin_kepsek.php' ? 'active' : ''; ?>">
+                <i data-lucide="user-round-cog" style="width:17px;height:17px;"></i>
+                Profil Kepsek
+            </a>
+        </li>
     </ul>
 
 

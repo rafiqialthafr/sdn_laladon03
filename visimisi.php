@@ -2,10 +2,17 @@
 
 <!-- Page Header -->
 <section class="page-header">
+    <!-- Floating Geometric Shapes -->
+    <div class="geom-shape shape-1"></div>
+    <div class="geom-shape shape-2"></div>
+    <div class="geom-shape shape-3"></div>
+    
     <div class="container">
         <div class="row py-5">
             <div class="col-12 text-center">
-                <h1 class="page-header-title">Visi & Misi</h1>
+                <h1 class="page-header-title"><i data-lucide="rocket"
+                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Visi
+                    & Misi</h1>
                 <p class="page-header-subtitle">Landasan semangat dan tujuan SDN Laladon 03</p>
             </div>
         </div>
@@ -18,7 +25,8 @@
         <div class="section-title-wrapper">
             <h2 class="section-title mt-2">Visi, Misi & Nilai Kami</h2>
             <div class="section-divider"></div>
-            <p class="section-desc">Dengan landasan nilai yang kuat, kami membentuk generasi penerus bangsa yang berakhlak, cerdas, dan berdaya saing global.</p>
+            <p class="section-desc">Dengan landasan nilai yang kuat, kami membentuk generasi penerus bangsa yang
+                berakhlak, cerdas, dan berdaya saing global.</p>
         </div>
 
         <div class="row g-4">
@@ -29,7 +37,8 @@
                         <i data-lucide="eye" style="width:32px;height:32px;color:#c8890a;"></i>
                     </div>
                     <h4>Visi</h4>
-                    <p>Terwujudnya Peserta Didik yang Beriman dan Bertakwa, Berkarakter Mulia, Cerdas, Sehat, Mandiri, Peduli Lingkungan, Berwawasan Kebangsaan dan Berprestasi.</p>
+                    <p>Terwujudnya Peserta Didik yang Beriman dan Bertakwa, Berkarakter Mulia, Cerdas, Sehat, Mandiri,
+                        Peduli Lingkungan, Berwawasan Kebangsaan dan Berprestasi.</p>
                 </div>
             </div>
 
@@ -86,7 +95,8 @@
                         <i data-lucide="heart-handshake" style="width:30px;height:30px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Integritas</h5>
-                    <p class="text-muted small mb-0">Jujur, amanah, dan bertanggung jawab dalam setiap tindakan dan keputusan.</p>
+                    <p class="text-muted small mb-0">Jujur, amanah, dan bertanggung jawab dalam setiap tindakan dan
+                        keputusan.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -95,7 +105,8 @@
                         <i data-lucide="lightbulb" style="width:30px;height:30px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Inovasi</h5>
-                    <p class="text-muted small mb-0">Terus berinovasi dalam metode pembelajaran untuk menyesuaikan perkembangan zaman.</p>
+                    <p class="text-muted small mb-0">Terus berinovasi dalam metode pembelajaran untuk menyesuaikan
+                        perkembangan zaman.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -104,7 +115,8 @@
                         <i data-lucide="users" style="width:30px;height:30px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Kolaborasi</h5>
-                    <p class="text-muted small mb-0">Membangun kerjasama yang harmonis antara siswa, guru, orang tua, dan masyarakat.</p>
+                    <p class="text-muted small mb-0">Membangun kerjasama yang harmonis antara siswa, guru, orang tua,
+                        dan masyarakat.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -113,7 +125,8 @@
                         <i data-lucide="star" style="width:30px;height:30px;"></i>
                     </div>
                     <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Keunggulan</h5>
-                    <p class="text-muted small mb-0">Selalu berusaha memberikan yang terbaik dalam prestasi akademik maupun non-akademik.</p>
+                    <p class="text-muted small mb-0">Selalu berusaha memberikan yang terbaik dalam prestasi akademik
+                        maupun non-akademik.</p>
                 </div>
             </div>
         </div>
