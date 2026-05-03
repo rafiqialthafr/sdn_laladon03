@@ -9,7 +9,6 @@ include 'koneksi.php';
 $id = "";
 $name = "";
 $position = "";
-$bio = "";
 $photo = "";
 $is_edit = false;
 
@@ -19,7 +18,6 @@ if (isset($_GET['id'])) {
     $row = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM teachers WHERE id='$id'"));
     $name = $row['name'];
     $position = $row['position'];
-    $bio = $row['bio'];
     $photo = $row['photo'];
 }
 $page_title = $is_edit ? 'Edit Data Guru' : 'Tambah Guru Baru';
@@ -207,14 +205,6 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                                     <img id="photoPreview" src="" class="img-preview-circle" alt="Preview">
                                                 </div>
                                             <?php endif; ?>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label class="form-label-admin">Bio Singkat <span
-                                                    style="color:#ef4444;">*</span></label>
-                                            <textarea name="bio" class="form-control-admin" rows="5"
-                                                placeholder="Tuliskan bio singkat guru..."
-                                                required><?php echo htmlspecialchars($bio); ?></textarea>
                                         </div>
 
                                         <div class="col-12 d-flex align-items-center gap-3 pt-2">

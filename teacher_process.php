@@ -5,7 +5,7 @@ include 'koneksi.php';
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $position = $_POST['position'];
-    $bio = $_POST['bio'];
+    $bio = '';
     $photo_url = "https://placehold.co/400x400/34495e/ffffff?text=" . urlencode($name); // Default placeholder
     
     if (!empty($_FILES['photo']['name'])) {
@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $position = $_POST['position'];
-    $bio = $_POST['bio'];
+    $bio = '';
     $photo_url = $_POST['existing_photo'];
 
     if (!empty($_FILES['photo']['name'])) {

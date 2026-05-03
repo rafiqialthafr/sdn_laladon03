@@ -308,9 +308,6 @@ if(!$kepsek) {
                                     alt="<?php echo htmlspecialchars($row['name']); ?>">
                                 <div class="teacher-card-overlay"></div>
                             </div>
-                            <div class="teacher-badge-wrap">
-                                <span class="teacher-badge">Pendidik</span>
-                            </div>
                             <div class="teacher-card-body">
                                 <h5 class="teacher-name"><?php echo htmlspecialchars($row['name']); ?></h5>
                                 <p class="teacher-position"><?php echo htmlspecialchars($row['position']); ?></p>

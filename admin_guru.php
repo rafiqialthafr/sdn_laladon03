@@ -173,7 +173,6 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                     <th style="width:50px;">#</th>
                                     <th>Nama Guru / Staf</th>
                                     <th>Jabatan</th>
-                                    <th>Bio Singkat</th>
                                     <th class="text-center" style="width:100px;">Aksi</th>
                                 </tr>
                             </thead>
@@ -201,11 +200,6 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="tbl-sub" style="max-width:300px;display:block;">
-                                                    <?php echo htmlspecialchars(substr($r['bio'] ?? '', 0, 80)); ?>...
-                                                </span>
-                                            </td>
-                                            <td>
                                                 <div class="action-wrap justify-content-center">
                                                     <a href="teacher_form.php?id=<?php echo $r['id']; ?>"
                                                         class="btn-tbl btn-tbl-edit" title="Edit">
@@ -221,7 +215,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                         </tr>
                                     <?php endwhile; else: ?>
                                     <tr>
-                                        <td colspan="5">
+                                        <td colspan="4">
                                             <div class="tbl-empty">
                                                 <div class="tbl-empty-icon">
                                                     <i data-lucide="users" style="width:28px;height:28px;"></i>
