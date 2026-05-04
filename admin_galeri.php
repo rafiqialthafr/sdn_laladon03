@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
 // Fetch edit data
 $edit_data = null;
 if (isset($_GET['edit'])) {

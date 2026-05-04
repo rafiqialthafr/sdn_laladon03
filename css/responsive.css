@@ -211,12 +211,19 @@ section {
         gap: 0;
     }
 
-    /* 4. Stagger Animations */
-    .carousel-item.active .hero-badge-gold { animation: heroStagger 0.6s ease both; animation-delay: 0.15s; }
-    .carousel-item.active .hero-pretitle   { animation: heroStagger 0.6s ease both; animation-delay: 0.25s; }
-    .carousel-item.active .hero-title-gold { animation: heroStagger 0.6s ease both; animation-delay: 0.35s; }
-    .carousel-item.active .hero-subtitle   { animation: heroStagger 0.6s ease both; animation-delay: 0.45s; }
-    .carousel-item.active .hero-buttons    { animation: heroStagger 0.6s ease both; animation-delay: 0.55s; }
+    /* 4. Stagger Animations — semua elemen mulai dari opacity:0 (biar ga flash dulu) */
+    .hero-badge-gold,
+    .hero-pretitle,
+    .hero-title-gold,
+    .hero-subtitle,
+    .hero-buttons {
+        opacity: 0;
+    }
+    .carousel-item.active .hero-badge-gold { animation: heroStagger 0.4s ease both; animation-delay: 0.15s; }
+    .carousel-item.active .hero-pretitle   { animation: heroStagger 0.4s ease both; animation-delay: 0.25s; }
+    .carousel-item.active .hero-title-gold { animation: heroStagger 0.4s ease both; animation-delay: 0.35s; }
+    .carousel-item.active .hero-subtitle   { animation: heroStagger 0.4s ease both; animation-delay: 0.45s; }
+    .carousel-item.active .hero-buttons    { animation: heroStagger 0.4s ease both; animation-delay: 0.55s; }
 
     /* 5. Typography */
     .hero-badge-gold {
