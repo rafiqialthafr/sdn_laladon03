@@ -166,8 +166,9 @@ function getCatLabel($cat)
 </section>
 
 <?php include 'footer.php'; ?>
+<style>
 gap: .5rem;
-}
+
 .sb-card-head svg { color: #c8890a; flex-shrink: 0; }
 
 .sb-news-item {
