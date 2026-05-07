@@ -29,12 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
         if (in_array($ext, $allowed)) {
-            $dir = 'uploads/galeri/';
-            if (!is_dir($dir))
-                mkdir($dir, 0755, true);
-            $fname = 'galeri_' . time() . '_' . rand(1000, 9999) . '.' . $ext;
-            move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $fname);
-            $foto_url = $dir . $fname;
+            if ($_FILES['foto']['size'] > 1 * 1024 * 1024) {
+                $error_msg = 'Ukuran file terlalu besar! Maksimal 1MB.';
+            } else {
+                $dir = 'uploads/galeri/';
+                if (!is_dir($dir))
+                    mkdir($dir, 0755, true);
+                $fname = 'galeri_' . time() . '_' . rand(1000, 9999) . '.' . $ext;
+                move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $fname);
+                $foto_url = $dir . $fname;
+            }
         } else {
             $error_msg = 'Format file tidak didukung. Gunakan JPG, PNG, atau WEBP.';
         }
@@ -312,7 +316,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                     <input type="file" name="foto" class="form-control-admin" accept="image/*"
                                         style="padding:.5rem .75rem;">
                                     <div style="font-size:.73rem;color:#94a3b8;margin-top:.4rem;">Format: JPG, PNG,
-                                        WEBP. Maks. 5MB</div>
+                                        WEBP. Maks. 1MB</div>
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label-admin">Atau URL Gambar</label>

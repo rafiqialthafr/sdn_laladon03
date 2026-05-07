@@ -21,11 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
         $tmp = $_FILES['photo']['tmp_name'];
-        $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
-        $new_name = 'kepsek_' . time() . '.' . $ext;
-        $dest = 'img/' . $new_name;
-        if (move_uploaded_file($tmp, $dest)) {
-            $photo = 'img/' . $new_name;
+        $ext = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
+        $allowed = ['jpg', 'jpeg', 'png'];
+        if (!in_array($ext, $allowed)) {
+            $success = 'Format file tidak didukung! Hanya JPG, JPEG, dan PNG.';
+        } elseif ($_FILES['photo']['size'] > 1 * 1024 * 1024) {
+            $success = 'Ukuran file terlalu besar! Maksimal 1MB.';
+        } else {
+            $new_name = 'kepsek_' . time() . '.' . $ext;
+            $dest = 'img/' . $new_name;
+            if (move_uploaded_file($tmp, $dest)) {
+                $photo = 'img/' . $new_name;
+            }
         }
     }
 
@@ -146,7 +153,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                                 <img id="photoPreview" src="<?php echo $kepsek['photo'] ? htmlspecialchars($kepsek['photo']) : 'https://via.placeholder.com/150'; ?>" class="img-preview-circle" alt="Foto">
                                                 <div style="font-size:.75rem;color:#94a3b8;margin-top:.5rem;">Foto saat ini</div>
                                                 <input type="file" name="photo" class="form-control-admin mt-3" accept="image/*" style="padding:.5rem .75rem; max-width: 250px; margin: 0 auto;" onchange="previewImg(this,'photoPreview')">
-                                                <div style="font-size:.73rem;color:#94a3b8;margin-top:.4rem;">Format: JPG, PNG. Maks. 2MB.</div>
+                                                <div style="font-size:.73rem;color:#94a3b8;margin-top:.4rem;">Format: JPG, PNG. Maks. 1MB.</div>
                                             </div>
                                         </div>
 

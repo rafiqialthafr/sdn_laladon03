@@ -199,7 +199,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                                 style="padding:.5rem .75rem;"
                                                 onchange="previewImg(this,'photoPreview','photoWrap')">
                                             <div style="font-size:.73rem;color:#94a3b8;margin-top:.4rem;">Format: JPG,
-                                                PNG. Maks. 2MB. Biarkan kosong jika tidak ingin mengubah foto.</div>
+                                                PNG. Maks. 1MB. Biarkan kosong jika tidak ingin mengubah foto.</div>
                                             <?php if (!$is_edit): ?>
                                                 <div class="img-preview-wrap mt-3" id="photoWrap" style="display:none;">
                                                     <img id="photoPreview" src="" class="img-preview-circle" alt="Preview">

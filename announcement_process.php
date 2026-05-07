@@ -9,9 +9,19 @@ if (isset($_POST['save'])) {
     $image_url = "https://placehold.co/600x400/34495e/ffffff?text=" . urlencode($title);
 
     if (!empty($_FILES['image']['name'])) {
+        $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+        $allowed = ['jpg', 'jpeg', 'png', 'webp'];
+        if (!in_array($ext, $allowed)) {
+            echo "<script>alert('Format file tidak didukung! Hanya JPG, JPEG, PNG, dan WebP.'); window.history.back();</script>";
+            exit;
+        }
+        if ($_FILES['image']['size'] > 1 * 1024 * 1024) {
+            echo "<script>alert('Ukuran file terlalu besar! Maksimal 1MB.'); window.history.back();</script>";
+            exit;
+        }
         $target_dir = "uploads/";
         if (!is_dir($target_dir)) mkdir($target_dir);
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . time() . '_' . rand(1000, 9999) . '.' . $ext;
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         $image_url = $target_file;
     }
@@ -33,9 +43,19 @@ if (isset($_POST['update'])) {
     $image_url = $_POST['existing_image'];
 
     if (!empty($_FILES['image']['name'])) {
+        $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+        $allowed = ['jpg', 'jpeg', 'png', 'webp'];
+        if (!in_array($ext, $allowed)) {
+            echo "<script>alert('Format file tidak didukung! Hanya JPG, JPEG, PNG, dan WebP.'); window.history.back();</script>";
+            exit;
+        }
+        if ($_FILES['image']['size'] > 1 * 1024 * 1024) {
+            echo "<script>alert('Ukuran file terlalu besar! Maksimal 1MB.'); window.history.back();</script>";
+            exit;
+        }
         $target_dir = "uploads/";
         if (!is_dir($target_dir)) mkdir($target_dir);
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . time() . '_' . rand(1000, 9999) . '.' . $ext;
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         $image_url = $target_file;
     }

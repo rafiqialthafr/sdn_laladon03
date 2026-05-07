@@ -163,6 +163,64 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     </div>
                 </div>
 
+
+                <script>
+                (function() {
+                    const dropZone = document.getElementById('dropZone');
+                    const fileInput = document.getElementById('fileInput');
+                    const filePreview = document.getElementById('filePreview');
+                    const previewImg = document.getElementById('previewImg');
+                    const fileNameEl = document.getElementById('fileName');
+                    const fileSizeEl = document.getElementById('fileSize');
+                    const removeBtn = document.getElementById('removeFile');
+
+                    dropZone.addEventListener('click', () => fileInput.click());
+
+                    dropZone.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                        dropZone.style.borderColor = '#FFD700';
+                        dropZone.style.background = 'rgba(255,215,0,0.05)';
+                    });
+
+                    dropZone.addEventListener('dragleave', () => {
+                        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
+                        dropZone.style.background = 'rgba(255,255,255,0.02)';
+                    });
+
+                    dropZone.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
+                        dropZone.style.background = 'rgba(255,255,255,0.02)';
+                        if (e.dataTransfer.files.length) {
+                            fileInput.files = e.dataTransfer.files;
+                            showPreview(e.dataTransfer.files[0]);
+                        }
+                    });
+
+                    fileInput.addEventListener('change', () => {
+                        if (fileInput.files.length) showPreview(fileInput.files[0]);
+                    });
+
+                    removeBtn.addEventListener('click', () => {
+                        fileInput.value = '';
+                        filePreview.style.display = 'none';
+                        dropZone.style.display = 'block';
+                    });
+
+                    function showPreview(file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            previewImg.src = e.target.result;
+                            fileNameEl.textContent = file.name;
+                            fileSizeEl.textContent = (file.size / 1024).toFixed(1) + ' KB';
+                            filePreview.style.display = 'block';
+                            dropZone.style.display = 'none';
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                })();
+                </script>
+
                 <!-- Charts + Activity Row -->
                 <div class="row g-3 mb-4">
                     <!-- Donut Chart -->

@@ -238,7 +238,7 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
                                             <label class="form-label-admin">Gambar Artikel</label>
                                             <input type="file" name="image" class="form-control-admin" accept="image/*"
                                                 style="padding:.5rem .75rem;" onchange="previewImg(this,'imgPreview')">
-                                            <small class="text-muted d-block mt-1">Format: JPG, PNG, WebP. Maks. 2MB.
+                                            <small class="text-muted d-block mt-1">Format: JPG, PNG, WebP. Maks. 1MB.
                                                 Biarkan kosong jika tidak ingin mengubah gambar.</small>
                                             <?php if ($is_edit && $image): ?>
                                                 <div class="img-preview-wrap mt-2">

@@ -224,6 +224,9 @@
             padding-top: 2.5rem;
         }
 
+
+
+
         footer.site-footer,
         footer.site-footer p,
         footer.site-footer h4,
@@ -358,7 +361,7 @@
         <div class="row align-items-center footer-bottom">
             <div class="col-md-8 text-md-start">
                 <p class="footer-copy">
-                    © 2026 <strong>Directed By SDN Laladon 03</strong> · All Rights Reserved
+                    © 2026 <strong>SDN Laladon 03</strong> · All Rights Reserved
                 </p>
             </div>
             <div class="col-md-4 text-md-end mt-2 mt-md-0">
