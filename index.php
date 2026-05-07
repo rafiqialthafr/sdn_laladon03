@@ -63,7 +63,7 @@ include 'header.php';
                         <span class="text-highlight">BERPRESTASI</span>
                     </h1>
                     <p class="hero-subtitle animate-fade-in-4">
-                        15+ Juara Lomba Tingkat Kota dan Provinsi di Bidang Akademik & Non-Akademik
+                        Juara Lomba Karate Shukkaido Tingkat Nasional 2026 dan Berbagai Prestasi Lainnya
                     </p>
                     <div class="hero-buttons animate-fade-in-5">
                         <a href="berita.php" class="btn-gold-primary">
