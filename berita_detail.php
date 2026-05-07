@@ -19,9 +19,9 @@ if (!$row) {
 
 // Definisi kategori lengkap (termasuk bg & color untuk badge)
 $catMap = [
-    'pengumuman' => ['label' => '📢 Pengumuman', 'bg' => '#fef3c7', 'color' => '#92400e'],
-    'berita'     => ['label' => '📰 Berita',     'bg' => '#dbeafe', 'color' => '#1e40af'],
-    'event'      => ['label' => '🎉 Event',       'bg' => '#dcfce7', 'color' => '#166534'],
+    'pengumuman' => ['label' => 'Pengumuman', 'bg' => '#fef3c7', 'color' => '#92400e'],
+    'berita'     => ['label' => 'Berita',     'bg' => '#dbeafe', 'color' => '#1e40af'],
+    'event'      => ['label' => 'Event',       'bg' => '#dcfce7', 'color' => '#166534'],
 ];
 $cat = $catMap[$row['category']] ?? $catMap['berita'];
 ?>
@@ -161,9 +161,9 @@ $cat = $catMap[$row['category']] ?? $catMap['berita'];
                         </div>
                         <?php
                         $cats = [
-                            ['slug' => 'pengumuman', 'label' => '📢 Pengumuman'],
-                            ['slug' => 'berita',     'label' => '📰 Berita'],
-                            ['slug' => 'event',      'label' => '🎉 Event'],
+                            ['slug' => 'pengumuman', 'label' => 'Pengumuman'],
+                            ['slug' => 'berita',     'label' => 'Berita'],
+                            ['slug' => 'event',      'label' => 'Event'],
                         ];
                         foreach ($cats as $c):
                             $cnt_stmt = mysqli_prepare($koneksi, "SELECT COUNT(*) AS total FROM announcements WHERE is_published = 1 AND category = ?");

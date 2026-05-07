@@ -12,8 +12,7 @@ if (!$kepsek) {
         'name' => 'Metkopwati, S.Pd.',
         'position' => 'Kepala Sekolah SDN Laladon 03',
         'photo' => 'img/kepsek.jpeg',
-        'nip' => '19751204 200501 2 005',
-        'education' => 'S1 PGSD – UPI Bandung',
+        'education' => 'S1 PGSD – Universitas Terbuka',
         'period' => '2022',
         'vision_mission' => 'Mewujudkan kepemimpinan yang inklusif, inovatif, dan berorientasi pada mutu pendidikan. Berkomitmen menciptakan lingkungan sekolah yang aman, nyaman, dan mampu mengembangkan potensi setiap peserta didik secara optimal.',
         'quote' => 'Pendidikan bukan hanya tentang mengisi wadah, tetapi menyalakan api. Mari kita bersama-sama menyalakan semangat belajar anak-anak kita demi masa depan yang gemilang.'
@@ -67,10 +66,6 @@ if (!$kepsek) {
 
                     <div class="d-flex flex-wrap gap-2 mb-4">
                         <span class="info-chip">
-                            <i data-lucide="id-card" style="width:16px;height:16px;color:#c8890a;"></i>
-                            <strong>NIP:</strong> <?php echo htmlspecialchars($kepsek['nip']); ?>
-                        </span>
-                        <span class="info-chip">
                             <i data-lucide="graduation-cap" style="width:16px;height:16px;color:#c8890a;"></i>
                             <strong>Pendidikan:</strong> <?php echo htmlspecialchars($kepsek['education']); ?>
                         </span>
@@ -112,39 +107,63 @@ if (!$kepsek) {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="timeline-container">
+                    <!-- Riwayat Pendidikan -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-year-badge">1998</span>
+                            <span class="timeline-year-badge">1974</span>
+                            <h5>Sekolah Dasar (SD)</h5>
+                            <p>SDN Kota Batu 1 — Menempuh pendidikan dasar.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year-badge">1980</span>
+                            <h5>Sekolah Menengah Pertama (SMP)</h5>
+                            <p>SMP YP 17 — Menempuh pendidikan menengah pertama.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year-badge">1983</span>
+                            <h5>Sekolah Menengah Atas (SMA)</h5>
+                            <p>SMA SPG PGRI — Menempuh pendidikan menengah atas.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year-badge">2004 – 2006</span>
                             <h5>S1 Pendidikan Guru Sekolah Dasar</h5>
-                            <p>Universitas Pendidikan Indonesia (UPI) Bandung — Lulus dengan predikat Cum Laude.</p>
+                            <p>Universitas Terbuka — Meraih gelar Sarjana Pendidikan (S.Pd.).</p>
+                        </div>
+                    </div>
+
+                    <!-- Riwayat Karir -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="timeline-year-badge">2022 – 2025</span>
+                            <h5>Kepala Sekolah — SDN Ciomas 07</h5>
+                            <p>Menjabat sebagai Kepala Sekolah di SDN Ciomas 07.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-year-badge">2000</span>
-                            <h5>Guru Kelas — SDN Ciomas 01</h5>
-                            <p>Memulai karir sebagai guru kelas dan aktif dalam kegiatan Kelompok Kerja Guru (KKG)
-                                Kecamatan Ciomas.</p>
+                            <span class="timeline-year-badge">2025</span>
+                            <h5>PLT Kepala Sekolah — SDN Kota Batu 1</h5>
+                            <p>Ditunjuk sebagai Pelaksana Tugas (PLT) Kepala Sekolah di SDN Kota Batu 1.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card">
-                            <span class="timeline-year-badge">2015</span>
-                            <h5>Wakil Kepala Sekolah Bid. Kurikulum</h5>
-                            <p>SDN Laladon 01 — Memimpin transformasi kurikulum dan penerapan standar pembelajaran
-                                nasional.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">2022</span>
+                            <span class="timeline-year-badge">2025 – Sekarang</span>
                             <h5>Kepala Sekolah — SDN Laladon 03</h5>
-                            <p>Menjabat sebagai Kepala Sekolah SDN Laladon 03 hingga sekarang, membawa visi sekolah
-                                digital dan akreditasi A+.</p>
+                            <p>Menjabat sebagai Kepala Sekolah SDN Laladon 03 hingga sekarang.</p>
                         </div>
                     </div>
                 </div>

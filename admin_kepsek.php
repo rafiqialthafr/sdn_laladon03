@@ -11,7 +11,6 @@ $success = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = mysqli_real_escape_string($koneksi, $_POST['name']);
     $position = mysqli_real_escape_string($koneksi, $_POST['position']);
-    $nip = mysqli_real_escape_string($koneksi, $_POST['nip']);
     $education = mysqli_real_escape_string($koneksi, $_POST['education']);
     $period = mysqli_real_escape_string($koneksi, $_POST['period']);
     $vision_mission = mysqli_real_escape_string($koneksi, $_POST['vision_mission']);
@@ -41,9 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($check) > 0) {
         $row = mysqli_fetch_assoc($check);
         $id = $row['id'];
-        $query = "UPDATE kepsek SET name='$name', position='$position', nip='$nip', education='$education', period='$period', vision_mission='$vision_mission', quote='$quote', photo='$photo' WHERE id=$id";
+        $query = "UPDATE kepsek SET name='$name', position='$position', education='$education', period='$period', vision_mission='$vision_mission', quote='$quote', photo='$photo' WHERE id=$id";
     } else {
-        $query = "INSERT INTO kepsek (name, position, nip, education, period, vision_mission, quote, photo) VALUES ('$name', '$position', '$nip', '$education', '$period', '$vision_mission', '$quote', '$photo')";
+        $query = "INSERT INTO kepsek (name, position, education, period, vision_mission, quote, photo) VALUES ('$name', '$position', '$education', '$period', '$vision_mission', '$quote', '$photo')";
     }
 
     if (mysqli_query($koneksi, $query)) {
@@ -63,7 +62,6 @@ if(!$kepsek) {
         'name' => '',
         'position' => '',
         'photo' => '',
-        'nip' => '',
         'education' => '',
         'period' => '',
         'vision_mission' => '',
@@ -164,10 +162,6 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                         <div class="col-md-6">
                                             <label class="form-label-admin">Jabatan <span style="color:#ef4444;">*</span></label>
                                             <input type="text" name="position" class="form-control-admin" value="<?php echo htmlspecialchars($kepsek['position']); ?>" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label-admin">NIP</label>
-                                            <input type="text" name="nip" class="form-control-admin" value="<?php echo htmlspecialchars($kepsek['nip']); ?>">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label-admin">Pendidikan</label>

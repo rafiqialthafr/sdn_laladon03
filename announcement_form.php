@@ -213,10 +213,10 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
                                             <label class="form-label-admin">Kategori <span
                                                     style="color:#ef4444;">*</span></label>
                                             <select name="category" class="form-control-admin" required>
-                                                <option value="pengumuman" <?php echo $category == 'pengumuman' ? 'selected' : ''; ?>>📢 Pengumuman</option>
+                                                <option value="pengumuman" <?php echo $category == 'pengumuman' ? 'selected' : ''; ?>>Pengumuman</option>
                                                 <option value="berita" <?php echo $category == 'berita' ? 'selected' : ''; ?>>
-                                                    📰 Berita</option>
-                                                <option value="event" <?php echo $category == 'event' ? 'selected' : ''; ?>>🎉
+                                                    Berita</option>
+                                                <option value="event" <?php echo $category == 'event' ? 'selected' : ''; ?>>
                                                     Event</option>
                                             </select>
                                         </div>
@@ -225,9 +225,9 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
                                             <select name="is_published" class="form-control-admin"
                                                 style="<?php echo $is_published ? 'border-color:#bbf7d0;background:#f0fdf4;' : ''; ?>"
                                                 onchange="this.style.borderColor=this.value=='1'?'#bbf7d0':'#e2e8f0'; this.style.backgroundColor=this.value=='1'?'#f0fdf4':'#fff';">
-                                                <option value="1" <?php echo $is_published == 1 ? 'selected' : ''; ?>>✅
+                                                <option value="1" <?php echo $is_published == 1 ? 'selected' : ''; ?>>
                                                     Published</option>
-                                                <option value="0" <?php echo $is_published == 0 ? 'selected' : ''; ?>>📝
+                                                <option value="0" <?php echo $is_published == 0 ? 'selected' : ''; ?>>
                                                     Draft
                                                 </option>
                                             </select>

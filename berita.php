@@ -65,15 +65,15 @@ function getCatLabel($cat)
                 </a>
                 <a href="berita.php?category=pengumuman"
                     class="news-filter-btn <?php echo $category_filter == 'pengumuman' ? 'active' : ''; ?>">
-                    📢 Pengumuman
+                    <i data-lucide="megaphone" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Pengumuman
                 </a>
                 <a href="berita.php?category=berita"
                     class="news-filter-btn <?php echo $category_filter == 'berita' ? 'active' : ''; ?>">
-                    📰 Berita
+                    <i data-lucide="newspaper" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Berita
                 </a>
                 <a href="berita.php?category=event"
                     class="news-filter-btn <?php echo $category_filter == 'event' ? 'active' : ''; ?>">
-                    🎉 Event
+                    <i data-lucide="party-popper" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Event
                 </a>
             </div>
         </div>
@@ -124,12 +124,12 @@ function getCatLabel($cat)
                 <div class="empty-icon">
                     <i data-lucide="inbox" style="width:36px;height:36px;color:#d1d5db;"></i>
                 </div>
-                <h5 class="fw-bold mb-2" style="color:#6b7280;">Belum Ada Berita</h5>
+                `<h5 class="fw-bold mb-2" style="color:#6b7280;">Belum Ada Berita</h5>`
                 <p class="text-muted">Saat ini belum ada berita atau pengumuman yang tersedia.</p>
                 <?php if ($category_filter): ?>
                     <a href="berita.php" class="news-filter-btn active mt-3"
                         style="display:inline-flex;align-items:center;gap:0.4rem;">
-                        Lihat Semua Berita
+                        Lihat Semua Berita  
                     </a>
                 <?php endif; ?>
             </div>

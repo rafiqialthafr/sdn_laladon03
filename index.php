@@ -21,12 +21,12 @@ include 'header.php';
             <!-- SLIDE 1 -->
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="hero-overlay-gold"></div>
-                <img src="img/foto4.jpeg" class="d-block w-100 hero-img"
+                <img src="img/slider1.jpeg" class="d-block w-100 hero-img"
                     alt="Siswa-siswi SDN Laladon 03 dalam kegiatan upacara sekolah" width="1920" height="700"
                     fetchpriority="high" loading="eager">
                 <div class="carousel-caption hero-content-gold">
                     <div class="hero-badge-gold animate-fade-in-1">
-                        <span class="badge-icon">⭐</span>
+                        <span class="badge-icon"><i data-lucide="star" style="width:16px;height:16px;"></i></span>
                         <span>Akreditasi A</span>
                     </div>
                     <h3 class="hero-pretitle animate-fade-in-2">Selamat Datang di</h3>
@@ -50,12 +50,12 @@ include 'header.php';
             <!-- SLIDE 2 -->
             <div class="carousel-item" data-bs-interval="5000">
                 <div class="hero-overlay-gold"></div>
-                <img src="img/foto2.jpeg" class="d-block w-100 hero-img"
+                <img src="img/slider2.jpeg" class="d-block w-100 hero-img"
                     alt="Prestasi siswa SDN Laladon 03 di kompetisi tingkat nasional" width="1920" height="700"
                     loading="lazy">
                 <div class="carousel-caption hero-content-gold">
                     <div class="hero-badge-gold animate-fade-in-1">
-                        <span class="badge-icon">🏆</span>
+                        <span class="badge-icon"><i data-lucide="trophy" style="width:16px;height:16px;"></i></span>
                         <span>Juara Nasional 2026</span>
                     </div>
                     <h3 class="hero-pretitle animate-fade-in-2">Prestasi Membanggakan</h3>
@@ -83,7 +83,8 @@ include 'header.php';
                     alt="Fasilitas lengkap dan modern SDN Laladon 03" width="1920" height="700" loading="lazy">
                 <div class="carousel-caption hero-content-gold">
                     <div class="hero-badge-gold animate-fade-in-1">
-                        <span class="badge-icon">👨‍🏫</span>
+                        <span class="badge-icon"><i data-lucide="graduation-cap"
+                                style="width:16px;height:16px;"></i></span>
                         <span>Guru Bersertifikat</span>
                     </div>
                     <h3 class="hero-pretitle animate-fade-in-2">Fasilitas Lengkap</h3>
@@ -139,7 +140,7 @@ include 'header.php';
                     <div class="card-icon-wrap gold mx-auto mb-3">
                         <i data-lucide="trophy" style="width:26px;height:26px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Terakreditasi A</h5>
+                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Terakreditasi A</h5>
                     <p class="text-muted small mb-0">Sejak 2016 mendapatkan akreditasi dari BNSM dengan No SK:
                         555/BAN-SM/HK/2023</p>
                 </div>
@@ -234,7 +235,7 @@ include 'header.php';
 $query_kepsek = "SELECT * FROM kepsek ORDER BY id DESC LIMIT 1";
 $result_kepsek = mysqli_query($koneksi, $query_kepsek);
 $kepsek = mysqli_fetch_assoc($result_kepsek);
-if(!$kepsek) {
+if (!$kepsek) {
     // Fallback data
     $kepsek = [
         'name' => 'Metkopwati, S.Pd.',
@@ -250,12 +251,14 @@ if(!$kepsek) {
             <!-- Foto -->
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>" alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
+                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>"
+                        alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
                 </div>
                 <div class="mt-4">
-                    <h5 class="fw-bold mb-1" style="color:#1a1a2e;"><?php echo htmlspecialchars($kepsek['name']); ?></h5>
+                    <h5 class="fw-bold mb-1" style="color:#1a1a2e;"><?php echo htmlspecialchars($kepsek['name']); ?>
+                    </h5>
                     <span class="section-label" style="display:inline-block;">Kepala Sekolah</span>
                 </div>
             </div>

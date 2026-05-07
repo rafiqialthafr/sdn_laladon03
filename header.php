@@ -59,6 +59,31 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap"
         rel="stylesheet">
 
+    <!-- ═══ FOUT Prevention: Hide page until fonts ready ═══ -->
+    <script>
+        // Reveal page when fonts are ready, with 2s safety timeout
+        (function() {
+            var timeout = setTimeout(function() {
+                document.body && document.body.classList.add('fonts-loaded');
+            }, 2000);
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(function() {
+                    clearTimeout(timeout);
+                    document.body.classList.add('fonts-loaded');
+                });
+            } else {
+                // Fallback for older browsers
+                clearTimeout(timeout);
+                window.addEventListener('load', function() {
+                    document.body.classList.add('fonts-loaded');
+                });
+            }
+        })();
+    </script>
+
+    <!-- ═══ AOS Animation CSS ═══ -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- ═══ Custom CSS ═══ -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -96,7 +121,7 @@
     </script>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body id="laladon-app" class="d-flex flex-column min-vh-100">
 
     <!-- Main Navbar -->
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-2" role="navigation"

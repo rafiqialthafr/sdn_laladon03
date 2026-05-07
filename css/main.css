@@ -48,6 +48,18 @@ body {
     overflow-x: hidden;
 }
 
+/* ==========================================
+   FOUT PREVENTION
+========================================== */
+/* Menggunakan ID selector untuk specificity tinggi tanpa !important */
+#laladon-app:not(.fonts-loaded) {
+    opacity: 0;
+}
+#laladon-app.fonts-loaded {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
 /* Semua gambar responsif */
 img {
     max-width: 100%;
@@ -679,9 +691,23 @@ footer a:hover {
 ========================================== */
 
 /* Section Title */
+/* AOS — Prevent layout shift on centered sections */
+.row > [data-aos] {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Prevent row from collapsing/shifting while AOS children animate */
+.section-title-wrapper + .row,
+.section-title-wrapper ~ .row {
+    overflow: hidden;
+}
+
 .section-title-wrapper {
     text-align: center;
     margin-bottom: 3rem;
+    width: 100%;
 }
 
 .section-label {
