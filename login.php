@@ -12,7 +12,7 @@ if (isset($_POST['login'])) {
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
     $password = $_POST['password'];
 
-    $query  = "SELECT * FROM users WHERE username='$username'";
+    $query  = "SELECT * FROM admin WHERE username='$username'";
     $result = mysqli_query($koneksi, $query);
 
     if (mysqli_num_rows($result) === 1) {

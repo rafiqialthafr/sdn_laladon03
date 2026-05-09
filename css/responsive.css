@@ -451,31 +451,6 @@ section {
 }
 
 
-/* ============================================
-   STATS BAR — BERANDA (index.php)
-   ============================================ */
-@media (max-width: 1024px) {
-    .stats-bar-item { padding: 0.85rem 1rem; }
-}
-
-@media (max-width: 767.98px) {
-    .stats-bar-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-}
-
-@media (max-width: 480px) {
-    .stats-bar-item {
-        width: 100%;
-        padding: 0.875rem 0.5rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-    .stats-bar-number { font-size: 1.75rem; }
-    .stats-bar-label  { font-size: 0.7rem; }
-}
-
 
 /* ============================================
    SECTION TITLES — GLOBAL
@@ -535,15 +510,9 @@ section {
 /* ============================================
    TEACHER CARDS (guru_staf.php)
    ============================================ */
-@media (max-width: 1024px) {
-    .teacher-card-img-wrap { height: 280px; }
-}
-
 @media (max-width: 480px) {
-    .teacher-card-img-wrap { height: 280px; }
     .teacher-name          { font-size: 0.95rem; }
     .teacher-position      { font-size: 0.78rem; }
-    .teacher-bio           { font-size: 0.8rem; }
 }
 
 
@@ -630,7 +599,6 @@ section {
     .kepsek-quote            { font-size: 0.88rem; padding: 1.25rem; }
     .info-chip                  { font-size: 0.8rem; }
     .kepsek-history-card     { padding: 1.25rem; }
-    .kepsek-avatar           { width: 64px; height: 64px; }
 }
 
 @media (max-width: 480px) {
@@ -670,23 +638,7 @@ section {
 }
 
 
-/* ============================================
-   BERITA DETAIL (berita_detail.php)
-   ============================================ */
-@media (max-width: 1024px) {
-    .article-title { font-size: clamp(1.4rem, 3.5vw, 1.8rem); }
-}
 
-@media (max-width: 767.98px) {
-    .article-title     { font-size: clamp(1.25rem, 4vw, 1.4rem); }
-    .article-hero      { border-radius: 12px; margin-bottom: 1.25rem; }
-    .news-sidebar-card { margin-top: 0; }
-}
-
-@media (max-width: 480px) {
-    .article-title { font-size: clamp(1.1rem, 5vw, 1.25rem); }
-    .article-body  { font-size: 0.9rem; }
-}
 
 
 /* ============================================

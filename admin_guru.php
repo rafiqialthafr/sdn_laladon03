@@ -9,7 +9,7 @@ include 'koneksi.php';
 // Handle delete
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
-    mysqli_query($koneksi, "DELETE FROM teachers WHERE id=$id");
+    mysqli_query($koneksi, "DELETE FROM guru_staf WHERE id=$id");
     header("Location: admin_guru.php?success=deleted");
     exit;
 }
@@ -17,10 +17,10 @@ if (isset($_GET['delete'])) {
 $success = $_GET['success'] ?? '';
 $search = trim($_GET['q'] ?? '');
 $where = $search ? "WHERE name LIKE '%" . mysqli_real_escape_string($koneksi, $search) . "%' OR position LIKE '%" . mysqli_real_escape_string($koneksi, $search) . "%'" : '';
-$res = mysqli_query($koneksi, "SELECT * FROM teachers $where ORDER BY id ASC");
-$total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM teachers $where"))['t'];
+$res = mysqli_query($koneksi, "SELECT * FROM guru_staf $where ORDER BY id ASC");
+$total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf $where"))['t'];
 
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages WHERE is_read=0"))['t'];
+$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 ?>
@@ -104,7 +104,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                             <div class="stat-info">
                                 <div class="stat-value">
-                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM teachers"))['t']; ?>
+                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf"))['t']; ?>
                                 </div>
                                 <div class="stat-label">Total Guru &amp; Staf</div>
                             </div>
@@ -116,7 +116,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                     style="width:22px;height:22px;"></i></div>
                             <div class="stat-info">
                                 <div class="stat-value">
-                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM teachers WHERE position LIKE '%Guru%'"))['t']; ?>
+                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf WHERE position LIKE '%Guru%'"))['t']; ?>
                                 </div>
                                 <div class="stat-label">Guru Kelas</div>
                             </div>
@@ -128,7 +128,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                             <div class="stat-info">
                                 <div class="stat-value">
-                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM teachers WHERE position LIKE '%Kepala%'"))['t']; ?>
+                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf WHERE position LIKE '%Kepala%'"))['t']; ?>
                                 </div>
                                 <div class="stat-label">Kepala Sekolah</div>
                             </div>
@@ -140,7 +140,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                             <div class="stat-info">
                                 <div class="stat-value">
-                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM teachers WHERE position NOT LIKE '%Guru%' AND position NOT LIKE '%Kepala%'"))['t']; ?>
+                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf WHERE position NOT LIKE '%Guru%' AND position NOT LIKE '%Kepala%'"))['t']; ?>
                                 </div>
                                 <div class="stat-label">Staf Lainnya</div>
                             </div>

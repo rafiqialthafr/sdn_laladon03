@@ -11,7 +11,7 @@
     <meta name="description"
         content="Website resmi SDN Laladon 03 - Sekolah Dasar Negeri terakreditasi A di Kecamatan Ciomas, Kabupaten Bogor, Jawa Barat. Mewujudkan generasi cerdas, kreatif, berkarakter, dan berprestasi.">
     <meta name="keywords"
-        content="SDN Laladon 03, Sekolah Dasar Laladon, SD Negeri Ciomas, Sekolah Bogor, Akreditasi A, Sekolah Ramah Anak">
+        content="SDN Laladon 03, SDN Laladon, SD Negeri Ciomas, Sekolah Bogor, Akreditasi A, Sekolah Ramah Anak">
     <meta name="author" content="SDN Laladon 03">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="http://localhost/laladon/">
@@ -81,8 +81,7 @@
         })();
     </script>
 
-    <!-- ═══ AOS Animation CSS ═══ -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
     <!-- ═══ Custom CSS ═══ -->
     <link rel="stylesheet" href="css/main.css">
@@ -348,5 +347,4 @@
         })();
     </script>
 
-</body>
 </body>

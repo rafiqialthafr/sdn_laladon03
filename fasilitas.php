@@ -30,80 +30,38 @@
         </div>
 
         <div class="row g-4">
-            <!-- Ruang Kelas -->
+            <?php
+            require 'koneksi.php';
+            $query_facilities = "SELECT * FROM fasilitas ORDER BY id ASC";
+            $result_facilities = mysqli_query($koneksi, $query_facilities);
+
+            if (mysqli_num_rows($result_facilities) > 0):
+                while ($row = mysqli_fetch_assoc($result_facilities)):
+            ?>
             <div class="col-md-6 col-lg-4">
                 <div class="facility-card">
                     <div class="facility-img-wrap">
-                        <img src="img/kelas.jpeg" alt="Ruang Kelas Nyaman">
+                        <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
                         <div class="facility-img-overlay"></div>
                         <div class="facility-img-icon">
-                            <i data-lucide="monitor-play" style="width:22px;height:22px;"></i>
+                            <i data-lucide="<?php echo htmlspecialchars($row['icon']); ?>" style="width:22px;height:22px;"></i>
                         </div>
                     </div>
                     <div class="facility-body">
-                        <h5 class="facility-name">Ruang Kelas Nyaman</h5>
-                        <p class="facility-desc">Ruang kelas dengan sirkulasi udara yang baik, pencahayaan cukup, dan
-                            dilengkapi dengan kipas angin/AC serta proyektor untuk pembelajaran interaktif.</p>
+                        <h5 class="facility-name"><?php echo htmlspecialchars($row['name']); ?></h5>
+                        <p class="facility-desc"><?php echo htmlspecialchars($row['description']); ?></p>
                     </div>
                 </div>
             </div>
-
-            <!-- Perpustakaan -->
-            <div class="col-md-6 col-lg-4">
-                <div class="facility-card">
-                    <div class="facility-img-wrap">
-                        <img src="img/perpus.jpeg" alt="Perpustakaan">
-                        <div class="facility-img-overlay"></div>
-                        <div class="facility-img-icon">
-                            <i data-lucide="book-open" style="width:22px;height:22px;"></i>
-                        </div>
-                    </div>
-                    <div class="facility-body">
-                        <h5 class="facility-name">Perpustakaan</h5>
-                        <p class="facility-desc">Koleksi buku lengkap mulai dari buku pelajaran, cerita anak, hingga
-                            ensiklopedia. Tempat yang tenang untuk menumbuhkan minat baca siswa.</p>
-                    </div>
-                </div>
+            <?php 
+                endwhile;
+            else:
+            ?>
+            <div class="col-12 text-center py-5 text-muted">
+                <i data-lucide="building-2" style="width:48px;height:48px;color:#d1d5db;margin-bottom:1rem;"></i>
+                <p>Data fasilitas belum tersedia.</p>
             </div>
-
-
-
-            <!-- Lapangan Olahraga -->
-            <div class="col-md-6 col-lg-4">
-                <div class="facility-card">
-                    <div class="facility-img-wrap">
-                        <img src="img/foto1.jpeg" alt="Lapangan Olahraga">
-                        <div class="facility-img-overlay"></div>
-                        <div class="facility-img-icon">
-                            <i data-lucide="trophy" style="width:22px;height:22px;"></i>
-                        </div>
-                    </div>
-                    <div class="facility-body">
-                        <h5 class="facility-name">Lapangan Olahraga</h5>
-                        <p class="facility-desc">Lapangan luas untuk kegiatan upacara bendera, senam pagi, dan berbagai
-                            cabang olahraga seperti futsal, basket, dan voli.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Musholla -->
-            <div class="col-md-6 col-lg-4">
-                <div class="facility-card">
-                    <div class="facility-img-wrap">
-                        <img src="img/mushola.jpeg" alt="Musholla">
-                        <div class="facility-img-overlay"></div>
-                        <div class="facility-img-icon">
-                            <i data-lucide="moon" style="width:22px;height:22px;"></i>
-                        </div>
-                    </div>
-                    <div class="facility-body">
-                        <h5 class="facility-name">Musholla</h5>
-                        <p class="facility-desc">Tempat ibadah yang bersih dan nyaman untuk kegiatan sholat berjamaah,
-                            duha, dan kegiatan keagamaan lainnya bagi warga sekolah.</p>
-                    </div>
-                </div>
-            </div>
-
+            <?php endif; ?>
         </div>
     </div>
 </section>

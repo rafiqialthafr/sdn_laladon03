@@ -34,14 +34,14 @@ include 'header.php';
 
         <div class="row g-4">
             <?php
-            $query_teachers = "SELECT * FROM teachers ORDER BY id ASC";
+            $query_teachers = "SELECT * FROM guru_staf ORDER BY id ASC";
             $result_teachers = mysqli_query($koneksi, $query_teachers);
 
             if (mysqli_num_rows($result_teachers) > 0):
                 $delay = 1;
                 while ($row = mysqli_fetch_assoc($result_teachers)):
                     ?>
-                    <div class="col-md-6 col-lg-3 fade-delay-<?php echo min($delay, 4); ?>">
+                    <div class="col-md-6 col-lg-3">
                         <div class="teacher-card">
                             <div class="teacher-card-img-wrap">
                                 <img src="<?php echo htmlspecialchars($row['photo']); ?>"

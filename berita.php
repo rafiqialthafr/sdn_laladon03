@@ -7,9 +7,9 @@ $category_filter = isset($_GET['category']) ? mysqli_real_escape_string($koneksi
 
 // Build query
 if ($category_filter) {
-    $query = "SELECT * FROM announcements WHERE is_published=1 AND category='$category_filter' ORDER BY created_at DESC";
+    $query = "SELECT * FROM berita WHERE is_published=1 AND category='$category_filter' ORDER BY created_at DESC";
 } else {
-    $query = "SELECT * FROM announcements WHERE is_published=1 ORDER BY created_at DESC";
+    $query = "SELECT * FROM berita WHERE is_published=1 ORDER BY created_at DESC";
 }
 $result = mysqli_query($koneksi, $query);
 
@@ -91,7 +91,7 @@ function getCatLabel($cat)
                     $cat_class = getCatClass($row['category']);
                     $cat_label = getCatLabel($row['category']);
                     ?>
-                    <div class="col-md-6 col-lg-4 fade-delay-<?php echo min($delay, 4); ?>">
+                    <div class="col-md-6 col-lg-4">
                         <div class="news-card-modern">
                             <div class="img-wrap">
                                 <img src="<?php echo htmlspecialchars($row['image']); ?>"
@@ -124,7 +124,7 @@ function getCatLabel($cat)
                 <div class="empty-icon">
                     <i data-lucide="inbox" style="width:36px;height:36px;color:#d1d5db;"></i>
                 </div>
-                `<h5 class="fw-bold mb-2" style="color:#6b7280;">Belum Ada Berita</h5>`
+                <h5 class="fw-bold mb-2" style="color:#6b7280;">Belum Ada Berita</h5>
                 <p class="text-muted">Saat ini belum ada berita atau pengumuman yang tersedia.</p>
                 <?php if ($category_filter): ?>
                     <a href="berita.php" class="news-filter-btn active mt-3"

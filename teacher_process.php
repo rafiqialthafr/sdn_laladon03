@@ -26,7 +26,7 @@ if (isset($_POST['save'])) {
         $photo_url = $target_file;
     }
 
-    $query = "INSERT INTO teachers (name, position, photo, bio) VALUES ('$name', '$position', '$photo_url', '$bio')";
+    $query = "INSERT INTO guru_staf (name, position, photo, bio) VALUES ('$name', '$position', '$photo_url', '$bio')";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_guru.php?success=saved");
     } else {
@@ -71,7 +71,7 @@ if (isset($_POST['update'])) {
 // Handle Delete
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $query = "DELETE FROM teachers WHERE id='$id'";
+    $query = "DELETE FROM guru_staf WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_guru.php?success=deleted");
     } else {

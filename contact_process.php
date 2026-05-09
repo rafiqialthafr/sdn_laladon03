@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pesan  = mysqli_real_escape_string($koneksi, trim($_POST['pesan'] ?? ''));
 
     if (!empty($nama) && !empty($wa) && !empty($pesan)) {
-        $query = "INSERT INTO contact_messages (nama, email, subjek, pesan) VALUES ('$nama', '$wa', '$subjek', '$pesan')";
+        $query = "INSERT INTO pesan (nama, email, subjek, pesan) VALUES ('$nama', '$wa', '$subjek', '$pesan')";
         mysqli_query($koneksi, $query);
     }
 

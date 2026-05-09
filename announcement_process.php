@@ -26,7 +26,7 @@ if (isset($_POST['save'])) {
         $image_url = $target_file;
     }
 
-    $query = "INSERT INTO announcements (title, content, category, image, is_published) VALUES ('$title', '$content', '$category', '$image_url', '$is_published')";
+    $query = "INSERT INTO berita (title, content, category, image, is_published) VALUES ('$title', '$content', '$category', '$image_url', '$is_published')";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_berita.php?success=saved");
     } else {
@@ -70,7 +70,7 @@ if (isset($_POST['update'])) {
 
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
-    $query = "DELETE FROM announcements WHERE id='$id'";
+    $query = "DELETE FROM berita WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_berita.php?success=deleted");
     } else {

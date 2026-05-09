@@ -70,7 +70,7 @@ if(!$kepsek) {
 }
 
 $page_title = 'Profil Kepala Sekolah';
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages WHERE is_read=0"))['t'] ?? 0;
+$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'] ?? 0;
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 ?>

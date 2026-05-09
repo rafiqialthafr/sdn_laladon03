@@ -379,44 +379,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 <!-- Lucide Icons (defer) -->
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-<!-- AOS Animation JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
     lucide.createIcons();
 
-    // Secara otomatis menambahkan animasi AOS ke semua elemen card — per section
-    const cardSelectors = [
-        '.content-card', '.timeline-card', '.vismis-card', 
-        '.kepsek-info-card', '.kepsek-history-card', '.teacher-card', 
-        '.facility-card', '.news-card-modern', '.news-sidebar-card', 
-        '.contact-info-card', '.contact-hours-card', '.gallery-item'
-    ];
-    const joinedSelector = cardSelectors.join(', ');
 
-    // Cari semua section/container yang punya card di dalamnya
-    document.querySelectorAll('section, .timeline-container').forEach(section => {
-        const cards = section.querySelectorAll(joinedSelector);
-        cards.forEach((el, idx) => {
-            // Terapkan pada pembungkus col-* agar tidak bentrok dengan CSS hover transition
-            let target = el;
-            if (el.parentElement && el.parentElement.className.includes('col-')) {
-                target = el.parentElement;
-            }
-
-            if (!target.hasAttribute('data-aos')) {
-                target.setAttribute('data-aos', 'fade-up');
-                // Delay berurutan per section: 0, 150, 300, 450 ms dst
-                target.setAttribute('data-aos-delay', (idx * 150).toString());
-            }
-        });
-    });
-
-    // Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out-cubic',
-        once: true,
-        offset: 50
-    });
 </script>

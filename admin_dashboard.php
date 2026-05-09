@@ -7,24 +7,24 @@ if (!isset($_SESSION['admin'])) {
 include 'koneksi.php';
 
 // Stats
-$total_teachers = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM teachers"))['t'];
-$total_published = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE is_published=1"))['t'];
-$total_draft = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE is_published=0"))['t'];
-$total_news = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements"))['t'];
-$total_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages"))['t'];
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages WHERE is_read=0"))['t'];
+$total_teachers = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf"))['t'];
+$total_published = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=1"))['t'];
+$total_draft = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=0"))['t'];
+$total_news = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita"))['t'];
+$total_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan"))['t'];
+$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
 $total_galeri = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM galeri"))['t'];
 
 // Recent teachers
-$recent_teachers = mysqli_query($koneksi, "SELECT * FROM teachers ORDER BY id DESC LIMIT 4");
+$recent_teachers = mysqli_query($koneksi, "SELECT * FROM guru_staf ORDER BY id DESC LIMIT 4");
 // Recent news
-$recent_news = mysqli_query($koneksi, "SELECT * FROM announcements ORDER BY created_at DESC LIMIT 5");
+$recent_news = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY created_at DESC LIMIT 5");
 // Recent messages
-$recent_msgs = mysqli_query($koneksi, "SELECT * FROM contact_messages ORDER BY created_at DESC LIMIT 5");
+$recent_msgs = mysqli_query($koneksi, "SELECT * FROM pesan ORDER BY created_at DESC LIMIT 5");
 
 // Chart data: news per category
 $cat_data = [];
-$res_cat = mysqli_query($koneksi, "SELECT category, COUNT(*) as cnt FROM announcements GROUP BY category");
+$res_cat = mysqli_query($koneksi, "SELECT category, COUNT(*) as cnt FROM berita GROUP BY category");
 while ($row = mysqli_fetch_assoc($res_cat)) {
     $cat_data[$row['category']] = $row['cnt'];
 }
@@ -274,7 +274,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             <div class="admin-card-body p-0">
                                 <?php
                                 $no_act = 0;
-                                $res_act = mysqli_query($koneksi, "SELECT * FROM announcements ORDER BY created_at DESC LIMIT 6");
+                                $res_act = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY created_at DESC LIMIT 6");
                                 while ($act = mysqli_fetch_assoc($res_act)):
                                     $colors = ['pengumuman' => 'rose', 'berita' => 'green', 'event' => 'amber'];
                                     $icons = ['pengumuman' => 'megaphone', 'berita' => 'newspaper', 'event' => 'calendar'];

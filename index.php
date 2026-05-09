@@ -18,7 +18,7 @@ include 'header.php';
         </div>
         <div class="carousel-inner">
 
-            <!-- SLIDE 1 -->
+            <!-- SLIDE 1 — SELAMAT DATANG -->
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="hero-overlay-gold"></div>
                 <img src="img/slider1.jpeg" class="d-block w-100 hero-img"
@@ -47,7 +47,7 @@ include 'header.php';
                 </div>
             </div>
 
-            <!-- SLIDE 2 -->
+            <!-- SLIDE 2 — PRESTASI -->
             <div class="carousel-item" data-bs-interval="5000">
                 <div class="hero-overlay-gold"></div>
                 <img src="img/slider2.jpeg" class="d-block w-100 hero-img"
@@ -69,44 +69,41 @@ include 'header.php';
                         <a href="berita.php" class="btn-gold-primary">
                             <span>Lihat Berita</span>
                         </a>
-                        <a href="fasilitas.php" class="btn-gold-outline">
-                            <span>Fasilitas</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SLIDE 3 -->
-            <div class="carousel-item" data-bs-interval="5000">
-                <div class="hero-overlay-gold"></div>
-                <img src="img/foto3.jpeg" class="d-block w-100 hero-img"
-                    alt="Fasilitas lengkap dan modern SDN Laladon 03" width="1920" height="700" loading="lazy">
-                <div class="carousel-caption hero-content-gold">
-                    <div class="hero-badge-gold animate-fade-in-1">
-                        <span class="badge-icon"><i data-lucide="graduation-cap"
-                                style="width:16px;height:16px;"></i></span>
-                        <span>Guru Bersertifikat</span>
-                    </div>
-                    <h3 class="hero-pretitle animate-fade-in-2">Fasilitas Lengkap</h3>
-                    <h1 class="hero-title-gold animate-fade-in-3">
-                        <span class="text-highlight">MODERN & NYAMAN</span>
-                    </h1>
-                    <p class="hero-subtitle animate-fade-in-4">
-                        Perpustakaan, Lapangan Olahraga, dan Fasilitas Pendukung
-                        Lainnya
-                    </p>
-                    <div class="hero-buttons animate-fade-in-5">
-                        <a href="fasilitas.php" class="btn-gold-primary">
-                            <span>Lihat Fasilitas</span>
-                        </a>
                         <a href="guru_staf.php" class="btn-gold-outline">
                             <span>Tim Pengajar</span>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
 
+            <!-- SLIDE 3 — FASILITAS -->
+            <div class="carousel-item" data-bs-interval="5000">
+                <div class="hero-overlay-gold"></div>
+                <img src="img/perpus.jpeg" class="d-block w-100 hero-img"
+                    alt="Fasilitas lengkap dan modern SDN Laladon 03" width="1920" height="700" loading="lazy">
+                <div class="carousel-caption hero-content-gold">
+                    <div class="hero-badge-gold animate-fade-in-1">
+                        <span class="badge-icon"><i data-lucide="school" style="width:16px;height:16px;"></i></span>
+                        <span>Fasilitas Lengkap</span>
+                    </div>
+                    <h3 class="hero-pretitle animate-fade-in-2">Sarana & Prasarana</h3>
+                    <h1 class="hero-title-gold animate-fade-in-3">
+                        <span class="text-highlight">MODERN & NYAMAN</span>
+                    </h1>
+                    <p class="hero-subtitle animate-fade-in-4">
+                        Perpustakaan, Ruang Kelas Nyaman, dan Fasilitas Pendukung Lainnya.
+                    </p>
+                    <div class="hero-buttons animate-fade-in-5">
+                        <a href="fasilitas.php" class="btn-gold-primary">
+                            <span>Lihat Fasilitas</span>
+                        </a>
+                        <a href="galeri.php" class="btn-gold-outline">
+                            <span>Galeri Foto</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"
             aria-label="Slide sebelumnya">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -298,13 +295,13 @@ if (!$kepsek) {
 
         <div class="row g-4">
             <?php
-            $query_teachers = "SELECT * FROM teachers ORDER BY id ASC LIMIT 4";
+            $query_teachers = "SELECT * FROM guru_staf ORDER BY id ASC LIMIT 4";
             $result_teachers = mysqli_query($koneksi, $query_teachers);
             if (mysqli_num_rows($result_teachers) > 0):
                 $delay = 1;
                 while ($row = mysqli_fetch_assoc($result_teachers)):
                     ?>
-                    <div class="col-md-6 col-lg-3 fade-delay-<?php echo min($delay, 4); ?>">
+                    <div class="col-md-6 col-lg-3">
                         <div class="teacher-card">
                             <div class="teacher-card-img-wrap">
                                 <img src="<?php echo htmlspecialchars($row['photo']); ?>"
@@ -353,7 +350,7 @@ if (!$kepsek) {
 
         <div class="row g-4">
             <?php
-            $query_blog = "SELECT * FROM announcements WHERE is_published=1 ORDER BY created_at DESC LIMIT 3";
+            $query_blog = "SELECT * FROM berita WHERE is_published=1 ORDER BY created_at DESC LIMIT 3";
             $result_blog = mysqli_query($koneksi, $query_blog);
 
             function getCatClassIdx($cat)
@@ -369,7 +366,7 @@ if (!$kepsek) {
                 $d = 1;
                 while ($blog = mysqli_fetch_assoc($result_blog)):
                     ?>
-                    <div class="col-md-4 fade-delay-<?php echo min($d, 4); ?>">
+                    <div class="col-md-4">
                         <div class="news-card-modern">
                             <div class="img-wrap">
                                 <img src="<?php echo htmlspecialchars($blog['image']); ?>"

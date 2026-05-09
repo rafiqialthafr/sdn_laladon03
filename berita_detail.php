@@ -6,7 +6,7 @@ include 'header.php';
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 // Gunakan prepared statement untuk keamanan
-$stmt = mysqli_prepare($koneksi, "SELECT * FROM announcements WHERE id = ? AND is_published = 1");
+$stmt = mysqli_prepare($koneksi, "SELECT * FROM berita WHERE id = ? AND is_published = 1");
 mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
@@ -133,7 +133,7 @@ $cat = $catMap[$row['category']] ?? $catMap['berita'];
                             Berita Terbaru
                         </div>
                         <?php
-                        $lr = mysqli_prepare($koneksi, "SELECT * FROM announcements WHERE is_published = 1 AND id != ? ORDER BY created_at DESC LIMIT 5");
+                        $lr = mysqli_prepare($koneksi, "SELECT * FROM berita WHERE is_published = 1 AND id != ? ORDER BY created_at DESC LIMIT 5");
                         mysqli_stmt_bind_param($lr, 'i', $id);
                         mysqli_stmt_execute($lr);
                         $lr_result = mysqli_stmt_get_result($lr);
@@ -166,7 +166,7 @@ $cat = $catMap[$row['category']] ?? $catMap['berita'];
                             ['slug' => 'event',      'label' => 'Event'],
                         ];
                         foreach ($cats as $c):
-                            $cnt_stmt = mysqli_prepare($koneksi, "SELECT COUNT(*) AS total FROM announcements WHERE is_published = 1 AND category = ?");
+                            $cnt_stmt = mysqli_prepare($koneksi, "SELECT COUNT(*) AS total FROM berita WHERE is_published = 1 AND category = ?");
                             mysqli_stmt_bind_param($cnt_stmt, 's', $c['slug']);
                             mysqli_stmt_execute($cnt_stmt);
                             $cnt = mysqli_fetch_assoc(mysqli_stmt_get_result($cnt_stmt))['total'];

@@ -5,7 +5,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 // Count unread messages for badge
 if (!isset($unread_messages)) {
     include_once 'koneksi.php';
-    $res_unread = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM contact_messages WHERE is_read=0");
+    $res_unread = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM pesan WHERE is_read=0");
     $unread_messages = mysqli_fetch_assoc($res_unread)['total'] ?? 0;
 }
 ?>
@@ -51,6 +51,12 @@ if (!isset($unread_messages)) {
             <a href="admin_galeri.php" class="<?php echo $current_page === 'admin_galeri.php' ? 'active' : ''; ?>">
                 <i data-lucide="image" style="width:17px;height:17px;"></i>
                 Galeri Foto
+            </a>
+        </li>
+        <li>
+            <a href="admin_fasilitas.php" class="<?php echo $current_page === 'admin_fasilitas.php' ? 'active' : ''; ?>">
+                <i data-lucide="building-2" style="width:17px;height:17px;"></i>
+                Fasilitas
             </a>
         </li>
         <li>

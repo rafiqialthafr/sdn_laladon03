@@ -23,7 +23,7 @@ if (isset($_GET['read_all'])) {
 }
 if (isset($_GET['delete_msg'])) {
     $mid = (int) $_GET['delete_msg'];
-    mysqli_query($koneksi, "DELETE FROM contact_messages WHERE id=$mid");
+    mysqli_query($koneksi, "DELETE FROM pesan WHERE id=$mid");
     header("Location: admin_pesan.php");
     exit;
 }
@@ -39,10 +39,10 @@ if ($search)
     $conditions[] = "(nama LIKE '%" . mysqli_real_escape_string($koneksi, $search) . "%' OR subjek LIKE '%" . mysqli_real_escape_string($koneksi, $search) . "%')";
 $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : '';
 
-$res = mysqli_query($koneksi, "SELECT * FROM contact_messages $where ORDER BY created_at DESC");
-$total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages $where"))['t'];
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages WHERE is_read=0"))['t'];
-$total_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages"))['t'];
+$res = mysqli_query($koneksi, "SELECT * FROM pesan $where ORDER BY created_at DESC");
+$total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan $where"))['t'];
+$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
+$total_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan"))['t'];
 
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');

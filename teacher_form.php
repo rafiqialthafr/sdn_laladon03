@@ -15,13 +15,13 @@ $is_edit = false;
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
     $is_edit = true;
-    $row = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM teachers WHERE id='$id'"));
+    $row = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM guru_staf WHERE id='$id'"));
     $name = $row['name'];
     $position = $row['position'];
     $photo = $row['photo'];
 }
 $page_title = $is_edit ? 'Edit Data Guru' : 'Tambah Guru Baru';
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages WHERE is_read=0"))['t'];
+$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 ?>

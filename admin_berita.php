@@ -9,14 +9,14 @@ include 'koneksi.php';
 // Handle delete
 if (isset($_GET['delete'])) {
     $id = (int) $_GET['delete'];
-    mysqli_query($koneksi, "DELETE FROM announcements WHERE id=$id");
+    mysqli_query($koneksi, "DELETE FROM berita WHERE id=$id");
     header("Location: admin_berita.php?success=deleted");
     exit;
 }
 // Handle toggle publish
 if (isset($_GET['toggle'])) {
     $id = (int) $_GET['toggle'];
-    $cur = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT is_published FROM announcements WHERE id=$id"));
+    $cur = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT is_published FROM berita WHERE id=$id"));
     $new = $cur['is_published'] ? 0 : 1;
     mysqli_query($koneksi, "UPDATE announcements SET is_published=$new WHERE id=$id");
     header("Location: admin_berita.php?success=toggled");
@@ -37,10 +37,10 @@ if ($status_f !== '')
     $conditions[] = "is_published=" . (int) $status_f;
 $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : '';
 
-$res = mysqli_query($koneksi, "SELECT * FROM announcements $where ORDER BY created_at DESC");
-$total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements $where"))['t'];
+$res = mysqli_query($koneksi, "SELECT * FROM berita $where ORDER BY created_at DESC");
+$total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita $where"))['t'];
 
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM contact_messages WHERE is_read=0"))['t'];
+$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 ?>
@@ -114,12 +114,12 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                 <!-- Stats -->
                 <div class="row g-3 mb-4">
                     <?php
-                    $s_all = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements"))['t'];
-                    $s_pub = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE is_published=1"))['t'];
-                    $s_drft = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE is_published=0"))['t'];
-                    $s_peng = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE category='pengumuman'"))['t'];
-                    $s_ber = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE category='berita'"))['t'];
-                    $s_evt = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM announcements WHERE category='event'"))['t'];
+                    $s_all = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita"))['t'];
+                    $s_pub = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=1"))['t'];
+                    $s_drft = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=0"))['t'];
+                    $s_peng = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE category='pengumuman'"))['t'];
+                    $s_ber = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE category='berita'"))['t'];
+                    $s_evt = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE category='event'"))['t'];
                     ?>
                     <div class="col-6 col-md-4 col-xl-3">
                         <div class="stat-card">

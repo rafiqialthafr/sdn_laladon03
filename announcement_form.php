@@ -17,7 +17,7 @@ $is_edit = false;
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id'];
     $is_edit = true;
-    $row = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM announcements WHERE id='$id'"));
+    $row = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM berita WHERE id='$id'"));
     $title = $row['title'];
     $content = $row['content'];
     $category = $row['category'];

@@ -193,14 +193,14 @@ if (!$kepsek) {
             ];
             foreach ($history as $i => $person):
                 ?>
-                <div class="col-md-6 col-lg-3 fade-delay-<?php echo $i + 1; ?>">
+                <div class="col-md-6 col-lg-3">
                     <div class="kepsek-history-card">
                         <div class="principal-avatar">
                             <i data-lucide="user" style="width:36px;height:36px;color:#94a3b8;"></i>
                         </div>
-                        <h6 class="fw-bold mb-1" style="color:#;"><?php echo $person['name']; ?></h6>
+                        <h6 class="fw-bold mb-1" style="color:#1a1a2e;"><?php echo $person['name']; ?></h6>
                         <span
-                            style="font-size:0.8rem;font-weight:700;padding:0.25rem 0.85rem;border-radius:50px;background:#FFD700;color:#;">
+                            style="font-size:0.8rem;font-weight:700;padding:0.25rem 0.85rem;border-radius:50px;background:#FFD700;color:#3d1f00;">
                             <?php echo $person['period']; ?>
                         </span>
                     </div>
