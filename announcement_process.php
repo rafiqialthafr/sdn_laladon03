@@ -6,7 +6,7 @@ if (isset($_POST['save'])) {
     $content = $_POST['content'];
     $category = $_POST['category'];
     $is_published = $_POST['is_published'];
-    $image_url = "https://placehold.co/600x400/34495e/ffffff?text=" . urlencode($title);
+    $image_url = '';
 
     if (!empty($_FILES['image']['name'])) {
         $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
@@ -15,8 +15,8 @@ if (isset($_POST['save'])) {
             echo "<script>alert('Format file tidak didukung! Hanya JPG, JPEG, PNG, dan WebP.'); window.history.back();</script>";
             exit;
         }
-        if ($_FILES['image']['size'] > 1 * 1024 * 1024) {
-            echo "<script>alert('Ukuran file terlalu besar! Maksimal 1MB.'); window.history.back();</script>";
+        if ($_FILES['image']['size'] > 3 * 1024 * 1024) {
+            echo "<script>alert('Ukuran file terlalu besar! Maksimal 3MB.'); window.history.back();</script>";
             exit;
         }
         $target_dir = "uploads/";
@@ -49,8 +49,8 @@ if (isset($_POST['update'])) {
             echo "<script>alert('Format file tidak didukung! Hanya JPG, JPEG, PNG, dan WebP.'); window.history.back();</script>";
             exit;
         }
-        if ($_FILES['image']['size'] > 1 * 1024 * 1024) {
-            echo "<script>alert('Ukuran file terlalu besar! Maksimal 1MB.'); window.history.back();</script>";
+        if ($_FILES['image']['size'] > 3 * 1024 * 1024) {
+            echo "<script>alert('Ukuran file terlalu besar! Maksimal 3MB.'); window.history.back();</script>";
             exit;
         }
         $target_dir = "uploads/";
@@ -60,7 +60,7 @@ if (isset($_POST['update'])) {
         $image_url = $target_file;
     }
 
-    $query = "UPDATE announcements SET title='$title', content='$content', category='$category', image='$image_url', is_published='$is_published' WHERE id='$id'";
+    $query = "UPDATE berita SET title='$title', content='$content', category='$category', image='$image_url', is_published='$is_published' WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_berita.php?success=saved");
     } else {
@@ -68,13 +68,5 @@ if (isset($_POST['update'])) {
     }
 }
 
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    $query = "DELETE FROM berita WHERE id='$id'";
-    if (mysqli_query($koneksi, $query)) {
-        header("Location: admin_berita.php?success=deleted");
-    } else {
-        echo "Error: " . mysqli_error($koneksi);
-    }
-}
+
 ?>

@@ -6,8 +6,8 @@ include 'header.php';
 
 <!-- ══════════════════════════════════════════
         HERO SLIDER ══════════════════════════════════════════ -->
-<section id="hero-section">
-    <div id="heroCarousel" class="carousel slide hero-modern" data-bs-ride="carousel" data-bs-touch="true"
+<section id="hero-section" class="hero-section">
+    <div id="heroCarousel" class="hero-carousel carousel slide hero-modern" data-bs-ride="carousel" data-bs-touch="true"
         data-bs-interval="5000">
         <!-- Carousel Indicators (Dots) -->
         <div class="carousel-indicators">
@@ -79,7 +79,7 @@ include 'header.php';
             <!-- SLIDE 3 — FASILITAS -->
             <div class="carousel-item" data-bs-interval="5000">
                 <div class="hero-overlay-gold"></div>
-                <img src="img/perpus.jpeg" class="d-block w-100 hero-img"
+                <img src="img/sliderd.jpeg" class="d-block w-100 hero-img"
                     alt="Fasilitas lengkap dan modern SDN Laladon 03" width="1920" height="700" loading="lazy">
                 <div class="carousel-caption hero-content-gold">
                     <div class="hero-badge-gold animate-fade-in-1">
@@ -147,9 +147,9 @@ include 'header.php';
                     <div class="card-icon-wrap blue mx-auto mb-3">
                         <i data-lucide="clipboard-list" style="width:26px;height:26px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Kurikulum Merdeka</h5>
-                    <p class="text-muted small mb-0">Penilaian empat aspek: pengetahuan, keterampilan, sikap, dan
-                        perilaku secara menyeluruh</p>
+                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Kurikulum Merdeka</h5>
+                    <p class="text-muted small mb-0">Pembelajaran fleksibel, fokus materi esensial, dan penguatan
+                        karakter.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -157,7 +157,7 @@ include 'header.php';
                     <div class="card-icon-wrap green mx-auto mb-3">
                         <i data-lucide="award" style="width:26px;height:26px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Guru Bersertifikat</h5>
+                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Guru Bersertifikat</h5>
                     <p class="text-muted small mb-0">Guru profesional bersertifikasi nasional yang berdedikasi tinggi
                         dan berpengalaman</p>
                 </div>
@@ -167,60 +167,8 @@ include 'header.php';
                     <div class="card-icon-wrap gold mx-auto mb-3">
                         <i data-lucide="layers" style="width:26px;height:26px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Fasilitas Lengkap</h5>
+                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Fasilitas Lengkap</h5>
                     <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, dan Musholla</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- VISI MISI -->
-<section class="py-5" style="background:#f8f9fc;">
-    <div class="container">
-        <div class="section-title-wrapper">
-            <span class="section-label">Identitas Sekolah</span>
-            <h2 class="section-title mt-2">Visi, Misi & Program Kami</h2>
-            <div class="section-divider"></div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
-                    <div class="card-icon-wrap gold mx-auto mb-3">
-                        <i data-lucide="eye" style="width:26px;height:26px;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Visi</h5>
-                    <p class="text-muted small mb-0">Terwujudnya Peserta Didik yang Beriman, Bertakwa, Berkarakter
-                        Mulia, Cerdas, dan Berprestasi.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
-                    <div class="card-icon-wrap blue mx-auto mb-3">
-                        <i data-lucide="rocket" style="width:26px;height:26px;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Misi</h5>
-                    <p class="text-muted small mb-0">Menyelenggarakan pendidikan berkualitas akademik & non-akademik
-                        serta menanamkan nilai karakter.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
-                    <div class="card-icon-wrap green mx-auto mb-3">
-                        <i data-lucide="star" style="width:26px;height:26px;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Program Unggulan</h5>
-                    <p class="text-muted small mb-0">Murotal Qur'an, Literasi Sekolah, dan Pembiasaan
-                        Karakter Islami.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
-                    <div class="card-icon-wrap gold mx-auto mb-3">
-                        <i data-lucide="zap" style="width:26px;height:26px;"></i>
-                    </div>
-                    <h5 class="fw-bold mb-2" style="color:#1a1a2e;">Ekstrakurikuler</h5>
-                    <p class="text-muted small mb-0">Pramuka, Dan Karate.</p>
                 </div>
             </div>
         </div>
@@ -242,13 +190,13 @@ if (!$kepsek) {
     ];
 }
 ?>
-<section id="welcomeSection" class="py-5" style="background:#fff;">
+<section id="welcomeSection" class="welcome-section py-5" style="background:#f8f9fc;">
     <div class="container">
         <div class="row align-items-center g-5">
             <!-- Foto -->
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>"
+                    <img src="<?php echo !empty($kepsek['photo']) ? (strpos($kepsek['photo'], 'img/') === 0 ? htmlspecialchars($kepsek['photo']) : 'img/' . htmlspecialchars($kepsek['photo'])) : 'https://via.placeholder.com/300x400'; ?>"
                         alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
@@ -283,7 +231,7 @@ if (!$kepsek) {
 </section>
 
 <!-- GURU & STAF -->
-<section id="teachersSection" class="py-5" style="background:#f8f9fc;">
+<section id="teachersSection" class="py-5" style="background:#fff;">
     <div class="container">
         <div class="section-title-wrapper">
             <span class="section-label">Tim Kami</span>
@@ -298,7 +246,6 @@ if (!$kepsek) {
             $query_teachers = "SELECT * FROM guru_staf ORDER BY id ASC LIMIT 4";
             $result_teachers = mysqli_query($koneksi, $query_teachers);
             if (mysqli_num_rows($result_teachers) > 0):
-                $delay = 1;
                 while ($row = mysqli_fetch_assoc($result_teachers)):
                     ?>
                     <div class="col-md-6 col-lg-3">
@@ -314,11 +261,7 @@ if (!$kepsek) {
                             </div>
                         </div>
                     </div>
-                    <?php
-                    $delay++;
-                endwhile;
-            else:
-                ?>
+                <?php endwhile; else: ?>
                 <div class="col-12 text-center text-muted py-4">
                     <i data-lucide="users"
                         style="width:40px;height:40px;color:#d1d5db;display:block;margin:0 auto .75rem;"></i>
@@ -338,7 +281,7 @@ if (!$kepsek) {
 </section>
 
 <!-- BERITA TERBARU -->
-<section id="blogSection" class="py-5" style="background:#fff;">
+<section id="blogSection" class="py-5" style="background:#f8f9fc;">
     <div class="container">
         <div class="section-title-wrapper">
             <span class="section-label">Informasi Terkini</span>
@@ -391,11 +334,7 @@ if (!$kepsek) {
                             </div>
                         </div>
                     </div>
-                    <?php
-                    $d++;
-                endwhile;
-            else:
-                ?>
+                <?php endwhile; else: ?>
                 <div class="col-12 text-center text-muted py-4">
                     <i data-lucide="inbox"
                         style="width:40px;height:40px;color:#d1d5db;display:block;margin:0 auto .75rem;"></i>

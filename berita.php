@@ -40,9 +40,9 @@ function getCatLabel($cat)
     <div class="geom-shape shape-1"></div>
     <div class="geom-shape shape-2"></div>
     <div class="geom-shape shape-3"></div>
-    
+
     <div class="container">
-        <div class="row py-5">
+        <div class="row page-header-inner">
             <div class="col-12 text-center">
                 <h1 class="page-header-title"><i data-lucide="newspaper"
                         style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Berita
@@ -65,15 +65,21 @@ function getCatLabel($cat)
                 </a>
                 <a href="berita.php?category=pengumuman"
                     class="news-filter-btn <?php echo $category_filter == 'pengumuman' ? 'active' : ''; ?>">
-                    <i data-lucide="megaphone" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Pengumuman
+                    <i data-lucide="megaphone"
+                        style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i>
+                    Pengumuman
                 </a>
                 <a href="berita.php?category=berita"
                     class="news-filter-btn <?php echo $category_filter == 'berita' ? 'active' : ''; ?>">
-                    <i data-lucide="newspaper" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Berita
+                    <i data-lucide="newspaper"
+                        style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i>
+                    Berita
                 </a>
                 <a href="berita.php?category=event"
                     class="news-filter-btn <?php echo $category_filter == 'event' ? 'active' : ''; ?>">
-                    <i data-lucide="party-popper" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Event
+                    <i data-lucide="party-popper"
+                        style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;"></i>
+                    Event
                 </a>
             </div>
         </div>
@@ -129,7 +135,7 @@ function getCatLabel($cat)
                 <?php if ($category_filter): ?>
                     <a href="berita.php" class="news-filter-btn active mt-3"
                         style="display:inline-flex;align-items:center;gap:0.4rem;">
-                        Lihat Semua Berita  
+                        Lihat Semua Berita
                     </a>
                 <?php endif; ?>
             </div>

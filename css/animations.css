@@ -60,7 +60,7 @@
 ========================================== */
 @media (max-width: 768px) {
     /* Percepat transisi slide Bootstrap */
-    #heroCarousel .carousel-item {
+    .hero-carousel .carousel-item {
         transition-duration: 0.40s;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }

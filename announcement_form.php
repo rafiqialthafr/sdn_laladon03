@@ -30,127 +30,19 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
 <html lang="id">
 
 <head>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $page_title; ?> — Admin SDN Laladon 03</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
-    <style>
-        /* Form card */
-        .form-card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
-            overflow: hidden;
-        }
-
-        .form-card-header {
-            padding: 1.25rem 1.75rem;
-            border-bottom: 1px solid #f3f4f6;
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-        }
-
-        .form-card-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #FFF3CD, #FFE082);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #c8890a;
-        }
-
-        .form-card-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin: 0;
-        }
-
-        .form-card-body {
-            padding: 1.75rem;
-        }
-
-        /* Form elements */
-        .form-label {
-            font-size: .82rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: .4rem;
-        }
-
-        .form-control,
-        .form-select {
-            border: 1.5px solid #e5e7eb;
-            border-radius: 10px;
-            padding: .65rem 1rem;
-            font-size: .875rem;
-            transition: border-color .2s, box-shadow .2s;
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            border-color: #FFD700;
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, .15);
-            outline: none;
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 180px;
-        }
-
-        /* Image preview */
-        .img-preview-wrap {
-            border: 2px dashed #e5e7eb;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-top: .6rem;
-            text-align: center;
-            background: #fafafa;
-        }
-
-        .img-preview-wrap img {
-            max-height: 180px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        /* Status select */
-        .select-published {
-            border-color: #bbf7d0 !important;
-            background: #f0fdf4;
-        }
-
-        .select-draft {
-            border-color: #e5e7eb !important;
-        }
-
-        .topbar-back {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            font-size: .85rem;
-            font-weight: 600;
-            color: #64748b;
-            text-decoration: none;
-            transition: color .2s;
-        }
-
-        .topbar-back:hover {
-            color: #d97706;
-        }
-    </style>
 </head>
 
 <body>
     <div class="admin-wrapper">
         <?php include 'admin_sidebar.php'; ?>
 
-        <div id="admin-content">
+        <div id="admin-content" class="admin-content">
             <div class="admin-topbar">
                 <div class="topbar-left">
                     <button class="sidebar-toggle" id="sidebarToggle">
@@ -214,22 +106,17 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
                                                     style="color:#ef4444;">*</span></label>
                                             <select name="category" class="form-control-admin" required>
                                                 <option value="pengumuman" <?php echo $category == 'pengumuman' ? 'selected' : ''; ?>>Pengumuman</option>
-                                                <option value="berita" <?php echo $category == 'berita' ? 'selected' : ''; ?>>
-                                                    Berita</option>
-                                                <option value="event" <?php echo $category == 'event' ? 'selected' : ''; ?>>
-                                                    Event</option>
+                                                <option value="berita" <?php echo $category == 'berita' ? 'selected' : ''; ?>>Berita</option>
+                                                <option value="event" <?php echo $category == 'event' ? 'selected' : ''; ?>>Event</option>
                                             </select>
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label-admin">Status Publikasi</label>
-                                            <select name="is_published" class="form-control-admin"
-                                                style="<?php echo $is_published ? 'border-color:#bbf7d0;background:#f0fdf4;' : ''; ?>"
-                                                onchange="this.style.borderColor=this.value=='1'?'#bbf7d0':'#e2e8f0'; this.style.backgroundColor=this.value=='1'?'#f0fdf4':'#fff';">
-                                                <option value="1" <?php echo $is_published == 1 ? 'selected' : ''; ?>>
-                                                    Published</option>
-                                                <option value="0" <?php echo $is_published == 0 ? 'selected' : ''; ?>>
-                                                    Draft
-                                                </option>
+                                            <select name="is_published"
+                                                class="form-control-admin <?php echo $is_published ? 'select-published' : 'select-draft'; ?>"
+                                                onchange="this.className='form-control-admin ' + (this.value=='1' ? 'select-published' : 'select-draft');">
+                                                <option value="1" <?php echo $is_published == 1 ? 'selected' : ''; ?>>Published</option>
+                                                <option value="0" <?php echo $is_published == 0 ? 'selected' : ''; ?>>Draft</option>
                                             </select>
                                         </div>
 
@@ -238,7 +125,7 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
                                             <label class="form-label-admin">Gambar Artikel</label>
                                             <input type="file" name="image" class="form-control-admin" accept="image/*"
                                                 style="padding:.5rem .75rem;" onchange="previewImg(this,'imgPreview')">
-                                            <small class="text-muted d-block mt-1">Format: JPG, PNG, WebP. Maks. 1MB.
+                                            <small class="text-muted d-block mt-1">Format: JPG, JPEG, PNG, WebP. Maks. 3MB.
                                                 Biarkan kosong jika tidak ingin mengubah gambar.</small>
                                             <?php if ($is_edit && $image): ?>
                                                 <div class="img-preview-wrap mt-2">
@@ -247,8 +134,7 @@ $page_title = $is_edit ? 'Edit Berita' : 'Tambah Berita';
                                                         style="max-height:180px;border-radius:8px;object-fit:cover;">
                                                 </div>
                                             <?php else: ?>
-                                                <div class="img-preview-wrap mt-2" id="imgPreviewWrap"
-                                                    style="display:none;">
+                                                <div class="img-preview-wrap mt-2" id="imgPreviewWrap" style="display:none;">
                                                     <img id="imgPreview" src="" alt="Preview"
                                                         style="max-height:180px;border-radius:8px;object-fit:cover;">
                                                 </div>

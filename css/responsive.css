@@ -35,7 +35,7 @@ section {
    NAVBAR — DESKTOP HOVER DROPDOWN (≥ 992px)
    ============================================ */
 @media (min-width: 992px) {
-    #mainNavbar .nav-item.dropdown:hover .dropdown-menu {
+    .main-navbar .nav-item.dropdown:hover .dropdown-menu {
         display: block;
         opacity: 1;
         visibility: visible;
@@ -50,14 +50,14 @@ section {
 @media (max-width: 991.98px) {
     .hamburger-btn { display: flex; }
 
-    #mainNavbar .navbar-nav {
+    .main-navbar .navbar-nav {
         align-items: flex-start;
         width: 100%;
         padding-right: 0;
         gap: 0;
     }
 
-    #mainNavbar .navbar-collapse {
+    .main-navbar .navbar-collapse {
         background: #fff;
         padding: 0.75rem 1rem 1.25rem;
         border-radius: 0 0 16px 16px;
@@ -66,14 +66,14 @@ section {
         border-top: 2px solid var(--gold);
     }
 
-    #mainNavbar .nav-link {
+    .main-navbar .nav-link {
         padding: 10px 4px;
         display: flex;
         align-items: center;
         width: 100%;
     }
 
-    #mainNavbar .dropdown-menu {
+    .main-navbar .dropdown-menu {
         box-shadow: none;
         border: none;
         padding-left: 1rem;
@@ -112,7 +112,7 @@ section {
         letter-spacing: 0.5px;
         font-weight: 900;
     }
-    #mainNavbar .container-fluid {
+    .main-navbar .container-fluid {
         padding-left: 0.625rem;
         padding-right: 0.625rem;
     }
@@ -138,7 +138,7 @@ section {
    HERO SLIDER — LARGE DESKTOP (>= 1200px)
    ============================================ */
 @media (min-width: 1200px) {
-    #heroCarousel .carousel-caption {
+    .hero-carousel .carousel-caption {
         max-width: 700px;
     }
 }
@@ -154,7 +154,7 @@ section {
             rgba(26,26,46,0.75) 65%,
             transparent 90%);
     }
-    #heroCarousel .carousel-caption {
+    .hero-carousel .carousel-caption {
         max-width: 520px;
         left: 4%;
         padding: 1.5rem;
@@ -173,7 +173,7 @@ section {
 @media (max-width: 768px) {
 
     /* 1. Ukuran hero: portrait full-height */
-    #heroCarousel,
+    .hero-carousel,
     .carousel-item {
         height: 100dvh;
         min-height: 520px;
@@ -192,7 +192,7 @@ section {
     }
 
     /* 3. Konten: Flex CENTER */
-    #heroCarousel .carousel-caption {
+    .hero-carousel .carousel-caption {
         position: absolute;
         top: 0;
         left: 0;
@@ -315,8 +315,8 @@ section {
         opacity: 1;
         transition: 0s;
     }
-    #hero-section .btn-gold-primary:active,
-    #hero-section .btn-gold-outline:active {
+    .hero-section .btn-gold-primary:active,
+    .hero-section .btn-gold-outline:active {
         transform: scale(0.97);
     }
     .btn-gold-primary:focus-visible,
@@ -402,7 +402,7 @@ section {
 @media (max-width: 375px) {
     .hero-title-gold { font-size: clamp(1.85rem, 10vw, 2.5rem); }
     .hero-subtitle   { font-size: 0.875rem; max-width: 260px; }
-    #heroCarousel .carousel-caption { padding: 4.5rem 3rem 5.5rem; }
+    .hero-carousel .carousel-caption { padding: 4.5rem 3rem 5.5rem; }
     .hero-buttons    { max-width: 260px; }
 }
 
@@ -431,21 +431,21 @@ section {
 /* ============================================
    PAGE HEADER (semua halaman)
    ============================================ */
-/* Default untuk Desktop (override py-5 bawaan bootstrap) */
-.page-header > .container > .row { padding-top: 5.5rem !important; padding-bottom: 5.5rem !important; }
+/* Gunakan .page-header-inner sebagai class khusus row di dalam page-header */
+.page-header .page-header-inner { padding-top: 5.5rem; padding-bottom: 5.5rem; }
 
 @media (max-width: 1024px) {
-    .page-header > .container > .row { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+    .page-header .page-header-inner { padding-top: 4.5rem; padding-bottom: 4.5rem; }
 }
 
 @media (max-width: 767.98px) {
-    .page-header > .container > .row { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    .page-header .page-header-inner { padding-top: 4rem; padding-bottom: 4rem; }
     .page-header-title       { font-size: clamp(1.8rem, 5vw, 2.4rem); }
     .page-header-subtitle    { font-size: 0.9rem; }
 }
 
 @media (max-width: 480px) {
-    .page-header > .container > .row { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+    .page-header .page-header-inner { padding-top: 3.5rem; padding-bottom: 3.5rem; }
     .page-header-title       { font-size: clamp(1.6rem, 6vw, 2.0rem); }
     .page-header-subtitle    { font-size: 0.85rem; }
 }
@@ -485,23 +485,23 @@ section {
 
 /* WELCOME / SAMBUTAN SECTION */
 /* Definisikan sekali di luar media query */
-#welcomeSection .col-md-4 img {
-    width: clamp(240px, 50vw, 300px); /* Range yang cukup untuk semua layar */
+.welcome-section .col-md-4 img {
+    width: clamp(240px, 50vw, 300px);
     height: auto;
     aspect-ratio: 3 / 4;
-    object-fit: cover; /* Agar gambar tidak penyet jika rasionya beda */
+    object-fit: cover;
     display: block;
-    margin: 0 auto; /* Supaya rata tengah di layar kecil */
+    margin: 0 auto;
 }
 
 /* Gunakan media query hanya untuk padding atau layout besar */
 @media (max-width: 767.98px) {
-    #welcomeSection { padding: 3rem 1rem; }
+    .welcome-section { padding: 3rem 1rem; }
 }
 
 @media (max-width: 480px) {
-    #welcomeSection { padding: 2.5rem 0.75rem; }
-    #welcomeSection .col-md-4 img {height: 280px;}
+    .welcome-section { padding: 2.5rem 0.75rem; }
+    .welcome-section .col-md-4 img {height: 280px;}
     .kepsek-quote { font-size: 0.83rem; padding: 1rem; }
 }
 
@@ -535,8 +535,9 @@ section {
 }
 
 
+
 /* ============================================
-   TIMELINE (sejarah.php, kepala_sekolah.php)
+   TIMELINE (kepala_sekolah.php)
    ============================================ */
 @media (max-width: 767.98px) {
     .timeline-container::before { left: 18px; transform: none; }
@@ -563,23 +564,23 @@ section {
 
 
 /* ============================================
-   VISI MISI CARDS (visimisi.php)
+   VISI MISI (visimisi.php)
    ============================================ */
-@media (max-width: 1024px) {
-    .vismis-card      { padding: 2rem 1.75rem; }
-    .vismis-icon-wrap { width: 64px; height: 64px; }
+@media (max-width: 991.98px) {
+    .vm-visi, .vm-misi, .vm-tujuan { padding: 70px 0; }
+    .vm-glass { padding: 32px; }
+    .vm-misi-grid { grid-template-columns: repeat(2, 1fr); }
+    .vm-misi-card:nth-child(n) { grid-column: span 1; }
 }
 
-@media (max-width: 767.98px) {
-    .vismis-card      { padding: 1.75rem 1.5rem; }
-    .vismis-icon-wrap { width: 58px; height: 58px; }
-}
-
-@media (max-width: 480px) {
-    .vismis-card      { padding: 1.5rem 1.25rem; border-radius: 14px; }
-    .vismis-card h4   { font-size: 1.1rem; }
-    .vismis-card p,
-    .vismis-card li   { font-size: 0.9rem; }
+@media (max-width: 575.98px) {
+    .vm-visi, .vm-misi, .vm-tujuan { padding: 50px 0; }
+    .vm-glass { padding: 24px; }
+    .vm-glass-text { font-size: 1.05rem; }
+    .vm-tujuan-grid { grid-template-columns: 1fr; }
+    .vm-misi-grid { grid-template-columns: 1fr; }
+    .vm-misi-card:nth-child(n) { grid-column: 1 / -1; }
+    .vm-misi-card { padding: 28px; }
 }
 
 
@@ -593,12 +594,12 @@ section {
 
 @media (max-width: 767.98px) {
     .kepsek-photo-wrap img   { max-width: 280px; margin: 0 auto; height: auto; aspect-ratio: 3/4; }
-    #welcomeSection .kepsek-photo-wrap { max-width: 100%; }
+    .welcome-section .kepsek-photo-wrap { max-width: 100%; }
     .kepsek-info-card        { padding: 1.5rem; }
     .kepsek-name             { font-size: 1.4rem; }
     .kepsek-quote            { font-size: 0.88rem; padding: 1.25rem; }
     .info-chip                  { font-size: 0.8rem; }
-    .kepsek-history-card     { padding: 1.25rem; }
+
 }
 
 @media (max-width: 480px) {
@@ -674,7 +675,7 @@ section {
 
 @media (max-width: 480px) {
     footer.site-footer { padding-top: 2rem; }
-    .footer-col-title  { font-size: 0.8125rem; }
+    .footer-col-title  { font-size: 1rem; }
 }
 
 
@@ -740,7 +741,7 @@ section {
 /* ── Prevent horizontal overflow — targeted, NOT blanket ── */
 /* JANGAN gunakan .admin-wrapper * { max-width:100% } — itu merusak Bootstrap grid */
 .admin-wrapper { overflow-x: hidden; }
-#admin-content { overflow-x: hidden; min-width: 0; }
+.admin-content { overflow-x: hidden; min-width: 0; }
 .admin-page    { overflow-x: hidden; min-width: 0; }
 
 /* ── Sidebar overlay for mobile ── */
@@ -758,30 +759,34 @@ section {
 .form-panel-sticky { position: sticky; top: 80px; }
 
 /* ── Chart responsive container ── */
+/* Gunakan specificity parent .chart-container untuk override Chart.js inline style */
 .chart-container {
     position: relative;
     width: 100%;
     max-width: 260px;
     margin: 0 auto;
+    overflow: hidden;
 }
 .chart-container canvas {
-    width: 100% !important;
-    height: auto !important;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
 /* ============================================================
    ≤ 1024px — Sidebar collapse (tablet landscape)
    ============================================================ */
 @media (max-width: 1024px) {
-    #admin-sidebar {
+    .admin-sidebar {
         transform: translateX(-260px);
         box-shadow: none;
     }
-    #admin-sidebar.open {
+    .admin-sidebar.open {
         transform: translateX(0);
         box-shadow: 4px 0 24px rgba(0,0,0,.18);
     }
-    #admin-content { margin-left: 0; }
+    .admin-content { margin-left: 0; }
     .sidebar-toggle { display: flex; }
     .form-panel-sticky { position: static; }
 }
@@ -877,16 +882,17 @@ section {
     .page-breadcrumb { font-size: .72rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* ── STAT CARDS: tetap 2 kolom di HP ── */
+    /* Gunakan .admin-wrapper sebagai parent scope agar lebih spesifik dari Bootstrap grid */
     .admin-wrapper .row.g-3 > [class*="col-6"] {
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 50%;
     }
     .stat-value { font-size: 1.25rem; }
     .stat-card  { padding: .75rem .875rem; gap: .75rem; border-radius: 12px; }
     .stat-icon  { width: 38px; height: 38px; border-radius: 10px; }
-    .stat-icon svg,
-    .stat-icon i { width: 18px !important; height: 18px !important; }
+    .admin-wrapper .stat-icon svg,
+    .admin-wrapper .stat-icon i { width: 18px; height: 18px; }
     .stat-label { font-size: .72rem; }
 
     /* ── CHART: compact di HP ── */
@@ -956,9 +962,9 @@ section {
 
 /* ── Message card: header stacks on narrow screens ── */
 @media (max-width: 560px) {
-    .msg-card .d-flex.align-items-center.justify-content-between {
+    .msg-card .msg-card-header {
         flex-direction: column;
-        align-items: flex-start !important;
+        align-items: flex-start;
         gap: .4rem;
     }
 }

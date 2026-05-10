@@ -6,9 +6,9 @@
     <div class="geom-shape shape-1"></div>
     <div class="geom-shape shape-2"></div>
     <div class="geom-shape shape-3"></div>
-    
+
     <div class="container">
-        <div class="row py-5">
+        <div class="row page-header-inner">
             <div class="col-12 text-center">
                 <h1 class="page-header-title"><i data-lucide="building-2"
                         style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Fasilitas
@@ -37,30 +37,29 @@
 
             if (mysqli_num_rows($result_facilities) > 0):
                 while ($row = mysqli_fetch_assoc($result_facilities)):
-            ?>
-            <div class="col-md-6 col-lg-4">
-                <div class="facility-card">
-                    <div class="facility-img-wrap">
-                        <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
-                        <div class="facility-img-overlay"></div>
-                        <div class="facility-img-icon">
-                            <i data-lucide="<?php echo htmlspecialchars($row['icon']); ?>" style="width:22px;height:22px;"></i>
+                    ?>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="facility-card">
+                            <div class="facility-img-wrap">
+                                <img src="<?php echo htmlspecialchars($row['image']); ?>"
+                                    alt="<?php echo htmlspecialchars($row['name']); ?>">
+                                <div class="facility-img-overlay"></div>
+
+                            </div>
+                            <div class="facility-body">
+                                <h5 class="facility-name"><?php echo htmlspecialchars($row['name']); ?></h5>
+                                <p class="facility-desc"><?php echo htmlspecialchars($row['description']); ?></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="facility-body">
-                        <h5 class="facility-name"><?php echo htmlspecialchars($row['name']); ?></h5>
-                        <p class="facility-desc"><?php echo htmlspecialchars($row['description']); ?></p>
-                    </div>
-                </div>
-            </div>
-            <?php 
+                    <?php
                 endwhile;
             else:
-            ?>
-            <div class="col-12 text-center py-5 text-muted">
-                <i data-lucide="building-2" style="width:48px;height:48px;color:#d1d5db;margin-bottom:1rem;"></i>
-                <p>Data fasilitas belum tersedia.</p>
-            </div>
+                ?>
+                <div class="col-12 text-center py-5 text-muted">
+                    <i data-lucide="building-2" style="width:48px;height:48px;color:#d1d5db;margin-bottom:1rem;"></i>
+                    <p>Data fasilitas belum tersedia.</p>
+                </div>
             <?php endif; ?>
         </div>
     </div>

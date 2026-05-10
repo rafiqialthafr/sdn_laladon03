@@ -9,18 +9,14 @@ include 'koneksi.php';
 // Stats
 $total_teachers = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf"))['t'];
 $total_published = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=1"))['t'];
-$total_draft = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=0"))['t'];
-$total_news = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita"))['t'];
-$total_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan"))['t'];
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
 $total_galeri = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM galeri"))['t'];
+$total_fasilitas = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM fasilitas"))['t'];
 
 // Recent teachers
 $recent_teachers = mysqli_query($koneksi, "SELECT * FROM guru_staf ORDER BY id DESC LIMIT 4");
 // Recent news
 $recent_news = mysqli_query($koneksi, "SELECT * FROM berita ORDER BY created_at DESC LIMIT 5");
-// Recent messages
-$recent_msgs = mysqli_query($koneksi, "SELECT * FROM pesan ORDER BY created_at DESC LIMIT 5");
+
 
 // Chart data: news per category
 $cat_data = [];
@@ -36,6 +32,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
 <html lang="id">
 
 <head>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard — Admin SDN Laladon 03</title>
@@ -48,7 +45,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
 
         <?php include 'admin_sidebar.php'; ?>
 
-        <div id="admin-content">
+        <div id="admin-content" class="admin-content">
 
             <!-- Topbar -->
             <div class="admin-topbar">
@@ -62,18 +59,11 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     </div>
                 </div>
                 <div class="topbar-right">
-                    <?php if ($unread_messages > 0): ?>
-                        <a href="admin_pesan.php" class="topbar-notif" title="Pesan belum dibaca"
-                            style="text-decoration:none;">
-                            <i data-lucide="bell" style="width:17px;height:17px;"></i>
-                            <span class="notif-dot"></span>
-                        </a>
-                    <?php endif; ?>
-                    <div class="d-none d-md-block text-end">
+                    <div class="topbar-user-text text-end">
                         <p class="topbar-user-name">Administrator</p>
                         <p class="topbar-user-role">Super Admin</p>
                     </div>
-                    <div class="topbar-avatar">R</div>
+                    <div class="topbar-avatar">A</div>
                 </div>
             </div>
 
@@ -113,11 +103,11 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     <div class="col-6 col-xl-3">
                         <div class="stat-card">
                             <div class="stat-icon purple">
-                                <i data-lucide="file-clock" style="width:24px;height:24px;"></i>
+                                <i data-lucide="building-2" style="width:24px;height:24px;"></i>
                             </div>
                             <div class="stat-info">
-                                <div class="stat-value"><?php echo $total_draft; ?></div>
-                                <div class="stat-label">Draft Berita</div>
+                                <div class="stat-value"><?php echo $total_fasilitas; ?></div>
+                                <div class="stat-label">Fasilitas</div>
                             </div>
                         </div>
                     </div>
@@ -132,95 +122,9 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-xl-3">
-                        <div class="stat-card"
-                            style="<?php echo $unread_messages > 0 ? 'border-color:#fcd34d;' : ''; ?>">
-                            <div class="stat-icon rose">
-                                <i data-lucide="mail" style="width:24px;height:24px;"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-value"><?php echo $total_messages; ?></div>
-                                <div class="stat-label">Total Pesan
-                                    <?php if ($unread_messages > 0): ?>
-                                        <span
-                                            style="background:#ef4444;color:#fff;font-size:.6rem;font-weight:700;padding:.1rem .4rem;border-radius:50px;margin-left:.25rem;"><?php echo $unread_messages; ?>
-                                            baru</span>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-xl-3">
-                        <div class="stat-card">
-                            <div class="stat-icon blue">
-                                <i data-lucide="newspaper" style="width:24px;height:24px;"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-value"><?php echo $total_news; ?></div>
-                                <div class="stat-label">Total Berita</div>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
-
-
-                <script>
-                (function() {
-                    const dropZone = document.getElementById('dropZone');
-                    const fileInput = document.getElementById('fileInput');
-                    const filePreview = document.getElementById('filePreview');
-                    const previewImg = document.getElementById('previewImg');
-                    const fileNameEl = document.getElementById('fileName');
-                    const fileSizeEl = document.getElementById('fileSize');
-                    const removeBtn = document.getElementById('removeFile');
-
-                    dropZone.addEventListener('click', () => fileInput.click());
-
-                    dropZone.addEventListener('dragover', (e) => {
-                        e.preventDefault();
-                        dropZone.style.borderColor = '#FFD700';
-                        dropZone.style.background = 'rgba(255,215,0,0.05)';
-                    });
-
-                    dropZone.addEventListener('dragleave', () => {
-                        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
-                        dropZone.style.background = 'rgba(255,255,255,0.02)';
-                    });
-
-                    dropZone.addEventListener('drop', (e) => {
-                        e.preventDefault();
-                        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
-                        dropZone.style.background = 'rgba(255,255,255,0.02)';
-                        if (e.dataTransfer.files.length) {
-                            fileInput.files = e.dataTransfer.files;
-                            showPreview(e.dataTransfer.files[0]);
-                        }
-                    });
-
-                    fileInput.addEventListener('change', () => {
-                        if (fileInput.files.length) showPreview(fileInput.files[0]);
-                    });
-
-                    removeBtn.addEventListener('click', () => {
-                        fileInput.value = '';
-                        filePreview.style.display = 'none';
-                        dropZone.style.display = 'block';
-                    });
-
-                    function showPreview(file) {
-                        const reader = new FileReader();
-                        reader.onload = (e) => {
-                            previewImg.src = e.target.result;
-                            fileNameEl.textContent = file.name;
-                            fileSizeEl.textContent = (file.size / 1024).toFixed(1) + ' KB';
-                            filePreview.style.display = 'block';
-                            dropZone.style.display = 'none';
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                })();
-                </script>
-
                 <!-- Charts + Activity Row -->
                 <div class="row g-3 mb-4">
                     <!-- Donut Chart -->
@@ -368,48 +272,8 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                 </div>
             </div><!-- /row -->
 
-            <!-- Recent Messages + Recent Gallery -->
+            <!-- Galeri + Fasilitas Row -->
             <div class="row g-3 mt-1 mb-4">
-                <!-- Recent Messages -->
-                <div class="col-lg-6">
-                    <div class="admin-card h-100">
-                        <div class="admin-card-header">
-                            <h5 class="admin-card-title">
-                                <i data-lucide="mail"></i>
-                                Pesan Masuk Terbaru
-                            </h5>
-                            <a href="admin_pesan.php" class="btn-admin btn-admin-secondary"
-                                style="font-size:.75rem;padding:.4rem .8rem;">Lihat Semua</a>
-                        </div>
-                        <div class="admin-card-body p-0">
-                            <?php if (mysqli_num_rows($recent_msgs) > 0):
-                                while ($m = mysqli_fetch_assoc($recent_msgs)): ?>
-                                    <div class="activity-item px-4">
-                                        <div class="activity-dot <?php echo $m['is_read'] ? 'blue' : 'amber'; ?>">
-                                            <i data-lucide="<?php echo $m['is_read'] ? 'mail-open' : 'mail'; ?>"
-                                                style="width:15px;height:15px;"></i>
-                                        </div>
-                                        <div style="flex:1;min-width:0;">
-                                            <div class="activity-text"
-                                                style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                                <strong><?php echo htmlspecialchars($m['nama']); ?></strong> -
-                                                <?php echo htmlspecialchars($m['subjek']); ?>
-                                            </div>
-                                            <div class="activity-time">
-                                                <?php echo date('d M Y H:i', strtotime($m['created_at'])); ?>
-                                                <?php if (!$m['is_read']): ?>
-                                                    &middot; <span style="color:#f59e0b;font-weight:600;">Baru</span>
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endwhile; else: ?>
-                                <div class="p-4 text-center text-muted" style="font-size:.85rem;">Belum ada pesan masuk.
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Recent Gallery -->
                 <div class="col-lg-6">
@@ -448,6 +312,45 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                         </div>
                     </div>
                 </div>
+
+                <!-- Recent Fasilitas -->
+                <div class="col-lg-6">
+                    <div class="admin-card h-100">
+                        <div class="admin-card-header">
+                            <h5 class="admin-card-title">
+                                <i data-lucide="building-2"></i>
+                                Fasilitas
+                            </h5>
+                            <a href="admin_fasilitas.php" class="btn-admin btn-admin-secondary"
+                                style="font-size:.75rem;padding:.4rem .8rem;">Kelola Fasilitas</a>
+                        </div>
+                        <div class="admin-card-body p-0">
+                            <?php
+                            $recent_fasilitas = mysqli_query($koneksi, "SELECT * FROM fasilitas ORDER BY id DESC LIMIT 5");
+                            if (mysqli_num_rows($recent_fasilitas) > 0):
+                                while ($f = mysqli_fetch_assoc($recent_fasilitas)):
+                            ?>
+                                <div class="activity-item px-4">
+                                    <div style="width:40px;height:40px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#f1f5f9;">
+                                        <img src="<?php echo htmlspecialchars($f['image']); ?>"
+                                            style="width:100%;height:100%;object-fit:cover;" alt="">
+                                    </div>
+                                    <div style="flex:1;min-width:0;">
+                                        <div class="activity-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                            <strong><?php echo htmlspecialchars($f['name']); ?></strong>
+                                        </div>
+                                        <div class="activity-time" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                            <?php echo htmlspecialchars($f['description'] ?: '—'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile; else: ?>
+                                <div class="p-4 text-center text-muted" style="font-size:.85rem;">Belum ada fasilitas.</div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
             </div><!-- /row -->
         </div><!-- /admin-page -->
     </div><!-- /admin-content -->
@@ -502,7 +405,5 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
         });
     </script>
 </body>
-
-</html>
 
 </html>

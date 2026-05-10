@@ -5,8 +5,7 @@ include 'koneksi.php';
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $position = $_POST['position'];
-    $bio = '';
-    $photo_url = "https://placehold.co/400x400/34495e/ffffff?text=" . urlencode($name); // Default placeholder
+    $photo_url = "https://placehold.co/400x400/34495e/ffffff?text=" . urlencode($name);
     
     if (!empty($_FILES['photo']['name'])) {
         $ext = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
@@ -15,8 +14,8 @@ if (isset($_POST['save'])) {
             echo "<script>alert('Format file tidak didukung! Hanya JPG, JPEG, dan PNG.'); window.history.back();</script>";
             exit;
         }
-        if ($_FILES['photo']['size'] > 1 * 1024 * 1024) {
-            echo "<script>alert('Ukuran file terlalu besar! Maksimal 1MB.'); window.history.back();</script>";
+        if ($_FILES['photo']['size'] > 3 * 1024 * 1024) {
+            echo "<script>alert('Ukuran file terlalu besar! Maksimal 3MB.'); window.history.back();</script>";
             exit;
         }
         $target_dir = "uploads/";
@@ -26,7 +25,7 @@ if (isset($_POST['save'])) {
         $photo_url = $target_file;
     }
 
-    $query = "INSERT INTO guru_staf (name, position, photo, bio) VALUES ('$name', '$position', '$photo_url', '$bio')";
+    $query = "INSERT INTO guru_staf (name, position, photo) VALUES ('$name', '$position', '$photo_url')";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_guru.php?success=saved");
     } else {
@@ -39,7 +38,6 @@ if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $position = $_POST['position'];
-    $bio = '';
     $photo_url = $_POST['existing_photo'];
 
     if (!empty($_FILES['photo']['name'])) {
@@ -49,8 +47,8 @@ if (isset($_POST['update'])) {
             echo "<script>alert('Format file tidak didukung! Hanya JPG, JPEG, dan PNG.'); window.history.back();</script>";
             exit;
         }
-        if ($_FILES['photo']['size'] > 1 * 1024 * 1024) {
-            echo "<script>alert('Ukuran file terlalu besar! Maksimal 1MB.'); window.history.back();</script>";
+        if ($_FILES['photo']['size'] > 3 * 1024 * 1024) {
+            echo "<script>alert('Ukuran file terlalu besar! Maksimal 3MB.'); window.history.back();</script>";
             exit;
         }
         $target_dir = "uploads/";
@@ -60,7 +58,7 @@ if (isset($_POST['update'])) {
         $photo_url = $target_file;
     }
 
-    $query = "UPDATE teachers SET name='$name', position='$position', photo='$photo_url', bio='$bio' WHERE id='$id'";
+    $query = "UPDATE guru_staf SET name='$name', position='$position', photo='$photo_url' WHERE id='$id'";
     if (mysqli_query($koneksi, $query)) {
         header("Location: admin_guru.php?success=saved");
     } else {

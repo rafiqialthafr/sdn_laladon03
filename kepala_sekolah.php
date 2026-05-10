@@ -25,9 +25,9 @@ if (!$kepsek) {
     <div class="geom-shape shape-1"></div>
     <div class="geom-shape shape-2"></div>
     <div class="geom-shape shape-3"></div>
-    
+
     <div class="container">
-        <div class="row py-5">
+        <div class="row page-header-inner">
             <div class="col-12 text-center">
                 <h1 class="page-header-title"><i data-lucide="user-round-cog"
                         style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Kepala
@@ -51,7 +51,7 @@ if (!$kepsek) {
             <!-- Foto -->
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>"
+                    <img src="<?php echo !empty($kepsek['photo']) ? (strpos($kepsek['photo'], 'img/') === 0 ? htmlspecialchars($kepsek['photo']) : 'img/' . htmlspecialchars($kepsek['photo'])) : 'https://via.placeholder.com/300x400'; ?>"
                         alt="<?php echo htmlspecialchars($kepsek['name']); ?>">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
@@ -107,107 +107,27 @@ if (!$kepsek) {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="timeline-container">
-                    <!-- Riwayat Pendidikan -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">1974</span>
-                            <h5>Sekolah Dasar (SD)</h5>
-                            <p>SDN Kota Batu 1 — Menempuh pendidikan dasar.</p>
+                    <?php
+                    $res_riwayat = mysqli_query($koneksi, "SELECT * FROM kepsek_riwayat ORDER BY urutan ASC");
+                    $i = 0;
+                    while ($r = mysqli_fetch_assoc($res_riwayat)):
+                        $side = ($i % 2 === 0) ? '' : 'right';
+                        $i++;
+                        ?>
+                        <div class="timeline-item <?php echo $side; ?>">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card">
+                                <span class="timeline-year-badge"><?php echo htmlspecialchars($r['tahun']); ?></span>
+                                <h5><?php echo htmlspecialchars($r['judul']); ?></h5>
+                                <p><?php echo htmlspecialchars($r['deskripsi']); ?></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">1980</span>
-                            <h5>Sekolah Menengah Pertama (SMP)</h5>
-                            <p>SMP YP 17 — Menempuh pendidikan menengah pertama.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">1983</span>
-                            <h5>Sekolah Menengah Atas (SMA)</h5>
-                            <p>SMA SPG PGRI — Menempuh pendidikan menengah atas.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">2004 – 2006</span>
-                            <h5>S1 Pendidikan Guru Sekolah Dasar</h5>
-                            <p>Universitas Terbuka — Meraih gelar Sarjana Pendidikan (S.Pd.).</p>
-                        </div>
-                    </div>
-
-                    <!-- Riwayat Karir -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">2022 – 2025</span>
-                            <h5>Kepala Sekolah — SDN Ciomas 07</h5>
-                            <p>Menjabat sebagai Kepala Sekolah di SDN Ciomas 07.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">2025</span>
-                            <h5>PLT Kepala Sekolah — SDN Kota Batu 1</h5>
-                            <p>Ditunjuk sebagai Pelaksana Tugas (PLT) Kepala Sekolah di SDN Kota Batu 1.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-card">
-                            <span class="timeline-year-badge">2025 – Sekarang</span>
-                            <h5>Kepala Sekolah — SDN Laladon 03</h5>
-                            <p>Menjabat sebagai Kepala Sekolah SDN Laladon 03 hingga sekarang.</p>
-                        </div>
-                    </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Kepala Sekolah dari Masa ke Masa -->
-<section class="py-5 bg-white">
-    <div class="container">
-        <div class="section-title-wrapper">
-            <span class="section-label">Sejarah Kepemimpinan</span>
-            <h2 class="section-title mt-2">Kepala Sekolah dari Masa ke Masa</h2>
-            <div class="section-divider"></div>
-            <p class="section-desc">Dedikasi para pemimpin yang telah membangun SDN Laladon 03 menjadi sekolah yang kita
-                banggakan hari ini.</p>
-        </div>
-
-        <div class="row g-4">
-            <?php
-            $history = [
-                ['name' => 'Drs. H. Ahmad Sanusi', 'period' => '1985 – 1995'],
-                ['name' => 'Hj. Siti Aminah, S.Pd.', 'period' => '1995 – 2005'],
-                ['name' => 'Budi Santoso, M.Pd.', 'period' => '2005 – 2015'],
-                ['name' => 'Ratna Dewi, S.Pd.SD.', 'period' => '2015 – 2022'],
-            ];
-            foreach ($history as $i => $person):
-                ?>
-                <div class="col-md-6 col-lg-3">
-                    <div class="kepsek-history-card">
-                        <div class="principal-avatar">
-                            <i data-lucide="user" style="width:36px;height:36px;color:#94a3b8;"></i>
-                        </div>
-                        <h6 class="fw-bold mb-1" style="color:#1a1a2e;"><?php echo $person['name']; ?></h6>
-                        <span
-                            style="font-size:0.8rem;font-weight:700;padding:0.25rem 0.85rem;border-radius:50px;background:#FFD700;color:#3d1f00;">
-                            <?php echo $person['period']; ?>
-                        </span>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
 
 <?php include 'footer.php'; ?>

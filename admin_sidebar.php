@@ -1,18 +1,11 @@
 <?php
 // Determine current page for active state
 $current_page = basename($_SERVER['PHP_SELF']);
-
-// Count unread messages for badge
-if (!isset($unread_messages)) {
-    include_once 'koneksi.php';
-    $res_unread = mysqli_query($koneksi, "SELECT COUNT(*) as total FROM pesan WHERE is_read=0");
-    $unread_messages = mysqli_fetch_assoc($res_unread)['total'] ?? 0;
-}
 ?>
 <!-- Overlay for mobile -->
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<nav id="admin-sidebar">
+<nav id="admin-sidebar" class="admin-sidebar">
     <div class="sidebar-brand">
         <div class="sidebar-brand-icon">
             <i data-lucide="school" style="width:22px;height:22px;"></i>
@@ -26,7 +19,8 @@ if (!isset($unread_messages)) {
     <div class="sidebar-section-label">Overview</div>
     <ul class="sidebar-nav">
         <li>
-            <a href="admin_dashboard.php" class="<?php echo $current_page === 'admin_dashboard.php' ? 'active' : ''; ?>">
+            <a href="admin_dashboard.php"
+                class="<?php echo $current_page === 'admin_dashboard.php' ? 'active' : ''; ?>">
                 <i data-lucide="layout-dashboard" style="width:17px;height:17px;"></i>
                 Dashboard
             </a>
@@ -54,20 +48,13 @@ if (!isset($unread_messages)) {
             </a>
         </li>
         <li>
-            <a href="admin_fasilitas.php" class="<?php echo $current_page === 'admin_fasilitas.php' ? 'active' : ''; ?>">
+            <a href="admin_fasilitas.php"
+                class="<?php echo $current_page === 'admin_fasilitas.php' ? 'active' : ''; ?>">
                 <i data-lucide="building-2" style="width:17px;height:17px;"></i>
                 Fasilitas
             </a>
         </li>
-        <li>
-            <a href="admin_pesan.php" class="<?php echo $current_page === 'admin_pesan.php' ? 'active' : ''; ?>">
-                <i data-lucide="mail" style="width:17px;height:17px;"></i>
-                Pesan Masuk
-                <?php if ($unread_messages > 0): ?>
-                <span class="sidebar-badge"><?php echo $unread_messages; ?></span>
-                <?php endif; ?>
-            </a>
-        </li>
+
         <li>
             <a href="admin_kepsek.php" class="<?php echo $current_page === 'admin_kepsek.php' ? 'active' : ''; ?>">
                 <i data-lucide="user-round-cog" style="width:17px;height:17px;"></i>
@@ -94,3 +81,33 @@ if (!isset($unread_messages)) {
         </a>
     </div>
 </nav>
+
+<!-- Auto-Hide Alerts Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const alerts = document.querySelectorAll('.alert-admin');
+    
+    // Hapus parameter URL agar saat di-refresh alert tidak muncul lagi
+    if (alerts.length > 0 && window.history.replaceState) {
+        const url = new URL(window.location);
+        url.searchParams.delete('success');
+        url.searchParams.delete('error');
+        url.searchParams.delete('msg'); // jaga-jaga kalau ada parameter msg
+        window.history.replaceState(null, null, url.toString());
+    }
+
+    alerts.forEach(function(alert) {
+        // Biarkan alert tampil selama 3 detik, lalu mulai animasi fade out
+        setTimeout(function() {
+            alert.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            alert.style.opacity = '0';
+            alert.style.transform = 'translateY(-10px)';
+            
+            // Hapus dari DOM setelah animasi selesai
+            setTimeout(function() {
+                alert.style.display = 'none';
+            }, 500);
+        }, 3000);
+    });
+});
+</script>

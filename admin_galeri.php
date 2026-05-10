@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
         if (in_array($ext, $allowed)) {
-            if ($_FILES['foto']['size'] > 1 * 1024 * 1024) {
-                $error_msg = 'Ukuran file terlalu besar! Maksimal 1MB.';
+            if ($_FILES['foto']['size'] > 3 * 1024 * 1024) {
+                $error_msg = 'Ukuran file terlalu besar! Maksimal 3MB.';
             } else {
                 $dir = 'uploads/galeri/';
                 if (!is_dir($dir))
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $foto_url = $dir . $fname;
             }
         } else {
-            $error_msg = 'Format file tidak didukung. Gunakan JPG, PNG, atau WEBP.';
+            $error_msg = 'Format file tidak didukung. Gunakan JPG, JPEG, PNG, atau WEBP.';
         }
     } elseif (!empty($_POST['foto_url'])) {
         $foto_url = trim($_POST['foto_url']);
@@ -95,7 +95,7 @@ while ($krow = mysqli_fetch_assoc($rk))
     $stats_kat[$krow['kategori']] = $krow['cnt'];
 $total_all = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM galeri"))['t'];
 
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
+$unread_messages = 0;
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 
@@ -105,181 +105,19 @@ $show_modal = $edit_data || $error_msg;
 <html lang="id">
 
 <head>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Galeri — Admin SDN Laladon 03</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
-    <style>
-        .cat-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: .35rem;
-            font-size: .7rem;
-            font-weight: 700;
-            padding: .25rem .65rem;
-            border-radius: 50px;
-            text-transform: uppercase;
-            letter-spacing: .3px;
-        }
-
-        .cat-kegiatan {
-            background: #dbeafe;
-            color: #1d4ed8;
-        }
-
-        .cat-prestasi {
-            background: #dcfce7;
-            color: #15803d;
-        }
-
-        .cat-wisuda {
-            background: #f3e8ff;
-            color: #7c3aed;
-        }
-
-        .cat-lainnya {
-            background: #f1f5f9;
-            color: #64748b;
-        }
-
-        .galeri-thumb {
-            width: 64px;
-            height: 48px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1.5px solid #f1f5f9;
-            transition: transform .2s;
-        }
-
-        .galeri-thumb:hover {
-            transform: scale(1.8);
-            z-index: 10;
-            position: relative;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
-            border-color: #fcd34d;
-        }
-
-        /* Modal Overlay */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .5);
-            backdrop-filter: blur(4px);
-            z-index: 1050;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all .3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-panel {
-            background: #fff;
-            border-radius: 20px;
-            width: 95%;
-            max-width: 520px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2rem;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, .2);
-            transform: translateY(30px) scale(.95);
-            transition: all .3s ease;
-        }
-
-        .modal-overlay.active .modal-panel {
-            transform: translateY(0) scale(1);
-        }
-
-        .modal-header-custom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-header-custom h5 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0f172a;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            margin: 0;
-        }
-
-        .modal-close {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            border: 1.5px solid #e2e8f0;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all .2s;
-            color: #64748b;
-        }
-
-        .modal-close:hover {
-            background: #fef2f2;
-            border-color: #fca5a5;
-            color: #ef4444;
-        }
-
-        .edit-preview-img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1.5px solid #fcd34d;
-            margin-bottom: 1rem;
-        }
-
-        .filter-bar {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-pill {
-            font-size: .78rem;
-            padding: .4rem .85rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1.5px solid #e2e8f0;
-            color: #475569;
-            background: #fff;
-            transition: all .2s;
-        }
-
-        .filter-pill:hover {
-            border-color: #fcd34d;
-            color: #d97706;
-        }
-
-        .filter-pill.active {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: #fff;
-            border-color: transparent;
-        }
-    </style>
 </head>
 
 <body>
     <div class="admin-wrapper">
         <?php include 'admin_sidebar.php'; ?>
 
-        <div id="admin-content">
+        <div id="admin-content" class="admin-content">
             <div class="admin-topbar">
                 <div class="topbar-left">
                     <button class="sidebar-toggle" id="sidebarToggle">
@@ -291,13 +129,7 @@ $show_modal = $edit_data || $error_msg;
                     </div>
                 </div>
                 <div class="topbar-right">
-                    <?php if ($unread_messages > 0): ?>
-                        <a href="admin_pesan.php" class="topbar-notif" style="text-decoration:none;" title="Pesan baru">
-                            <i data-lucide="bell" style="width:17px;height:17px;"></i>
-                            <span class="notif-dot"></span>
-                        </a>
-                    <?php endif; ?>
-                    <div class="d-none d-md-block text-end">
+                    <div class="topbar-user-text text-end">
                         <p class="topbar-user-name">Administrator</p>
                         <p class="topbar-user-role">Super Admin</p>
                     </div>
@@ -530,7 +362,7 @@ $show_modal = $edit_data || $error_msg;
                     <label class="form-label-admin">Upload Foto</label>
                     <input type="file" name="foto" class="form-control-admin" accept="image/*"
                         style="padding:.5rem .75rem;" id="modalFotoInput">
-                    <div style="font-size:.73rem;color:#94a3b8;margin-top:.4rem;">Format: JPG, PNG, WEBP. Maks. 1MB</div>
+                    <div style="font-size:.73rem;color:#94a3b8;margin-top:.4rem;">Format: JPG, JPEG, PNG, WEBP. Maks. 3MB</div>
                     <img id="modalPreviewImg" style="display:none;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-top:.75rem;border:1.5px solid #e2e8f0;" alt="">
                 </div>
                 <div class="mb-4">

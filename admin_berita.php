@@ -18,14 +18,14 @@ if (isset($_GET['toggle'])) {
     $id = (int) $_GET['toggle'];
     $cur = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT is_published FROM berita WHERE id=$id"));
     $new = $cur['is_published'] ? 0 : 1;
-    mysqli_query($koneksi, "UPDATE announcements SET is_published=$new WHERE id=$id");
+    mysqli_query($koneksi, "UPDATE berita SET is_published=$new WHERE id=$id");
     header("Location: admin_berita.php?success=toggled");
     exit;
 }
 
-$success = $_GET['success'] ?? '';
-$search = trim($_GET['q'] ?? '');
-$cat_f = $_GET['cat'] ?? '';
+$success  = $_GET['success'] ?? '';
+$search   = trim($_GET['q'] ?? '');
+$cat_f    = $_GET['cat'] ?? '';
 $status_f = $_GET['status'] ?? '';
 
 $conditions = [];
@@ -37,17 +37,17 @@ if ($status_f !== '')
     $conditions[] = "is_published=" . (int) $status_f;
 $where = $conditions ? "WHERE " . implode(" AND ", $conditions) : '';
 
-$res = mysqli_query($koneksi, "SELECT * FROM berita $where ORDER BY created_at DESC");
+$res   = mysqli_query($koneksi, "SELECT * FROM berita $where ORDER BY created_at DESC");
 $total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita $where"))['t'];
 
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
-$hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+$hari  = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 ?>
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Berita — Admin SDN Laladon 03</title>
@@ -59,7 +59,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
     <div class="admin-wrapper">
         <?php include 'admin_sidebar.php'; ?>
 
-        <div id="admin-content">
+        <div id="admin-content" class="admin-content">
             <div class="admin-topbar">
                 <div class="topbar-left">
                     <button class="sidebar-toggle" id="sidebarToggle">
@@ -71,13 +71,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     </div>
                 </div>
                 <div class="topbar-right">
-                    <?php if ($unread_messages > 0): ?>
-                        <a href="admin_pesan.php" class="topbar-notif" style="text-decoration:none;" title="Pesan baru">
-                            <i data-lucide="bell" style="width:17px;height:17px;"></i>
-                            <span class="notif-dot"></span>
-                        </a>
-                    <?php endif; ?>
-                    <div class="d-none d-md-block text-end">
+                    <div class="topbar-user-text text-end">
                         <p class="topbar-user-name">Administrator</p>
                         <p class="topbar-user-role">Super Admin</p>
                     </div>
@@ -104,27 +98,21 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                 <?php if ($success === 'deleted'): ?>
                     <div class="alert-admin alert-error mb-4"><i data-lucide="trash-2"></i> Berita berhasil dihapus.</div>
                 <?php elseif ($success === 'toggled'): ?>
-                    <div class="alert-admin alert-success mb-4"><i data-lucide="check-circle"></i> Status berita berhasil
-                        diubah.</div>
+                    <div class="alert-admin alert-success mb-4"><i data-lucide="check-circle"></i> Status berita berhasil diubah.</div>
                 <?php elseif ($success === 'saved'): ?>
-                    <div class="alert-admin alert-success mb-4"><i data-lucide="check-circle"></i> Berita berhasil disimpan.
-                    </div>
+                    <div class="alert-admin alert-success mb-4"><i data-lucide="check-circle"></i> Berita berhasil disimpan.</div>
                 <?php endif; ?>
 
                 <!-- Stats -->
                 <div class="row g-3 mb-4">
                     <?php
-                    $s_all = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita"))['t'];
-                    $s_pub = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=1"))['t'];
+                    $s_all  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita"))['t'];
+                    $s_pub  = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=1"))['t'];
                     $s_drft = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE is_published=0"))['t'];
-                    $s_peng = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE category='pengumuman'"))['t'];
-                    $s_ber = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE category='berita'"))['t'];
-                    $s_evt = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM berita WHERE category='event'"))['t'];
                     ?>
                     <div class="col-6 col-md-4 col-xl-3">
                         <div class="stat-card">
-                            <div class="stat-icon blue"><i data-lucide="newspaper" style="width:22px;height:22px;"></i>
-                            </div>
+                            <div class="stat-icon blue"><i data-lucide="newspaper" style="width:22px;height:22px;"></i></div>
                             <div class="stat-info">
                                 <div class="stat-value"><?php echo $s_all; ?></div>
                                 <div class="stat-label">Total Semua</div>
@@ -133,8 +121,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     </div>
                     <div class="col-6 col-md-4 col-xl-3">
                         <div class="stat-card">
-                            <div class="stat-icon green"><i data-lucide="check-circle"
-                                    style="width:22px;height:22px;"></i></div>
+                            <div class="stat-icon green"><i data-lucide="check-circle" style="width:22px;height:22px;"></i></div>
                             <div class="stat-info">
                                 <div class="stat-value"><?php echo $s_pub; ?></div>
                                 <div class="stat-label">Published</div>
@@ -143,8 +130,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     </div>
                     <div class="col-6 col-md-4 col-xl-3">
                         <div class="stat-card">
-                            <div class="stat-icon purple"><i data-lucide="file-clock"
-                                    style="width:22px;height:22px;"></i></div>
+                            <div class="stat-icon purple"><i data-lucide="file-clock" style="width:22px;height:22px;"></i></div>
                             <div class="stat-info">
                                 <div class="stat-value"><?php echo $s_drft; ?></div>
                                 <div class="stat-label">Draft</div>
@@ -164,8 +150,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                             <select name="cat" class="filter-select">
                                 <option value="">Semua Kategori</option>
-                                <option value="pengumuman" <?php echo $cat_f === 'pengumuman' ? 'selected' : ''; ?>>Pengumuman
-                                </option>
+                                <option value="pengumuman" <?php echo $cat_f === 'pengumuman' ? 'selected' : ''; ?>>Pengumuman</option>
                                 <option value="berita" <?php echo $cat_f === 'berita' ? 'selected' : ''; ?>>Berita</option>
                                 <option value="event" <?php echo $cat_f === 'event' ? 'selected' : ''; ?>>Event</option>
                             </select>
@@ -178,8 +163,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             <?php if ($search || $cat_f || $status_f !== ''): ?>
                                 <a href="admin_berita.php" class="btn-admin btn-admin-secondary">Reset</a>
                             <?php endif; ?>
-                            <span style="margin-left:auto;font-size:.8rem;color:#94a3b8;"><?php echo $total; ?>
-                                berita</span>
+                            <span style="margin-left:auto;font-size:.8rem;color:#94a3b8;"><?php echo $total; ?> berita</span>
                         </form>
                     </div>
 
@@ -200,14 +184,13 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                     $no = 1;
                                     while ($r = mysqli_fetch_assoc($res)):
                                         $cat_labels = ['pengumuman' => 'Pengumuman', 'berita' => 'Berita', 'event' => 'Event'];
-                                        $cat_cls = ['pengumuman' => 'cat-pengumuman', 'berita' => 'cat-berita', 'event' => 'cat-event'];
+                                        $cat_cls    = ['pengumuman' => 'cat-pengumuman', 'berita' => 'cat-berita', 'event' => 'cat-event'];
                                         ?>
                                         <tr>
                                             <td style="color:#94a3b8;font-weight:600;"><?php echo $no++; ?></td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="<?php echo htmlspecialchars($r['image']); ?>" class="tbl-thumb"
-                                                        alt="">
+                                                    <img src="<?php echo htmlspecialchars($r['image']); ?>" class="tbl-thumb" alt="">
                                                     <div class="tbl-name" style="max-width:320px;line-height:1.4;">
                                                         <?php echo htmlspecialchars($r['title']); ?>
                                                     </div>
@@ -222,19 +205,16 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                                 <?php echo date('d M Y', strtotime($r['created_at'])); ?>
                                             </td>
                                             <td>
-                                                <span
-                                                    class="badge-status <?php echo $r['is_published'] ? 'badge-published' : 'badge-draft'; ?>">
+                                                <span class="badge-status <?php echo $r['is_published'] ? 'badge-published' : 'badge-draft'; ?>">
                                                     <?php echo $r['is_published'] ? 'Published' : 'Draft'; ?>
                                                 </span>
                                             </td>
                                             <td>
                                                 <div class="action-wrap justify-content-center">
-                                                    <!-- Toggle publish -->
                                                     <a href="admin_berita.php?toggle=<?php echo $r['id']; ?>" class="btn-tbl"
                                                         title="<?php echo $r['is_published'] ? 'Jadikan Draft' : 'Publish'; ?>"
                                                         style="background:<?php echo $r['is_published'] ? '#f1f5f9' : '#dcfce7'; ?>;color:<?php echo $r['is_published'] ? '#64748b' : '#15803d'; ?>;">
-                                                        <i
-                                                            data-lucide="<?php echo $r['is_published'] ? 'eye-off' : 'eye'; ?>"></i>
+                                                        <i data-lucide="<?php echo $r['is_published'] ? 'eye-off' : 'eye'; ?>"></i>
                                                     </a>
                                                     <a href="announcement_form.php?id=<?php echo $r['id']; ?>"
                                                         class="btn-tbl btn-tbl-edit" title="Edit">
@@ -252,8 +232,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                                     <tr>
                                         <td colspan="6">
                                             <div class="tbl-empty">
-                                                <div class="tbl-empty-icon"><i data-lucide="newspaper"
-                                                        style="width:28px;height:28px;"></i></div>
+                                                <div class="tbl-empty-icon"><i data-lucide="newspaper" style="width:28px;height:28px;"></i></div>
                                                 <?php echo ($search || $cat_f || $status_f !== '') ? 'Tidak ada berita sesuai filter.' : 'Belum ada berita.'; ?>
                                                 <?php if (!$search && !$cat_f && $status_f === ''): ?>
                                                     <div class="mt-3">

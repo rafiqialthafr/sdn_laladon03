@@ -62,34 +62,31 @@
     <!-- ═══ FOUT Prevention: Hide page until fonts ready ═══ -->
     <script>
         // Reveal page when fonts are ready, with 2s safety timeout
-        (function() {
-            var timeout = setTimeout(function() {
-                document.body && document.body.classList.add('fonts-loaded');
-            }, 2000);
+        (function () {
+            function reveal() {
+                if (document.body) document.body.classList.add('fonts-loaded');
+                else document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('fonts-loaded'); });
+            }
+            var timeout = setTimeout(reveal, 2000);
             if (document.fonts && document.fonts.ready) {
-                document.fonts.ready.then(function() {
+                document.fonts.ready.then(function () {
                     clearTimeout(timeout);
-                    document.body.classList.add('fonts-loaded');
+                    reveal();
                 });
             } else {
-                // Fallback for older browsers
                 clearTimeout(timeout);
-                window.addEventListener('load', function() {
-                    document.body.classList.add('fonts-loaded');
-                });
+                window.addEventListener('load', reveal);
             }
         })();
     </script>
-
-
 
     <!-- ═══ Custom CSS ═══ -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 
-    <!-- ═══ Lucide Icons ═══ -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- ═══ AOS Animation CSS ═══ -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- ═══ JSON-LD Structured Data (SEO schema.org) ═══ -->
     <script type="application/ld+json">
@@ -120,12 +117,12 @@
     </script>
 </head>
 
-<body id="laladon-app" class="d-flex flex-column min-vh-100">
+<body id="laladon-app" class="laladon-app d-flex flex-column min-vh-100">
 
     <!-- Main Navbar -->
-    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-2" role="navigation"
-        aria-label="Navigasi Utama">
-        <div class="container-fluid px-4 px-lg-5">
+    <nav id="mainNavbar" class="main-navbar navbar navbar-expand-lg navbar-light bg-white sticky-top py-2"
+        role="navigation" aria-label="Navigasi Utama">
+        <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.php"
                 aria-label="SDN Laladon 03 - Halaman Beranda">
                 <img src="img/logo.png" alt="Logo SDN Laladon 03" width="40" height="40" class="me-2">
@@ -295,8 +292,7 @@
     </aside>
 
     <script>
-        lucide.createIcons();
-        (function () {
+        document.addEventListener('DOMContentLoaded', function () {
             var btn = document.getElementById('sidebarToggle');
             var sidebar = document.getElementById('mobileSidebar');
             var backdrop = document.getElementById('sidebarBackdrop');
@@ -344,7 +340,7 @@
                     }
                 });
             });
-        })();
+        });
     </script>
 
 </body>

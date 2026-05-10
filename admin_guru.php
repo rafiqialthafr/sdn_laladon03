@@ -20,7 +20,6 @@ $where = $search ? "WHERE name LIKE '%" . mysqli_real_escape_string($koneksi, $s
 $res = mysqli_query($koneksi, "SELECT * FROM guru_staf $where ORDER BY id ASC");
 $total = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf $where"))['t'];
 
-$unread_messages = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM pesan WHERE is_read=0"))['t'];
 $hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
 $today = $hari[date('w')] . ', ' . date('d F Y');
 ?>
@@ -28,6 +27,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
 <html lang="id">
 
 <head>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Guru — Admin SDN Laladon 03</title>
@@ -39,7 +39,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
     <div class="admin-wrapper">
         <?php include 'admin_sidebar.php'; ?>
 
-        <div id="admin-content">
+        <div id="admin-content" class="admin-content">
             <!-- Topbar -->
             <div class="admin-topbar">
                 <div class="topbar-left">
@@ -52,13 +52,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                     </div>
                 </div>
                 <div class="topbar-right">
-                    <?php if ($unread_messages > 0): ?>
-                        <a href="admin_pesan.php" class="topbar-notif" title="Pesan baru" style="text-decoration:none;">
-                            <i data-lucide="bell" style="width:17px;height:17px;"></i>
-                            <span class="notif-dot"></span>
-                        </a>
-                    <?php endif; ?>
-                    <div class="d-none d-md-block text-end">
+                    <div class="topbar-user-text text-end">
                         <p class="topbar-user-name">Administrator</p>
                         <p class="topbar-user-role">Super Admin</p>
                     </div>
