@@ -250,7 +250,7 @@ if(!$kepsek) {
             <!-- Foto -->
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
-                    <img src="img/<?php echo htmlspecialchars($kepsek['photo']); ?>" alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
+<img src="img/kepsek.jpeg" alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
                 </div>
