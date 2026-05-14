@@ -287,6 +287,7 @@ if (isset($_GET['edit'])) {
 
                                     <th>L/P</th>
                                     <th>Tgl Lahir</th>
+                                    <th>AGAMA</th>
                                     <th>Asal TK</th>
                                     <th>HP Ortu</th>
                                     <th>Status</th>
@@ -313,6 +314,7 @@ if (isset($_GET['edit'])) {
                                         <?php echo $row['jenis_kelamin']==='Laki-laki' ? '♂️ L' : '♀️ P'; ?>
                                     </td>
                                     <td><?php echo date('d/m/Y', strtotime($row['tanggal_lahir'])); ?></td>
+                                    <td><?php echo htmlspecialchars($row['agama'] ?? '-'); ?></td>
                                     <td><?php echo htmlspecialchars($row['asal_tk'] ?: '-'); ?></td>
                                     <td><?php echo htmlspecialchars($row['no_hp_ortu']); ?></td>
 
@@ -339,7 +341,7 @@ if (isset($_GET['edit'])) {
                                 </tr>
                                     <?php endwhile;
                                 else: ?>
-                                <tr><td colspan="9" class="text-center text-muted py-5">Belum ada data pendaftaran.</td></tr>
+                                <tr><td colspan="11" class="text-center text-muted py-5">Belum ada data pendaftaran.</td></tr>
                                 <?php endif; ?>
                             </tbody>
                         </table>
