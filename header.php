@@ -66,34 +66,6 @@
 
     <!-- ═══ Lucide Icons ═══ -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
-    <!-- ═══ JSON-LD Structured Data (SEO schema.org) ═══ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "School",
-      "name": "SDN Laladon 03",
-      "alternateName": "Sekolah Dasar Negeri Laladon 03",
-      "url": "http://localhost/laladon/",
-      "logo": "http://localhost/laladon/logo.png",
-      "image": "http://localhost/laladon/logo.png",
-      "description": "Sekolah Dasar Negeri terakreditasi A di Kecamatan Ciomas, Kabupaten Bogor, Jawa Barat.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Gg. Amil No.1, Laladon",
-        "addressLocality": "Ciomas",
-        "addressRegion": "Jawa Barat",
-        "postalCode": "16610",
-        "addressCountry": "ID"
-      },
-      "telephone": "(0251) 1234567",
-      "email": "info@sdnlaladon03.sch.id",
-      "sameAs": [
-        "https://www.instagram.com/sdnlaladonnnn03",
-        "https://www.youtube.com/@SDNLaladon03"
-      ]
-    }
-    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -148,6 +120,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="galeri.php">
                             <i data-lucide="layout-dashboard" class="me-2" aria-hidden="true"></i>Galeri
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="daftar_ppdb.php">
+                            <i data-lucide="clipboard-list" class="me-2" aria-hidden="true"></i>Daftar
                         </a>
                     </li>
 
@@ -254,7 +232,16 @@
                 <span>Galeri</span>
             </a>
 
-
+            <a class="snav-link" href="daftar_ppdb.php">
+                <span class="snav-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="9" height="13" x="2" y="6" rx="1" />
+                        <path d="m11 6 5.5 5 5.5-5M16 11h4m-4 4h4m-4 4h4" />
+                    </svg>
+                </span>
+                <span>Daftar PPDB</span>
+            </a>
 
             <a class="snav-link" href="contact.php">
                 <span class="snav-icon">

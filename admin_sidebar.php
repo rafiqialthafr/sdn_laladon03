@@ -68,6 +68,12 @@ if (!isset($unread_messages)) {
                 Profil Kepsek
             </a>
         </li>
+        <li>
+            <a href="admin_ppdb.php" class="<?php echo $current_page === 'admin_ppdb.php' ? 'active' : ''; ?>">
+                <i data-lucide="clipboard-list" style="width:17px;height:17px;"></i>
+                Data PPDB
+            </a>
+        </li>
     </ul>
 
 
