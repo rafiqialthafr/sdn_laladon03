@@ -58,27 +58,71 @@ section {
     }
 
     .main-navbar .navbar-collapse {
-        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, #ffffff 0%, #fcfbf9 100%);
         padding: 0.75rem 1rem 1.25rem;
         border-radius: 0 0 16px 16px;
-        box-shadow: 0 12px 32px rgba(0,0,0,0.09);
-        margin-top: 8px;
-        border-top: 2px solid var(--gold);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+        margin-top: 0;
+        border-top: 3px solid var(--gold);
+        z-index: 1050;
+    }
+
+    .main-navbar .nav-item {
+        width: 100%;
+        border-bottom: 1px dashed rgba(232, 144, 10, 0.2);
+    }
+    
+    .main-navbar .nav-item:last-child {
+        border-bottom: none;
     }
 
     .main-navbar .nav-link {
-        padding: 10px 4px;
+        padding: 18px 12px;
         display: flex;
         align-items: center;
+        justify-content: flex-start;
+        text-align: left;
         width: 100%;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 1.05rem;
+        border-radius: 10px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .main-navbar .nav-link:hover {
+        background: linear-gradient(90deg, rgba(232, 144, 10, 0.08) 0%, rgba(255,255,255,0) 100%);
+        color: var(--gold-dark);
+        padding-left: 18px;
+        box-shadow: -3px 0 0 var(--gold);
     }
 
     .main-navbar .dropdown-menu {
         box-shadow: none;
         border: none;
-        padding-left: 1rem;
+        padding-left: 1.5rem;
         margin-top: 0;
+        margin-bottom: 8px;
         animation: none;
+        background: transparent;
+    }
+
+    .main-navbar .dropdown-item {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+        color: #64748b;
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+
+    .main-navbar .dropdown-item:hover {
+        background: rgba(232, 144, 10, 0.05);
+        color: var(--gold-dark);
+        padding-left: 16px;
     }
 
     /* Stagger slide-in item menu */
@@ -113,8 +157,8 @@ section {
         font-weight: 900;
     }
     .main-navbar .container-fluid {
-        padding-left: 0.625rem;
-        padding-right: 0.625rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 

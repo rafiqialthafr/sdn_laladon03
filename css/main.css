@@ -165,6 +165,50 @@ section {
     font-weight: 700;
 }
 
+/* ── CTA Daftar Button di Navbar ── */
+.main-navbar .nav-link.nav-cta-daftar {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: var(--dark-text);
+    font-weight: 700;
+    border-radius: 50px;
+    padding: .55rem 1.4rem;
+    box-shadow: 0 4px 14px rgba(255, 165, 0, 0.35);
+    transition: all 0.25s ease;
+    border: none;
+    letter-spacing: .3px;
+}
+
+.main-navbar .nav-link.nav-cta-daftar:hover {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-deep) 100%);
+    color: var(--dark-text);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
+}
+
+.main-navbar .nav-link.nav-cta-daftar.active {
+    background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-amber) 100%);
+    color: var(--dark-text);
+}
+
+.main-navbar .nav-link.nav-cta-daftar::after {
+    display: none; /* hilangkan dot indicator */
+}
+
+/* ── CTA Daftar di Mobile Sidebar ── */
+.snav-cta-daftar {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    font-weight: 700;
+    color: var(--dark-text) !important;
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+}
+
+.snav-cta-daftar .snav-icon {
+    background: rgba(0,0,0,0.15);
+    color: var(--dark-text);
+}
+
 /* ==========================================
    DROPDOWN MENU STYLES
 ========================================== */
@@ -1433,6 +1477,52 @@ footer a:hover {
 /* ==========================================
    HAMBURGER BUTTON
 ========================================== */
+
+/* ── Tombol Daftar mini — muncul di luar hamburger di mobile ── */
+.navbar-daftar-mobile {
+    display: none; /* default tersembunyi, Bootstrap d-lg-none yang mengontrol visibilitas */
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 1rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: var(--dark-text);
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(255, 165, 0, 0.35);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    margin-left: auto; /* dorong ke kanan, sebelum hamburger */
+    margin-right: 0.5rem;
+}
+
+/* Bootstrap d-lg-none = display flex di bawah lg */
+@media (max-width: 991.98px) {
+    .navbar-daftar-mobile {
+        display: inline-flex;
+    }
+}
+
+.navbar-daftar-mobile:hover {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-deep) 100%);
+    color: var(--dark-text);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(255, 165, 0, 0.5);
+}
+
+.navbar-daftar-mobile:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 480px) {
+    .navbar-daftar-mobile {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.85rem;
+    }
+}
+
+
 .hamburger-btn {
     display: none;
     flex-direction: column;

@@ -92,7 +92,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
 
                 <!-- Stats mini -->
                 <div class="row g-3 mb-4">
-                    <div class="col-6 col-md-3">
+                    <div class="col-12 col-md-4">
                         <div class="stat-card">
                             <div class="stat-icon amber"><i data-lucide="users" style="width:22px;height:22px;"></i>
                             </div>
@@ -104,7 +104,7 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-4">
                         <div class="stat-card">
                             <div class="stat-icon green"><i data-lucide="user-check"
                                     style="width:22px;height:22px;"></i></div>
@@ -116,19 +116,8 @@ $today = $hari[date('w')] . ', ' . date('d F Y');
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3">
-                        <div class="stat-card">
-                            <div class="stat-icon blue"><i data-lucide="briefcase" style="width:22px;height:22px;"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-value">
-                                    <?php echo mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as t FROM guru_staf WHERE position LIKE '%Kepala%'"))['t']; ?>
-                                </div>
-                                <div class="stat-label">Kepala Sekolah</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3">
+
+                    <div class="col-6 col-md-4">
                         <div class="stat-card">
                             <div class="stat-icon purple"><i data-lucide="user-cog" style="width:22px;height:22px;"></i>
                             </div>

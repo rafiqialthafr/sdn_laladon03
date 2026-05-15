@@ -168,7 +168,8 @@ include 'header.php';
                         <i data-lucide="layers" style="width:26px;height:26px;"></i>
                     </div>
                     <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Fasilitas Lengkap</h5>
-                    <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, Musholla dan Fasilitas lainnya</p>
+                    <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, Musholla dan
+                        Fasilitas lainnya</p>
                 </div>
             </div>
         </div>
@@ -197,7 +198,7 @@ if (!$kepsek) {
             <h2 class="section-title mt-2">Sambutan Kepala Sekolah</h2>
             <div class="section-divider mx-auto"></div>
         </div>
-        
+
         <div class="row align-items-center g-5">
             <!-- Foto -->
             <div class="col-md-4 text-center">

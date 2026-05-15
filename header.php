@@ -129,10 +129,15 @@
                 aria-label="SDN Laladon 03 - Halaman Beranda">
                 <img src="img/logo.png" alt="Logo SDN Laladon 03" width="40" height="40" class="me-2">
                 <div>
-                    <span class="brand-text">SDN LALADON 03</span>
+                    <span class="brand-text d-none d-md-inline-block">SDN LALADON 03</span>
                 </div>
             </a>
-            <button class="hamburger-btn d-lg-none" id="sidebarToggle" type="button" aria-expanded="false"
+            <!-- Tombol Daftar mini — hanya tampil di mobile, di luar hamburger -->
+            <a href="daftar_ppdb.php" class="navbar-daftar-mobile d-lg-none" aria-label="Daftar PPDB">
+                <i data-lucide="clipboard-list" style="width:15px;height:15px;" aria-hidden="true"></i>
+                Daftar
+            </a>
+            <button class="hamburger-btn d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false"
                 aria-label="Buka atau tutup menu navigasi">
                 <span class="hb-bar hb-top" aria-hidden="true"></span>
                 <span class="hb-bar hb-mid" aria-hidden="true"></span>
@@ -171,15 +176,16 @@
                         </a>
                     </li>
         
-                    <li class="nav-item">
-                        <a class="nav-link" href="daftar_ppdb.php">
-                            <i data-lucide="clipboard-list" class="me-2" aria-hidden="true"></i>Daftar
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">
                             <i data-lucide="mail" class="me-2" aria-hidden="true"></i>Kontak
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-2 d-none d-lg-block">
+                        <a class="nav-link nav-cta-daftar" href="daftar_ppdb.php">
+                            <i data-lucide="clipboard-list" class="me-2" aria-hidden="true"></i>Daftar        
                         </a>
                     </li>
                 </ul>
@@ -187,136 +193,6 @@
         </div>
     </nav>
 
-    <!--MOBILE SIDEBAR (kiri) — navy + gold-->
 
-    <!-- Backdrop overlay -->
-    <div id="sidebarBackdrop" class="snav-backdrop" aria-hidden="true"></div>
-
-    <!-- Panel sidebar -->
-    <aside id="mobileSidebar" class="snav" role="dialog" aria-modal="true" aria-label="Navigasi Mobile">
-
-        <!-- Header sidebar -->
-        <div class="snav-head">
-            <div class="snav-brand">
-                <img src="img/logo.png" alt="Logo SDN Laladon 03" width="34" height="34">
-                <div>
-                    <span class="snav-brand-name">SDN LALADON 03</span>
-                    <span class="snav-brand-sub">Sekolah Ramah Anak</span>
-                </div>
-            </div>
-            <button class="snav-close" id="sidebarClose" type="button" aria-label="Tutup menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                    aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Body nav -->
-        <nav class="snav-body">
-
-            <a class="snav-link" href="index.php">
-                <span class="snav-icon">
-                    <i data-lucide="home" style="width: 18px; height: 18px;"></i>
-                </span>
-                <span>Beranda</span>
-            </a>
-
-            <!-- Profil accordion -->
-            <div class="snav-group">
-                <button class="snav-link snav-toggle" type="button" aria-expanded="false" aria-controls="snavProfil">
-                    <span class="snav-icon">
-                        <i data-lucide="graduation-cap" style="width: 18px; height: 18px;"></i>
-                    </span>
-                    <span>Profil</span>
-                    <i data-lucide="chevron-down" class="snav-chevron" style="width: 16px; height: 16px; margin-left: auto;"></i>
-                </button>
-                <div class="snav-sub" id="snavProfil">
-                    <a class="snav-sublink" href="sejarah.php" style="display: flex; align-items: center;"><i data-lucide="compass" class="me-2" style="width:16px;height:16px;"></i>Sejarah Singkat</a>
-                    <a class="snav-sublink" href="visimisi.php" style="display: flex; align-items: center;"><i data-lucide="rocket" class="me-2" style="width:16px;height:16px;"></i>Visi Misi</a>
-                    <a class="snav-sublink" href="kepala_sekolah.php" style="display: flex; align-items: center;"><i data-lucide="user-round-cog" class="me-2" style="width:16px;height:16px;"></i>Kepala Sekolah</a>
-                    <a class="snav-sublink" href="guru_staf.php" style="display: flex; align-items: center;"><i data-lucide="users" class="me-2" style="width:16px;height:16px;"></i>Guru dan Staf</a>
-                    <a class="snav-sublink" href="fasilitas.php" style="display: flex; align-items: center;"><i data-lucide="building-2" class="me-2" style="width:16px;height:16px;"></i>Fasilitas</a>
-                    <a class="snav-sublink" href="galeri.php" style="display: flex; align-items: center;"><i data-lucide="layout-dashboard" class="me-2" style="width:16px;height:16px;"></i>Galeri</a>
-                </div>
-            </div>
-
-            <a class="snav-link" href="berita.php">
-                <span class="snav-icon">
-                    <i data-lucide="newspaper" style="width: 18px; height: 18px;"></i>
-                </span>
-                <span>Berita</span>
-            </a>
-
-            <a class="snav-link" href="daftar_ppdb.php">
-                <span class="snav-icon">
-                    <i data-lucide="clipboard-list" style="width: 18px; height: 18px;"></i>
-                </span>
-                <span>Daftar</span>
-            </a>
-
-            <a class="snav-link" href="contact.php">
-                <span class="snav-icon">
-                    <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
-                </span>
-                <span>Kontak</span>
-            </a>
-
-        </nav>
-    </aside>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var btn = document.getElementById('sidebarToggle');
-            var sidebar = document.getElementById('mobileSidebar');
-            var backdrop = document.getElementById('sidebarBackdrop');
-            var closeBtn = document.getElementById('sidebarClose');
-
-            function openSidebar() {
-                sidebar.classList.add('snav--open');
-                backdrop.classList.add('snav-backdrop--show');
-                document.body.style.overflow = 'hidden';
-                btn.setAttribute('aria-expanded', 'true');
-                sidebar.focus();
-            }
-            function closeSidebar() {
-                sidebar.classList.remove('snav--open');
-                backdrop.classList.remove('snav-backdrop--show');
-                document.body.style.overflow = '';
-                btn.setAttribute('aria-expanded', 'false');
-            }
-
-            if (btn) btn.addEventListener('click', openSidebar);
-            if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-            if (backdrop) backdrop.addEventListener('click', closeSidebar);
-
-            // Esc key
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') closeSidebar();
-            });
-
-            // Accordion toggle
-            document.querySelectorAll('.snav-toggle').forEach(function (toggle) {
-                toggle.addEventListener('click', function () {
-                    var expanded = this.getAttribute('aria-expanded') === 'true';
-                    // Tutup semua accordion lain
-                    document.querySelectorAll('.snav-toggle').forEach(function (t) {
-                        t.setAttribute('aria-expanded', 'false');
-                        var sub = document.getElementById(t.getAttribute('aria-controls'));
-                        if (sub) sub.style.maxHeight = null;
-                    });
-                    // Toggle yang diklik
-                    if (!expanded) {
-                        this.setAttribute('aria-expanded', 'true');
-                        var subId = this.getAttribute('aria-controls');
-                        var sub = document.getElementById(subId);
-                        if (sub) sub.style.maxHeight = sub.scrollHeight + 'px';
-                    }
-                });
-            });
-        });
-    </script>
 
 </body>
