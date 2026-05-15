@@ -115,6 +115,8 @@
       ]
     }
     </script>
+    <!-- ═══ Lucide Icons ═══ -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 
 <body id="laladon-app" class="laladon-app d-flex flex-column min-vh-100">
@@ -159,6 +161,8 @@
                                         aria-hidden="true"></i>Guru dan Staf</a></li>
                             <li><a class="dropdown-item" href="fasilitas.php"><i data-lucide="building-2" class="me-2"
                                         aria-hidden="true"></i>Fasilitas</a></li>
+                            <li><a class="dropdown-item" href="galeri.php"><i data-lucide="layout-dashboard"
+                                        class="me-2" aria-hidden="true"></i>Galeri</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -166,9 +170,10 @@
                             <i data-lucide="newspaper" class="me-2" aria-hidden="true"></i>Berita
                         </a>
                     </li>
+        
                     <li class="nav-item">
-                        <a class="nav-link" href="galeri.php">
-                            <i data-lucide="layout-dashboard" class="me-2" aria-hidden="true"></i>Galeri
+                        <a class="nav-link" href="daftar_ppdb.php">
+                            <i data-lucide="clipboard-list" class="me-2" aria-hidden="true"></i>Daftar
                         </a>
                     </li>
 
@@ -214,11 +219,7 @@
 
             <a class="snav-link" href="index.php">
                 <span class="snav-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                        <polyline points="9 22 9 12 15 12 15 22" />
-                    </svg>
+                    <i data-lucide="home" style="width: 18px; height: 18px;"></i>
                 </span>
                 <span>Beranda</span>
             </a>
@@ -227,63 +228,38 @@
             <div class="snav-group">
                 <button class="snav-link snav-toggle" type="button" aria-expanded="false" aria-controls="snavProfil">
                     <span class="snav-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                        </svg>
+                        <i data-lucide="graduation-cap" style="width: 18px; height: 18px;"></i>
                     </span>
                     <span>Profil</span>
-                    <svg class="snav-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9" />
-                    </svg>
+                    <i data-lucide="chevron-down" class="snav-chevron" style="width: 16px; height: 16px; margin-left: auto;"></i>
                 </button>
                 <div class="snav-sub" id="snavProfil">
-                    <a class="snav-sublink" href="sejarah.php">Sejarah Singkat</a>
-                    <a class="snav-sublink" href="visimisi.php">Visi Misi</a>
-                    <a class="snav-sublink" href="kepala_sekolah.php">Kepala Sekolah</a>
-                    <a class="snav-sublink" href="guru_staf.php">Guru dan Staf</a>
-                    <a class="snav-sublink" href="fasilitas.php">Fasilitas</a>
+                    <a class="snav-sublink" href="sejarah.php" style="display: flex; align-items: center;"><i data-lucide="compass" class="me-2" style="width:16px;height:16px;"></i>Sejarah Singkat</a>
+                    <a class="snav-sublink" href="visimisi.php" style="display: flex; align-items: center;"><i data-lucide="rocket" class="me-2" style="width:16px;height:16px;"></i>Visi Misi</a>
+                    <a class="snav-sublink" href="kepala_sekolah.php" style="display: flex; align-items: center;"><i data-lucide="user-round-cog" class="me-2" style="width:16px;height:16px;"></i>Kepala Sekolah</a>
+                    <a class="snav-sublink" href="guru_staf.php" style="display: flex; align-items: center;"><i data-lucide="users" class="me-2" style="width:16px;height:16px;"></i>Guru dan Staf</a>
+                    <a class="snav-sublink" href="fasilitas.php" style="display: flex; align-items: center;"><i data-lucide="building-2" class="me-2" style="width:16px;height:16px;"></i>Fasilitas</a>
+                    <a class="snav-sublink" href="galeri.php" style="display: flex; align-items: center;"><i data-lucide="layout-dashboard" class="me-2" style="width:16px;height:16px;"></i>Galeri</a>
                 </div>
             </div>
 
             <a class="snav-link" href="berita.php">
                 <span class="snav-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path
-                            d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
-                        <path d="M18 14h-8" />
-                        <path d="M15 18h-5" />
-                        <path d="M10 6h8v4h-8V6Z" />
-                    </svg>
+                    <i data-lucide="newspaper" style="width: 18px; height: 18px;"></i>
                 </span>
                 <span>Berita</span>
             </a>
 
-            <a class="snav-link" href="galeri.php">
+            <a class="snav-link" href="daftar_ppdb.php">
                 <span class="snav-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                        <circle cx="9" cy="9" r="2" />
-                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                    </svg>
+                    <i data-lucide="clipboard-list" style="width: 18px; height: 18px;"></i>
                 </span>
-                <span>Galeri</span>
+                <span>Daftar</span>
             </a>
-
-
 
             <a class="snav-link" href="contact.php">
                 <span class="snav-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
+                    <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
                 </span>
                 <span>Kontak</span>
             </a>

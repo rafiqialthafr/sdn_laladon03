@@ -451,6 +451,7 @@ body {
 .badge-draft     { background: #f1f5f9; color: #64748b; }
 .badge-new       { background: #fef3c7; color: #92400e; }
 .badge-read      { background: #f1f5f9; color: #64748b; }
+.badge-rejected  { background: #fef2f2; color: #be123c; }
 
 .cat-badge {
     display: inline-block;
@@ -795,28 +796,26 @@ textarea.form-control-admin { resize: vertical; min-height: 100px; }
 }
 
 
-/* Styles from login.php */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── LOGIN PAGE ── */
+body.login-page {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f2f5;
+    margin: 0;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            background: #f0f2f5;
-        }
-
-        /* ── LEFT PANEL ── */
-        .login-left {
-            flex: 1;
-            background: linear-gradient(175deg, #0f0f1a 0%, #1a1a2e 45%, #16213e 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
+/* ── LEFT PANEL ── */
+.login-left {
+    flex: 1;
+    background: linear-gradient(175deg, #0f0f1a 0%, #1a1a2e 45%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
 
         /* Decorative circles */
         .login-left::before {

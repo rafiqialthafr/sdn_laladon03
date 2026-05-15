@@ -37,9 +37,10 @@ if (isset($_POST['login'])) {
     <title>Login Admin — SDN Laladon 03</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="login-page">
 
 <!-- LEFT DECORATIVE PANEL -->
 <div class="login-left">

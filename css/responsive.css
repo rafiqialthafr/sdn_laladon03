@@ -220,10 +220,10 @@ section {
         opacity: 0;
     }
     .carousel-item.active .hero-badge-gold { animation: heroStagger 0.4s ease both; animation-delay: 0.15s; }
-    .carousel-item.active .hero-pretitle   { animation: heroStagger 0.4s ease both; animation-delay: 0.25s; }
-    .carousel-item.active .hero-title-gold { animation: heroStagger 0.4s ease both; animation-delay: 0.35s; }
-    .carousel-item.active .hero-subtitle   { animation: heroStagger 0.4s ease both; animation-delay: 0.45s; }
-    .carousel-item.active .hero-buttons    { animation: heroStagger 0.4s ease both; animation-delay: 0.55s; }
+    .carousel-item.active .hero-pretitle   { animation: heroStagger 0.4s ease both; animation-delay: 0.30s; }
+    .carousel-item.active .hero-title-gold { animation: heroStagger 0.4s ease both; animation-delay: 0.45s; }
+    .carousel-item.active .hero-subtitle   { animation: heroStagger 0.4s ease both; animation-delay: 0.60s; }
+    .carousel-item.active .hero-buttons    { animation: heroStagger 0.4s ease both; animation-delay: 0.75s; }
 
     /* 5. Typography */
     .hero-badge-gold {
@@ -460,13 +460,15 @@ section {
 }
 
 @media (max-width: 767.98px) {
-    .section-title         { font-size: clamp(1.3rem, 4vw, 1.5rem); }
+    .section-title         { font-size: clamp(1.4rem, 5vw, 1.7rem); }
+    .section-label         { font-size: 0.7rem; letter-spacing: 2px; padding: 0.3rem 0.8rem; }
     .section-desc          { font-size: 0.9rem; }
     .section-title-wrapper { margin-bottom: 2rem; }
 }
 
 @media (max-width: 480px) {
-    .section-title { font-size: clamp(1.15rem, 5vw, 1.35rem); }
+    .section-title { font-size: clamp(1.35rem, 6vw, 1.5rem); }
+    .section-label { font-size: 0.65rem; letter-spacing: 1.5px; padding: 0.25rem 0.75rem; }
     .section-desc  { font-size: 0.85rem; padding: 0 0.5rem; }
 }
 
@@ -675,7 +677,7 @@ section {
 
 @media (max-width: 480px) {
     footer.site-footer { padding-top: 2rem; }
-    .footer-col-title  { font-size: 1rem; }
+    .footer-col-title  { font-size: 1.25rem; }
 }
 
 

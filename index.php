@@ -168,7 +168,7 @@ include 'header.php';
                         <i data-lucide="layers" style="width:26px;height:26px;"></i>
                     </div>
                     <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Fasilitas Lengkap</h5>
-                    <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, dan Musholla</p>
+                    <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, Musholla dan Fasilitas lainnya</p>
                 </div>
             </div>
         </div>
@@ -190,8 +190,14 @@ if (!$kepsek) {
     ];
 }
 ?>
-<section id="welcomeSection" class="welcome-section py-5" style="background:#f8f9fc;">
+<section id="welcomeSection" class="welcome-section py-5" style="background:#fff;">
     <div class="container">
+        <div class="section-title-wrapper text-center d-block d-md-none mb-4">
+            <span class="section-label">Sambutan Pimpinan</span>
+            <h2 class="section-title mt-2">Sambutan Kepala Sekolah</h2>
+            <div class="section-divider mx-auto"></div>
+        </div>
+        
         <div class="row align-items-center g-5">
             <!-- Foto -->
             <div class="col-md-4 text-center">
@@ -209,15 +215,17 @@ if (!$kepsek) {
             </div>
             <!-- Teks -->
             <div class="col-md-8">
-                <span class="section-label">Sambutan Pimpinan</span>
-                <h2 class="section-title mt-2 text-start">Sambutan Kepala Sekolah</h2>
-                <div class="section-divider" style="margin:1rem 0;"></div>
-                <p style="color:#4b5563;line-height:1.8;font-size:.95rem;">
+                <div class="d-none d-md-block">
+                    <span class="section-label">Sambutan Pimpinan</span>
+                    <h2 class="section-title mt-2 text-start">Sambutan Kepala Sekolah</h2>
+                    <div class="section-divider" style="margin:1rem 0;"></div>
+                </div>
+                <p style="color:#4b5563;line-height:1.8;font-size:.95rem;text-align:justify;">
                     Selamat datang di website resmi SDN Laladon 03. Kami berharap website ini menjadi sarana informasi
                     dan komunikasi yang efektif antara sekolah, orang tua, siswa, dan masyarakat. Kami terus berkomitmen
                     untuk meningkatkan kualitas pendidikan dan pelayanan prima kepada seluruh peserta didik.
                 </p>
-                <blockquote class="kepsek-quote mb-4">
+                <blockquote class="kepsek-quote mb-4 text-start">
                     "<?php echo htmlspecialchars($kepsek['quote']); ?>"
                     <cite>— <?php echo htmlspecialchars($kepsek['name']); ?></cite>
                 </blockquote>
@@ -281,7 +289,7 @@ if (!$kepsek) {
 </section>
 
 <!-- BERITA TERBARU -->
-<section id="blogSection" class="py-5" style="background:#f8f9fc;">
+<section id="blogSection" class="py-5" style="background:#fff;">
     <div class="container">
         <div class="section-title-wrapper">
             <span class="section-label">Informasi Terkini</span>
