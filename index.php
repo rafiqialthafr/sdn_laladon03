@@ -165,11 +165,10 @@ include 'header.php';
             <div class="col-md-6 col-lg-3">
                 <div class="content-card p-4 text-center h-100">
                     <div class="card-icon-wrap gold mx-auto mb-3">
-                        <i data-lucide="layers" style="width:26px;height:26px;"></i>
+                        <i data-lucide="shield" style="width:26px;height:26px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Fasilitas Lengkap</h5>
-                    <p class="text-muted small mb-0">Ruang Kelas, Perpustakaan, Lapangan Olahraga, Musholla dan
-                        Fasilitas lainnya</p>
+                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Ekstrakurikuler Aktif</h5>
+                    <p class="text-muted small mb-0">Mewadahi bakat siswa melalui kegiatan Pramuka dan Bela Diri Karate yang berprestasi.</p>
                 </div>
             </div>
         </div>
@@ -204,7 +203,7 @@ if (!$kepsek) {
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
                     <img src="<?php echo !empty($kepsek['photo']) ? (strpos($kepsek['photo'], 'img/') === 0 ? htmlspecialchars($kepsek['photo']) : 'img/' . htmlspecialchars($kepsek['photo'])) : 'https://via.placeholder.com/300x400'; ?>"
-                        alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>">
+                        alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>" loading="lazy" width="300" height="400">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
                 </div>
@@ -261,7 +260,7 @@ if (!$kepsek) {
                         <div class="teacher-card">
                             <div class="teacher-card-img-wrap">
                                 <img src="<?php echo htmlspecialchars($row['photo']); ?>"
-                                    alt="<?php echo htmlspecialchars($row['name']); ?>">
+                                    alt="<?php echo htmlspecialchars($row['name']); ?>" loading="lazy" width="300" height="300">
                                 <div class="teacher-card-overlay"></div>
                             </div>
                             <div class="teacher-card-body">
@@ -322,7 +321,7 @@ if (!$kepsek) {
                         <div class="news-card-modern">
                             <div class="img-wrap">
                                 <img src="<?php echo htmlspecialchars($blog['image']); ?>"
-                                    alt="<?php echo htmlspecialchars($blog['title']); ?>">
+                                    alt="<?php echo htmlspecialchars($blog['title']); ?>" loading="lazy" width="400" height="250">
                                 <span class="news-cat-badge <?php echo getCatClassIdx($blog['category']); ?>">
                                     <?php echo getCatLabelIdx($blog['category']); ?>
                                 </span>

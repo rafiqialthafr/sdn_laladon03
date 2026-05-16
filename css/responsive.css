@@ -111,6 +111,13 @@ section {
         background: transparent;
     }
 
+    /* Pengecualian: Dropdown PPDB mini di luar menu vertikal */
+    .main-navbar .dropdown-menu.mobile-ppdb-menu {
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding-left: 0.5rem;
+    }
+
     .main-navbar .dropdown-item {
         padding: 10px 12px;
         font-size: 0.95rem;

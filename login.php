@@ -17,7 +17,6 @@ if (isset($_POST['login'])) {
 
     if (mysqli_num_rows($result) === 1) {
         $user = mysqli_fetch_assoc($result);
-        // Support both plain text and hashed password
         if (password_verify($password, $user['password']) || $password === $user['password']) {
             $_SESSION['admin']    = true;
             $_SESSION['username'] = $username;
@@ -47,25 +46,21 @@ if (isset($_POST['login'])) {
     <div class="login-logo-wrap">
         <img src="img/logo.png" alt="Logo SDN Laladon 03">
     </div>
-    <div class="login-school-name">SDN LALADON 03</div>
-    <div class="login-school-sub">Sekolah Ramah Anak · Bogor, Jawa Barat</div>
+    <div class="login-school-name">SIM <span>Laladon 03</span></div>
+    <div class="login-school-sub">Sistem Informasi Manajemen Terpadu</div>
 
     <ul class="login-features">
         <li>
-            <div class="feat-icon"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i></div>
-            Kelola Berita &amp; Pengumuman
+            <div class="feat-icon"><i data-lucide="layout-dashboard" style="width:18px;height:18px;"></i></div>
+            Kelola Berita &amp; Pengumuman Secara Real-time
         </li>
         <li>
-            <div class="feat-icon"><i data-lucide="users" style="width:16px;height:16px;"></i></div>
-            Manajemen Data Guru &amp; Staf
+            <div class="feat-icon"><i data-lucide="users" style="width:18px;height:18px;"></i></div>
+            Manajemen Data Guru, Staf &amp; Siswa
         </li>
         <li>
-            <div class="feat-icon"><i data-lucide="mail" style="width:16px;height:16px;"></i></div>
-            Lihat Pesan Masuk
-        </li>
-        <li>
-            <div class="feat-icon"><i data-lucide="shield-check" style="width:16px;height:16px;"></i></div>
-            Akses Aman &amp; Terproteksi
+            <div class="feat-icon"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></div>
+            Akses Admin Terenkripsi &amp; Aman
         </li>
     </ul>
     <div class="login-gold-bar"></div>
@@ -85,7 +80,7 @@ if (isset($_POST['login'])) {
         </div>
         <?php endif; ?>
 
-        <form action="" method="POST" autocomplete="off" novalidate>
+        <form action="" method="POST" autocomplete="off" id="loginForm">
 
             <!-- Username -->
             <label class="login-label" for="username">Username</label>
@@ -112,9 +107,9 @@ if (isset($_POST['login'])) {
                 </button>
             </div>
 
-            <button type="submit" name="login" class="btn-login">
+            <button type="submit" name="login" class="btn-login" id="submitBtn">
                 <i data-lucide="log-in" style="width:18px;height:18px;"></i>
-                Masuk ke Dashboard
+                <span>Masuk ke Dashboard</span>
             </button>
         </form>
 
@@ -142,7 +137,13 @@ if (isset($_POST['login'])) {
         }
         lucide.createIcons();
     }
+
+    document.getElementById('username').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('password').focus();
+        }
+    });
 </script>
 </body>
 </html>
-

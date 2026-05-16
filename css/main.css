@@ -48,17 +48,8 @@ body {
     overflow-x: hidden;
 }
 
-/* ==========================================
-   FOUT PREVENTION
-========================================== */
-/* FOUT Prevention — gunakan .laladon-app sebagai class selector (ID tetap ada untuk JS) */
-.laladon-app:not(.fonts-loaded) {
-    opacity: 0;
-}
-.laladon-app.fonts-loaded {
-    opacity: 1;
-    transition: opacity 0.2s ease;
-}
+
+
 
 /* Semua gambar responsif */
 img {
@@ -135,40 +126,45 @@ section {
     display: flex;
     align-items: center;
     gap: .4rem;
-    transition: color var(--transition-fast), background var(--transition-fast);
+    transition: color 0.3s ease;
 }
 
-/* Dot indikator oranye di bawah item aktif */
-.main-navbar .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background: var(--gold-dark);
-    border-radius: 50%;
-    box-shadow: 0 0 6px rgba(255, 165, 0, 0.6);
-}
+/* Modern Sliding Underline (Desktop Only) */
+@media (min-width: 992px) {
+    .main-navbar .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2.5px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+        border-radius: 2px;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+    }
 
-.main-navbar .nav-link::before { display: none; }
+    .main-navbar .nav-link:hover::before,
+    .main-navbar .nav-link.active::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
 
 .main-navbar .nav-link:hover {
     color: var(--gold-dark);
-    background: #fff8ee;
 }
 
 .main-navbar .nav-link.active {
-    color: #e8900a;
-    background: #fff5e0;
+    color: var(--gold-dark);
     font-weight: 700;
 }
 
 /* ── CTA Daftar Button di Navbar ── */
 .main-navbar .nav-link.nav-cta-daftar {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    color: var(--dark-text);
+    color: var(--dark-text) !important;
     font-weight: 700;
     border-radius: 50px;
     padding: .55rem 1.4rem;
@@ -176,22 +172,25 @@ section {
     transition: all 0.25s ease;
     border: none;
     letter-spacing: .3px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .main-navbar .nav-link.nav-cta-daftar:hover {
     background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-deep) 100%);
-    color: var(--dark-text);
+    color: var(--dark-text) !important;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
 }
 
 .main-navbar .nav-link.nav-cta-daftar.active {
     background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-amber) 100%);
-    color: var(--dark-text);
+    color: var(--dark-text) !important;
 }
 
-.main-navbar .nav-link.nav-cta-daftar::after {
-    display: none; /* hilangkan dot indicator */
+/* Hilangkan efek hover khusus untuk tombol PPDB */
+.main-navbar .nav-link.nav-cta-daftar::before {
+    display: none !important;
 }
 
 /* ── CTA Daftar di Mobile Sidebar ── */

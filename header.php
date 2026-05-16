@@ -47,7 +47,8 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
 
-    <!-- ═══ Preload resource paling kritis (LCP) ═══ -->
+    <!-- ═══ Preload ═══ -->
+    <link rel="preload" href="img/slider1.jpeg" as="image" fetchpriority="high">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style">
     <link rel="preload" href="css/main.css" as="style">
 
@@ -55,30 +56,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- ═══ Google Fonts ═══ -->
-    <link
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- ═══ FOUT Prevention: Hide page until fonts ready ═══ -->
-    <script>
-        // Reveal page when fonts are ready, with 2s safety timeout
-        (function () {
-            function reveal() {
-                if (document.body) document.body.classList.add('fonts-loaded');
-                else document.addEventListener('DOMContentLoaded', function () { document.body.classList.add('fonts-loaded'); });
-            }
-            var timeout = setTimeout(reveal, 2000);
-            if (document.fonts && document.fonts.ready) {
-                document.fonts.ready.then(function () {
-                    clearTimeout(timeout);
-                    reveal();
-                });
-            } else {
-                clearTimeout(timeout);
-                window.addEventListener('load', reveal);
-            }
-        })();
-    </script>
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- ═══ Custom CSS ═══ -->
     <link rel="stylesheet" href="css/main.css">
@@ -86,7 +69,8 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- ═══ AOS Animation CSS ═══ -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
     <!-- ═══ JSON-LD Structured Data (SEO schema.org) ═══ -->
     <script type="application/ld+json">
@@ -116,7 +100,6 @@
     }
     </script>
     <!-- ═══ Lucide Icons ═══ -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 
 <body id="laladon-app" class="laladon-app d-flex flex-column min-vh-100">
@@ -132,13 +115,18 @@
                     <span class="brand-text d-none d-md-inline-block">SDN LALADON 03</span>
                 </div>
             </a>
-            <!-- Tombol Daftar mini — hanya tampil di mobile, di luar hamburger -->
-            <a href="daftar_ppdb.php" class="navbar-daftar-mobile d-lg-none" aria-label="Daftar PPDB">
-                <i data-lucide="clipboard-list" style="width:15px;height:15px;" aria-hidden="true"></i>
-                Daftar
-            </a>
-            <button class="hamburger-btn d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false"
-                aria-label="Buka atau tutup menu navigasi">
+            <!-- PPDB Dropdown Mini (Hanya tampil di mobile, di luar hamburger) -->
+            <div class="dropdown d-lg-none ms-auto me-2">
+                <a href="#" class="navbar-daftar-mobile dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration:none; padding:.4rem .8rem; background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); border-radius:30px; color:#3d1f00; font-weight:700; font-size:.85rem; display:flex; align-items:center;">
+                    <i data-lucide="clipboard-list" style="width:15px;height:15px;margin-right:4px;"></i>PPDB
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow mobile-ppdb-menu" aria-label="Menu PPDB Mobile" style="margin-top:10px; border:none; border-radius:10px; padding:0.5rem;">
+                    <li><a class="dropdown-item" href="daftar_ppdb.php"><i data-lucide="user-plus" style="width:16px;height:16px;margin-right:6px;"></i>Daftar Sekarang</a></li>
+                    <li><a class="dropdown-item" href="cek_ppdb.php"><i data-lucide="search" style="width:16px;height:16px;margin-right:6px;"></i>Cek Status</a></li>
+                </ul>
+            </div>
+            <button class="hamburger-btn d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-expanded="false" aria-label="Buka atau tutup menu navigasi">
                 <span class="hb-bar hb-top" aria-hidden="true"></span>
                 <span class="hb-bar hb-mid" aria-hidden="true"></span>
                 <span class="hb-bar hb-bot" aria-hidden="true"></span>
@@ -146,47 +134,35 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">
-                            <i data-lucide="home" class="me-2" aria-hidden="true"></i>Beranda
-                        </a>
+                        <a class="nav-link" href="index.php">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" aria-haspopup="true">
-                            <i data-lucide="graduation-cap" class="me-2" aria-hidden="true"></i>Profil
-                        </a>
+                            aria-expanded="false" aria-haspopup="true">Profil</a>
                         <ul class="dropdown-menu" aria-label="Menu Profil">
-                            <li><a class="dropdown-item" href="sejarah.php"><i data-lucide="compass" class="me-2"
-                                        aria-hidden="true"></i>Sejarah Singkat</a></li>
-                            <li><a class="dropdown-item" href="visimisi.php"><i data-lucide="rocket" class="me-2"
-                                        aria-hidden="true"></i>Visi Misi</a></li>
-                            <li><a class="dropdown-item" href="kepala_sekolah.php"><i data-lucide="user-round-cog"
-                                        class="me-2" aria-hidden="true"></i>Kepala Sekolah</a></li>
-                            <li><a class="dropdown-item" href="guru_staf.php"><i data-lucide="users" class="me-2"
-                                        aria-hidden="true"></i>Guru dan Staf</a></li>
-                            <li><a class="dropdown-item" href="fasilitas.php"><i data-lucide="building-2" class="me-2"
-                                        aria-hidden="true"></i>Fasilitas</a></li>
-                            <li><a class="dropdown-item" href="galeri.php"><i data-lucide="layout-dashboard"
-                                        class="me-2" aria-hidden="true"></i>Galeri</a></li>
+                            <li><a class="dropdown-item" href="sejarah.php">Sejarah Singkat</a></li>
+                            <li><a class="dropdown-item" href="visimisi.php">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="kepala_sekolah.php">Kepala Sekolah</a></li>
+                            <li><a class="dropdown-item" href="guru_staf.php">Guru dan Staf</a></li>
+                            <li><a class="dropdown-item" href="fasilitas.php">Fasilitas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="berita.php">
-                            <i data-lucide="newspaper" class="me-2" aria-hidden="true"></i>Berita
-                        </a>
+                        <a class="nav-link" href="galeri.php">Galeri</a>
                     </li>
-        
-
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">
-                            <i data-lucide="mail" class="me-2" aria-hidden="true"></i>Kontak
-                        </a>
+                        <a class="nav-link" href="berita.php">Berita</a>
                     </li>
-
-                    <li class="nav-item ms-2 d-none d-lg-block">
-                        <a class="nav-link nav-cta-daftar" href="daftar_ppdb.php">
-                            <i data-lucide="clipboard-list" class="me-2" aria-hidden="true"></i>Daftar        
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Kontak</a>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-2 d-none d-lg-block">
+                        <a class="nav-link dropdown-toggle nav-cta-daftar" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i data-lucide="clipboard-list" style="width:18px;height:18px;margin-right:4px;"></i>PPDB</a>
+                        <ul class="dropdown-menu shadow-sm" aria-label="Menu PPDB">
+                            <li><a class="dropdown-item" href="daftar_ppdb.php"><i data-lucide="user-plus" class="me-2" aria-hidden="true"></i>Daftar Sekarang</a></li>
+                            <li><a class="dropdown-item" href="cek_ppdb.php"><i data-lucide="search" class="me-2" aria-hidden="true"></i>Cek Status</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
