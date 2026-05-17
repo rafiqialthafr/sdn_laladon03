@@ -7,22 +7,22 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
 
     <!-- ═══ Primary SEO ═══ -->
-    <title>SDN Laladon 03 - Sekolah Ramah Anak</title>
+    <title>SDN LALADON 03</title>
     <meta name="description"
         content="Website resmi SDN Laladon 03 - Sekolah Dasar Negeri terakreditasi A di Kecamatan Ciomas, Kabupaten Bogor, Jawa Barat. Mewujudkan generasi cerdas, kreatif, berkarakter, dan berprestasi.">
     <meta name="keywords"
-        content="SDN Laladon 03, SDN Laladon, SD Negeri Ciomas, Sekolah Bogor, Akreditasi A, Sekolah Ramah Anak">
+        content="SDN Laladon 03, SDN Laladon, SD Negeri Ciomas, Sekolah Bogor, Akreditasi A, Sekolah Unggulan">
     <meta name="author" content="SDN Laladon 03">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="http://localhost/laladon/">
+    <link rel="canonical" href="https://sdnlaladon3.biz.id/">
 
     <!-- ═══ Open Graph / Facebook ═══ -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost/laladon/">
-    <meta property="og:title" content="SDN Laladon 03 - Sekolah Ramah Anak | Terakreditasi A">
+    <meta property="og:url" content="https://sdnlaladon3.biz.id/">
+    <meta property="og:title" content="SDN Laladon 03 - Sekolah Unggulan | Terakreditasi A">
     <meta property="og:description"
         content="Website resmi SDN Laladon 03 - Sekolah Dasar Negeri terakreditasi A di Kecamatan Ciomas, Kabupaten Bogor, Jawa Barat.">
-    <meta property="og:image" content="http://localhost/laladon/logo.png">
+    <meta property="og:image" content="https://sdnlaladon3.biz.id/img/logo.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta property="og:locale" content="id_ID">
@@ -30,10 +30,10 @@
 
     <!-- ═══ Twitter Card ═══ -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SDN Laladon 03 - Sekolah Ramah Anak">
+    <meta name="twitter:title" content="SDN Laladon 03 - Sekolah Unggulan">
     <meta name="twitter:description"
         content="Website resmi SDN Laladon 03, Sekolah Dasar Negeri terakreditasi A di Kabupaten Bogor, Jawa Barat.">
-    <meta name="twitter:image" content="http://localhost/laladon/logo.png">
+    <meta name="twitter:image" content="https://sdnlaladon3.biz.id/img/logo.png">
 
     <!-- ═══ Favicon ═══ -->
     <link rel="icon" type="image/png" href="img/logo.png">
@@ -60,7 +60,9 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Barlow+Condensed:wght@700;800;900&display=swap"
+            rel="stylesheet">
     </noscript>
 
     <!-- ═══ Custom CSS ═══ -->
@@ -69,8 +71,11 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- ═══ AOS Animation CSS ═══ -->
-    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </noscript>
 
     <!-- ═══ JSON-LD Structured Data (SEO schema.org) ═══ -->
     <script type="application/ld+json">
@@ -79,9 +84,9 @@
       "@type": "School",
       "name": "SDN Laladon 03",
       "alternateName": "Sekolah Dasar Negeri Laladon 03",
-      "url": "http://localhost/laladon/",
-      "logo": "http://localhost/laladon/logo.png",
-      "image": "http://localhost/laladon/logo.png",
+      "url": "https://sdnlaladon3.biz.id/",
+      "logo": "https://sdnlaladon3.biz.id/img/logo.png",
+      "image": "https://sdnlaladon3.biz.id/img/slider1.jpeg",
       "description": "Sekolah Dasar Negeri terakreditasi A di Kecamatan Ciomas, Kabupaten Bogor, Jawa Barat.",
       "address": {
         "@type": "PostalAddress",
@@ -91,8 +96,8 @@
         "postalCode": "16610",
         "addressCountry": "ID"
       },
-      "telephone": "(0251) 1234567",
-      "email": "info@sdnlaladon03.sch.id",
+      "telephone": "+62 895-3149-7117",
+      "email": "sdnlaladon@gmail.com",
       "sameAs": [
         "https://www.instagram.com/sdnlaladonnnn03",
         "https://www.youtube.com/@SDNLaladon03"
@@ -117,12 +122,17 @@
             </a>
             <!-- PPDB Dropdown Mini (Hanya tampil di mobile, di luar hamburger) -->
             <div class="dropdown d-lg-none ms-auto me-2">
-                <a href="#" class="navbar-daftar-mobile dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration:none; padding:.4rem .8rem; background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); border-radius:30px; color:#3d1f00; font-weight:700; font-size:.85rem; display:flex; align-items:center;">
+                <a href="#" class="navbar-daftar-mobile dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="text-decoration:none; padding:.4rem .8rem; background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); border-radius:30px; color:#3d1f00; font-weight:700; font-size:.85rem; display:flex; align-items:center;">
                     <i data-lucide="clipboard-list" style="width:15px;height:15px;margin-right:4px;"></i>PPDB
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end shadow mobile-ppdb-menu" aria-label="Menu PPDB Mobile" style="margin-top:10px; border:none; border-radius:10px; padding:0.5rem;">
-                    <li><a class="dropdown-item" href="daftar_ppdb.php"><i data-lucide="user-plus" style="width:16px;height:16px;margin-right:6px;"></i>Daftar Sekarang</a></li>
-                    <li><a class="dropdown-item" href="cek_ppdb.php"><i data-lucide="search" style="width:16px;height:16px;margin-right:6px;"></i>Cek Status</a></li>
+                <ul class="dropdown-menu dropdown-menu-end shadow mobile-ppdb-menu" aria-label="Menu PPDB Mobile"
+                    style="margin-top:10px; border:none; border-radius:10px; padding:0.5rem;">
+                    <li><a class="dropdown-item" href="daftar_ppdb.php"><i data-lucide="user-plus"
+                                style="width:16px;height:16px;margin-right:6px;"></i>Daftar Sekarang</a></li>
+                    <li><a class="dropdown-item" href="cek_ppdb.php"><i data-lucide="search"
+                                style="width:16px;height:16px;margin-right:6px;"></i>Cek Status</a></li>
                 </ul>
             </div>
             <button class="hamburger-btn d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -157,11 +167,14 @@
                         <a class="nav-link" href="contact.php">Kontak</a>
                     </li>
                     <li class="nav-item dropdown ms-lg-2 d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle nav-cta-daftar" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false"><i data-lucide="clipboard-list" style="width:18px;height:18px;margin-right:4px;"></i>PPDB</a>
+                        <a class="nav-link dropdown-toggle nav-cta-daftar" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"><i data-lucide="clipboard-list"
+                                style="width:18px;height:18px;margin-right:4px;"></i>PPDB</a>
                         <ul class="dropdown-menu shadow-sm" aria-label="Menu PPDB">
-                            <li><a class="dropdown-item" href="daftar_ppdb.php"><i data-lucide="user-plus" class="me-2" aria-hidden="true"></i>Daftar Sekarang</a></li>
-                            <li><a class="dropdown-item" href="cek_ppdb.php"><i data-lucide="search" class="me-2" aria-hidden="true"></i>Cek Status</a></li>
+                            <li><a class="dropdown-item" href="daftar_ppdb.php"><i data-lucide="user-plus" class="me-2"
+                                        aria-hidden="true"></i>Daftar Sekarang</a></li>
+                            <li><a class="dropdown-item" href="cek_ppdb.php"><i data-lucide="search" class="me-2"
+                                        aria-hidden="true"></i>Cek Status</a></li>
                         </ul>
                     </li>
                 </ul>

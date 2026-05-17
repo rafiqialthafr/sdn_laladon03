@@ -41,7 +41,7 @@
                         <i data-lucide="phone" style="width:24px;height:24px;"></i>
                     </div>
                     <h5 class="contact-card-title">Telepon</h5>
-                    <p class="contact-card-text">089531497117</p>
+                    <p class="contact-card-text">0895-3149-7117</p>
                     <p class="contact-card-text" style="margin-top:-0.5rem;">Senin – Jumat, 07.00 – 14.00 WIB</p>
                 </div>
             </div>

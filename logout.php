@@ -1,6 +1,6 @@
 <?php
 session_start();
 session_destroy();
-header("Location: login.php");
+header("Location: masuk-admin-03.php");
 exit;
 ?>

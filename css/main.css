@@ -351,7 +351,8 @@ section {
 
 .text-highlight {
     position: relative;
-    display: inline-block;
+    display: inline-block
+    ;
     color: var(--gold);
     text-shadow:
         0 0 20px rgba(255, 215, 0, 0.8),
@@ -798,6 +799,8 @@ footer a:hover {
 .content-card .card-icon-wrap.gold  { background: linear-gradient(135deg, #FFF3CD, #FFE082); color: var(--gold-amber); }
 .content-card .card-icon-wrap.blue  { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: #1d4ed8; }
 .content-card .card-icon-wrap.green { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #15803d; }
+.content-card .card-icon-wrap.navy  { background: linear-gradient(135deg, #e0e7ff, #c7d2fe); color: var(--navy); }
+.content-card .card-icon-wrap.violet { background: linear-gradient(135deg, #f3e8ff, #d8b4fe); color: #7e22ce; }
 
 /* ==========================================
    SEJARAH PAGE — MODERN TIMELINE
@@ -3135,3 +3138,73 @@ footer a:hover {
 }
 
 .ppdb-required { color: #ef4444; }
+
+/* Custom Pagination for Galeri */
+.pagination .page-link {
+    color: var(--navy);
+    border: none;
+    background: #fff;
+    margin: 0 4px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    transition: all 0.25s ease;
+}
+
+.pagination .page-link:hover {
+    background: var(--gold);
+    color: var(--dark-text);
+    transform: translateY(-2px);
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    color: var(--dark-text);
+    box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+}
+
+.pagination .page-item.disabled .page-link {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Card Keunggulan (About Section) */
+.content-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    border-bottom: 5px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-card .card-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.content-card h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #1f2738;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+}
+
+.content-card p {
+    color: #6b7280;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    font-weight: 500;
+}

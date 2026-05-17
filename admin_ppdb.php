@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) { header("Location: login.php"); exit; }
+if (!isset($_SESSION['admin'])) { header("Location: masuk-admin-03.php"); exit; }
 header('Content-Type: text/html; charset=UTF-8');
 include 'koneksi.php';
 

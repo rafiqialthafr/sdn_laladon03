@@ -133,42 +133,43 @@ include 'header.php';
 
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
+                <div class="content-card text-center h-100">
                     <div class="card-icon-wrap gold mx-auto mb-3">
-                        <i data-lucide="trophy" style="width:26px;height:26px;"></i>
+                        <i data-lucide="trophy" style="width:28px;height:28px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Terakreditasi A</h5>
+                    <h5 class="fw-bold mb-3">Terakreditasi A</h5>
                     <p class="text-muted small mb-0">Sejak 2016 mendapatkan akreditasi dari BNSM dengan No SK:
-                        555/BAN-SM/HK/2023</p>
+                        555/BAN-SM/HK/2023.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
+                <div class="content-card text-center h-100">
                     <div class="card-icon-wrap blue mx-auto mb-3">
-                        <i data-lucide="clipboard-list" style="width:26px;height:26px;"></i>
+                        <i data-lucide="clipboard-list" style="width:28px;height:28px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Kurikulum Merdeka</h5>
+                    <h5 class="fw-bold mb-3">Kurikulum Merdeka</h5>
                     <p class="text-muted small mb-0">Pembelajaran fleksibel, fokus materi esensial, dan penguatan
                         karakter.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
+                <div class="content-card text-center h-100">
                     <div class="card-icon-wrap green mx-auto mb-3">
-                        <i data-lucide="award" style="width:26px;height:26px;"></i>
+                        <i data-lucide="award" style="width:28px;height:28px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Guru Bersertifikat</h5>
+                    <h5 class="fw-bold mb-3">Guru Bersertifikat</h5>
                     <p class="text-muted small mb-0">Guru profesional bersertifikasi nasional yang berdedikasi tinggi
-                        dan berpengalaman</p>
+                        dan berpengalaman.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
-                <div class="content-card p-4 text-center h-100">
-                    <div class="card-icon-wrap gold mx-auto mb-3">
-                        <i data-lucide="shield" style="width:26px;height:26px;"></i>
+                <div class="content-card text-center h-100">
+                    <div class="card-icon-wrap violet mx-auto mb-3">
+                        <i data-lucide="tent" style="width:28px;height:28px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-3" style="color:#1a1a2e;">Ekstrakurikuler Aktif</h5>
-                    <p class="text-muted small mb-0">Mewadahi bakat siswa melalui kegiatan Pramuka dan Bela Diri Karate yang berprestasi.</p>
+                    <h5 class="fw-bold mb-3">Ekstrakurikuler Aktif</h5>
+                    <p class="text-muted small mb-0">Mewadahi bakat siswa melalui kegiatan Pramuka dan Bela Diri Karate
+                        yang berprestasi.</p>
                 </div>
             </div>
         </div>
@@ -203,7 +204,8 @@ if (!$kepsek) {
             <div class="col-md-4 text-center">
                 <div class="kepsek-photo-wrap mx-auto" style="max-width:300px;">
                     <img src="<?php echo !empty($kepsek['photo']) ? (strpos($kepsek['photo'], 'img/') === 0 ? htmlspecialchars($kepsek['photo']) : 'img/' . htmlspecialchars($kepsek['photo'])) : 'https://via.placeholder.com/300x400'; ?>"
-                        alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>" loading="lazy" width="300" height="400">
+                        alt="Kepala Sekolah SDN Laladon 03, <?php echo htmlspecialchars($kepsek['name']); ?>"
+                        loading="lazy" width="300" height="400">
                     <div class="kepsek-deco-1"></div>
                     <div class="kepsek-deco-2"></div>
                 </div>
@@ -321,7 +323,8 @@ if (!$kepsek) {
                         <div class="news-card-modern">
                             <div class="img-wrap">
                                 <img src="<?php echo htmlspecialchars($blog['image']); ?>"
-                                    alt="<?php echo htmlspecialchars($blog['title']); ?>" loading="lazy" width="400" height="250">
+                                    alt="<?php echo htmlspecialchars($blog['title']); ?>" loading="lazy" width="400"
+                                    height="250">
                                 <span class="news-cat-badge <?php echo getCatClassIdx($blog['category']); ?>">
                                     <?php echo getCatLabelIdx($blog['category']); ?>
                                 </span>

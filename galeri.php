@@ -5,12 +5,23 @@ include 'header.php';
 // Ambil filter kategori
 $filter = isset($_GET['kategori']) ? mysqli_real_escape_string($koneksi, $_GET['kategori']) : '';
 
+// Pagination setup
+$limit = 12; // Menampilkan 12 foto per halaman
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+if ($page < 1)
+    $page = 1;
+$offset = ($page - 1) * $limit;
+
 // Query data galeri
 if ($filter) {
-    $query = "SELECT * FROM galeri WHERE kategori='$filter' ORDER BY created_at DESC";
+    $count_query = "SELECT COUNT(*) as total FROM galeri WHERE kategori='$filter'";
+    $query = "SELECT * FROM galeri WHERE kategori='$filter' ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
 } else {
-    $query = "SELECT * FROM galeri ORDER BY created_at DESC";
+    $count_query = "SELECT COUNT(*) as total FROM galeri";
+    $query = "SELECT * FROM galeri ORDER BY created_at DESC LIMIT $limit OFFSET $offset";
 }
+$total_result = mysqli_fetch_assoc(mysqli_query($koneksi, $count_query))['total'];
+$total_pages = ceil($total_result / $limit);
 $result = mysqli_query($koneksi, $query);
 
 // Ambil semua kategori yang tersedia untuk filter
@@ -88,6 +99,41 @@ while ($c = mysqli_fetch_assoc($cat_result)) {
                     </div>
                     <?php $i++; endwhile; ?>
             </div>
+
+            <!-- Pagination -->
+            <?php if ($total_pages > 1): ?>
+                <nav aria-label="Navigasi Halaman Galeri" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <?php if ($page > 1): ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="?<?php echo $filter ? 'kategori=' . urlencode($filter) . '&' : ''; ?>page=<?php echo $page - 1; ?>"
+                                    aria-label="Previous">
+                                    <i data-lucide="chevron-left" style="width:18px;height:18px;"></i>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php for ($p = 1; $p <= $total_pages; $p++): ?>
+                            <li class="page-item <?php echo $p === $page ? 'active' : ''; ?>">
+                                <a class="page-link"
+                                    href="?<?php echo $filter ? 'kategori=' . urlencode($filter) . '&' : ''; ?>page=<?php echo $p; ?>"><?php echo $p; ?></a>
+                            </li>
+                        <?php endfor; ?>
+
+                        <?php if ($page < $total_pages): ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="?<?php echo $filter ? 'kategori=' . urlencode($filter) . '&' : ''; ?>page=<?php echo $page + 1; ?>"
+                                    aria-label="Next">
+                                    <i data-lucide="chevron-right" style="width:18px;height:18px;"></i>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </nav>
+            <?php endif; ?>
+
         <?php else: ?>
             <div class="news-empty-state">
                 <div class="empty-icon">

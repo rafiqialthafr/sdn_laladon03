@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin'])) {
-    header("Location: login.php");
+    header("Location: masuk-admin-03.php");
     exit;
 }
 include 'koneksi.php';
