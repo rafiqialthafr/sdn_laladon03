@@ -40,7 +40,7 @@ $count = mysqli_num_rows($result);
                 <h1 class="page-header-title">
                     <i data-lucide="compass"></i>Kegiatan Ekskul
                 </h1>
-                <p class="page-header-subtitle">Wadah pengembangan karakter, kemandirian, dan potensi luar biasa siswa SDN Laladon 03</p>
+                <p class="page-header-subtitle">Wadah pengembangan karakter, dan potensi luar biasa siswa</p>
             </div>
         </div>
     </div>
