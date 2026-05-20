@@ -158,6 +158,9 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="ekskul.php">Ekskul</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="galeri.php">Galeri</a>
                     </li>
                     <li class="nav-item">

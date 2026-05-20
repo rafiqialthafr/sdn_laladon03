@@ -54,6 +54,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 Fasilitas
             </a>
         </li>
+        <li>
+            <a href="admin_ekskul.php"
+                class="<?php echo $current_page === 'admin_ekskul.php' ? 'active' : ''; ?>">
+                <i data-lucide="compass" style="width:17px;height:17px;"></i>
+                Kelola Ekskul
+            </a>
+        </li>
 
         <li>
             <a href="admin_kepsek.php" class="<?php echo $current_page === 'admin_kepsek.php' ? 'active' : ''; ?>">

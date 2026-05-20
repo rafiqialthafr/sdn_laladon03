@@ -78,48 +78,7 @@ $today=$hari[date('w')].', '.date('d F Y');
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/admin.css" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
-<style>
-.tab-btn{padding:.4rem 1rem;border:1.5px solid #e2e8f0;border-radius:8px;background:#fff;font-size:.78rem;font-weight:600;color:#64748b;text-decoration:none;transition:all .2s}
-.tab-btn:hover{border-color:#fbbf24;color:#d97706}
-.tab-btn.active{background:#1a1a2e;color:#fff;border-color:#1a1a2e}
 
-/* Pendaftar Card */
-.ppdb-card{background:#fff;border-radius:16px;border:1px solid #f1f5f9;box-shadow:0 2px 12px rgba(0,0,0,.05);overflow:hidden;margin-bottom:1.25rem;transition:box-shadow .2s}
-.ppdb-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.09)}
-.ppdb-card-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:linear-gradient(135deg,#1a1a2e,#16213e);flex-wrap:wrap;gap:.5rem}
-.ppdb-card-no{font-family:monospace;font-weight:800;color:#fcd34d;font-size:.9rem;letter-spacing:1px}
-.ppdb-card-name{font-size:1rem;font-weight:700;color:#fff;margin-top:.15rem}
-.ppdb-card-body{padding:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:640px){.ppdb-card-body{grid-template-columns:1fr}}
-/* Card Footer — action buttons, separated from status */
-.ppdb-card-footer{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.25rem;border-top:1px solid #f1f5f9;background:#fafafa;flex-wrap:wrap;gap:.5rem}
-.ppdb-card-footer-label{font-size:.75rem;color:#94a3b8;font-weight:500;display:flex;align-items:center;gap:.35rem}
-.ppdb-card-footer-actions{display:flex;gap:.5rem;flex-wrap:wrap}
-.ppdb-section{background:#f8fafc;border-radius:10px;padding:1rem}
-.ppdb-section-title{font-size:.75rem;font-weight:700;color:#64748b;letter-spacing:.8px;text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem}
-.ppdb-field{display:flex;flex-direction:column;margin-bottom:.6rem}
-.ppdb-field:last-child{margin-bottom:0}
-.ppdb-field-label{font-size:.7rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px}
-.ppdb-field-value{font-size:.88rem;font-weight:600;color:#0f172a;margin-top:.1rem}
-.ppdb-field-value.empty{color:#cbd5e1;font-weight:400;font-style:italic}
-.ppdb-alamat{grid-column:1/-1;background:#f8fafc;border-radius:10px;padding:1rem}
-
-/* Status badges */
-.badge-menunggu{background:#fef3c7;color:#d97706;border:1px solid #fcd34d}
-.badge-diterima{background:#dcfce7;color:#16a34a;border:1px solid #86efac}
-.badge-ditolak{background:#fee2e2;color:#dc2626;border:1px solid #fca5a5}
-.ppdb-badge{padding:.25rem .75rem;border-radius:20px;font-size:.75rem;font-weight:700;white-space:nowrap}
-
-/* Actions */
-.btn-ppdb{display:inline-flex;align-items:center;gap:.3rem;padding:.35rem .75rem;border-radius:7px;font-size:.75rem;font-weight:600;border:none;cursor:pointer;text-decoration:none;transition:all .2s}
-.btn-ppdb-terima{background:#dcfce7;color:#15803d}.btn-ppdb-terima:hover{background:#bbf7d0;color:#15803d}
-.btn-ppdb-tolak{background:#fee2e2;color:#b91c1c}.btn-ppdb-tolak:hover{background:#fecaca;color:#b91c1c}
-.btn-ppdb-delete{background:#fff0f0;color:#ef4444;border:1px solid #fecaca}.btn-ppdb-delete:hover{background:#fee2e2}
-
-/* Empty */
-.ppdb-empty{text-align:center;padding:4rem 2rem;color:#94a3b8}
-.ppdb-empty-icon{width:64px;height:64px;background:#f1f5f9;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-</style>
 </head>
 <body>
 <div class="admin-wrapper">
@@ -129,7 +88,7 @@ $today=$hari[date('w')].', '.date('d F Y');
 <!-- Topbar -->
 <div class="admin-topbar">
     <div class="topbar-left">
-        <button class="sidebar-toggle" id="sidebarToggle"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
+        <button class="sidebar-toggle" id="sidebarToggle"><i data-lucide="menu" class="i-lg"></i></button>
         <div><p class="topbar-title">Data PPDB</p><p class="topbar-subtitle"><?php echo $today; ?></p></div>
     </div>
     <div class="topbar-right">
@@ -142,11 +101,16 @@ $today=$hari[date('w')].', '.date('d F Y');
     <div class="page-header">
         <div>
             <h1 class="page-title">Data PPDB</h1>
-            <p class="page-breadcrumb"><a href="admin_dashboard.php" style="color:#94a3b8;text-decoration:none;">Dashboard</a> &rsaquo; <span>Data PPDB</span></p>
+            <p class="page-breadcrumb"><a href="admin_dashboard.php">Dashboard</a> &rsaquo; <span>Data PPDB</span></p>
         </div>
-        <button class="btn-admin btn-admin-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
-            <i data-lucide="plus" style="width:15px;height:15px;"></i> Tambah Pendaftar
-        </button>
+        <div class="d-flex gap-2 align-items-center flex-wrap">
+            <a href="export_ppdb.php?status=<?php echo urlencode($status_filter); ?>" class="btn fw-bold text-white px-4 py-2.5 rounded-pill d-inline-flex align-items-center gap-2 shadow-sm btn-export-excel">
+                <i data-lucide="file-spreadsheet" class="i-md"></i> Export Excel
+            </a>
+            <button class="btn-admin btn-admin-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
+                <i data-lucide="plus" style="width:15px;height:15px;"></i> Tambah Pendaftar
+            </button>
+        </div>
     </div>
 
     <?php if ($success_msg): ?><div class="alert-admin alert-success"><i data-lucide="check-circle" style="width:18px;height:18px;"></i> <?php echo $success_msg; ?></div><?php endif; ?>
@@ -155,19 +119,19 @@ $today=$hari[date('w')].', '.date('d F Y');
     <!-- Statistik -->
     <div class="row g-3 mb-4">
         <div class="col-6 col-md-3"><div class="stat-card">
-            <div class="stat-icon purple"><i data-lucide="users" style="width:22px;height:22px;"></i></div>
+            <div class="stat-icon purple"><i data-lucide="users" class="i-xl"></i></div>
             <div class="stat-info"><div class="stat-value"><?php echo $stat['Total']; ?></div><div class="stat-label">Total Pendaftar</div></div>
         </div></div>
         <div class="col-6 col-md-3"><div class="stat-card">
-            <div class="stat-icon amber"><i data-lucide="clock" style="width:22px;height:22px;"></i></div>
+            <div class="stat-icon amber"><i data-lucide="clock" class="i-xl"></i></div>
             <div class="stat-info"><div class="stat-value"><?php echo $stat['Menunggu']; ?></div><div class="stat-label">Menunggu</div></div>
         </div></div>
         <div class="col-6 col-md-3"><div class="stat-card">
-            <div class="stat-icon green"><i data-lucide="check-circle" style="width:22px;height:22px;"></i></div>
+            <div class="stat-icon green"><i data-lucide="check-circle" class="i-xl"></i></div>
             <div class="stat-info"><div class="stat-value"><?php echo $stat['Diterima']; ?></div><div class="stat-label">Diterima</div></div>
         </div></div>
         <div class="col-6 col-md-3"><div class="stat-card">
-            <div class="stat-icon rose"><i data-lucide="x-circle" style="width:22px;height:22px;"></i></div>
+            <div class="stat-icon rose"><i data-lucide="x-circle" class="i-xl"></i></div>
             <div class="stat-info"><div class="stat-value"><?php echo $stat['Ditolak']; ?></div><div class="stat-label">Tidak Diterima</div></div>
         </div></div>
     </div>
@@ -181,114 +145,100 @@ $today=$hari[date('w')].', '.date('d F Y');
                 <a href="admin_ppdb.php?status=Diterima" class="tab-btn <?php echo $status_filter==='Diterima'?'active':''; ?>">Diterima</a>
                 <a href="admin_ppdb.php?status=Ditolak" class="tab-btn <?php echo $status_filter==='Ditolak'?'active':''; ?>">Ditolak</a>
             </div>
-            <small style="color:#94a3b8;"><?php echo $total; ?> pendaftar</small>
+            <small><?php echo $total; ?> pendaftar</small>
         </div>
     </div>
 
-    <!-- Cards -->
-    <?php if (mysqli_num_rows($rows) > 0):
-        $no = $offset + 1;
-        while ($row = mysqli_fetch_assoc($rows)):
-            $badge_class = match($row['status']) {
-                'Diterima' => 'badge-diterima',
-                'Ditolak'  => 'badge-ditolak',
-                default    => 'badge-menunggu',
-            };
-            $v = fn($f) => htmlspecialchars($row[$f] ?? '');
-            $vd = fn($f) => !empty($row[$f]) ? htmlspecialchars($row[$f]) : '<span class="empty">—</span>';
-    ?>
-    <div class="ppdb-card">
-        <!-- Card Header: Identitas + Status saja -->
-        <div class="ppdb-card-header">
-            <div>
-                <div class="ppdb-card-no"><?php echo $v('no_pendaftaran'); ?></div>
-                <div class="ppdb-card-name"><?php echo $no ?>. <?php echo $v('nama_lengkap'); ?></div>
-            </div>
-            <span class="ppdb-badge <?php echo $badge_class; ?>"><?php echo $v('status'); ?></span>
+    <!-- Tabular Grid (1 Baris = 1 Siswa) -->
+    <div class="admin-card">
+        <div class="table-responsive">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>No. Daftar</th>
+                        <th>Nama Lengkap</th>
+                        <th>TTL (Tempat, Tanggal Lahir)</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Status</th>
+                        <th class="text-center th-action">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (mysqli_num_rows($rows) > 0):
+                        $no = $offset + 1;
+                        while ($row = mysqli_fetch_assoc($rows)):
+                            $badge_class = match($row['status']) {
+                                'Diterima' => 'badge-diterima',
+                                'Ditolak'  => 'badge-ditolak',
+                                default    => 'badge-menunggu',
+                            };
+                            $formatted_ttl = htmlspecialchars($row['tempat_lahir']) . ', ' . date('d F Y', strtotime($row['tanggal_lahir']));
+                            $clean_hp = preg_replace('/[^0-9]/', '', $row['no_hp_ortu'] ?? '');
+                            $created_at_fmt = !empty($row['created_at']) ? date('d F Y, H:i', strtotime($row['created_at'])) : '—';
+                    ?>
+                    <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td class="col-reg-no"><?php echo htmlspecialchars($row['no_pendaftaran']); ?></td>
+                        <td class="col-name"><?php echo htmlspecialchars($row['nama_lengkap']); ?></td>
+                        <td><?php echo $formatted_ttl; ?></td>
+                        <td>
+                            <span class="gender-text">
+                                <?php if ($row['jenis_kelamin'] === 'Laki-laki'): ?>
+                                    <i data-lucide="user" class="gender-male"></i> Laki-laki
+                                <?php else: ?>
+                                    <i data-lucide="user" class="gender-female"></i> Perempuan
+                                <?php endif; ?>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="ppdb-badge <?php echo $badge_class; ?>"><?php echo htmlspecialchars($row['status']); ?></span>
+                        </td>
+                        <td>
+                            <div class="action-wrap justify-content-center">
+                                <button type="button" class="btn btn-detail-gold rounded-pill d-flex align-items-center gap-1"
+                                    data-bs-toggle="modal" data-bs-target="#modalDetail"
+                                    data-id="<?php echo (int)$row['id']; ?>"
+                                    data-no="<?php echo htmlspecialchars($row['no_pendaftaran']); ?>"
+                                    data-nama="<?php echo htmlspecialchars($row['nama_lengkap']); ?>"
+                                    data-nisn="<?php echo htmlspecialchars($row['nisn'] ?? ''); ?>"
+                                    data-jk="<?php echo htmlspecialchars($row['jenis_kelamin']); ?>"
+                                    data-ttl="<?php echo $formatted_ttl; ?>"
+                                    data-agama="<?php echo htmlspecialchars($row['agama']); ?>"
+                                    data-tk="<?php echo htmlspecialchars($row['asal_tk'] ?? ''); ?>"
+                                    data-alamat="<?php echo htmlspecialchars($row['alamat']); ?>"
+                                    data-ayah="<?php echo htmlspecialchars($row['nama_ayah']); ?>"
+                                    data-ibu="<?php echo htmlspecialchars($row['nama_ibu'] ?? ''); ?>"
+                                    data-kerja="<?php echo htmlspecialchars($row['pekerjaan_ortu'] ?? ''); ?>"
+                                    data-hp="<?php echo htmlspecialchars($row['no_hp_ortu'] ?? ''); ?>"
+                                    data-status="<?php echo htmlspecialchars($row['status']); ?>"
+                                    data-tgl-daftar="<?php echo $created_at_fmt; ?>">
+                                    <i data-lucide="eye" class="i-xs"></i>
+                                    Lihat Detail
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endwhile;
+                    else: ?>
+                    <tr>
+                        <td colspan="7">
+                            <div class="tbl-empty">
+                                <div class="tbl-empty-icon"><i data-lucide="inbox" class="i-3xl"></i></div>
+                                <p>Belum ada data pendaftaran</p>
+                                <p>Data akan muncul setelah ada yang mendaftar melalui halaman PPDB.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
         </div>
-
-        <!-- Card Body -->
-        <div class="ppdb-card-body">
-            <!-- Data Siswa -->
-            <div class="ppdb-section">
-                <div class="ppdb-section-title"><i data-lucide="user" style="width:14px;height:14px;"></i> Data Calon Siswa</div>
-                <div class="ppdb-field"><span class="ppdb-field-label">NISN</span><span class="ppdb-field-value"><?php echo $vd('nisn'); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Jenis Kelamin</span><span class="ppdb-field-value"><?php echo $v('jenis_kelamin'); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Tempat, Tgl Lahir</span><span class="ppdb-field-value"><?php echo $v('tempat_lahir').', '.date('d F Y', strtotime($row['tanggal_lahir'])); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Agama</span><span class="ppdb-field-value"><?php echo $v('agama'); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Asal TK / RA</span><span class="ppdb-field-value"><?php echo $vd('asal_tk'); ?></span></div>
-                <?php if (!empty($row['created_at'])): ?>
-                <div class="ppdb-field"><span class="ppdb-field-label">Tanggal Daftar</span><span class="ppdb-field-value" style="color:#64748b;font-size:.78rem;"><?php echo date('d F Y, H:i', strtotime($row['created_at'])); ?></span></div>
-                <?php endif; ?>
-            </div>
-
-            <!-- Data Ortu -->
-            <div class="ppdb-section">
-                <div class="ppdb-section-title"><i data-lucide="users" style="width:14px;height:14px;"></i> Data Orang Tua / Wali</div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Nama Ayah</span><span class="ppdb-field-value"><?php echo $v('nama_ayah'); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Nama Ibu</span><span class="ppdb-field-value"><?php echo $vd('nama_ibu'); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">Pekerjaan</span><span class="ppdb-field-value"><?php echo $vd('pekerjaan_ortu'); ?></span></div>
-                <div class="ppdb-field"><span class="ppdb-field-label">No. HP</span>
-                    <span class="ppdb-field-value">
-                        <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/','',$row['no_hp_ortu']??''); ?>" target="_blank" style="color:#16a34a;text-decoration:none;">
-                            <?php echo $v('no_hp_ortu'); ?>
-                        </a>
-                    </span>
-                </div>
-            </div>
-
-            <!-- Alamat — full width -->
-            <div class="ppdb-alamat">
-                <div class="ppdb-section-title"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> Alamat Lengkap</div>
-                <div class="ppdb-field-value" style="line-height:1.6;"><?php echo $vd('alamat'); ?></div>
-            </div>
-        </div>
-
-        <!-- Card Footer: Tombol Aksi (terpisah dari status) -->
-        <div class="ppdb-card-footer">
-            <div class="ppdb-card-footer-label">
-                <i data-lucide="settings-2" style="width:13px;height:13px;"></i>
-                Ubah status atau hapus data pendaftar ini:
-            </div>
-            <div class="ppdb-card-footer-actions">
-                <form method="POST" action="admin_ppdb.php" style="display:inline;">
-                    <input type="hidden" name="action" value="status">
-                    <input type="hidden" name="id" value="<?php echo (int)$row['id']; ?>">
-                    <input type="hidden" name="status" value="Diterima">
-                    <button type="submit" class="btn-ppdb btn-ppdb-terima" onclick="return confirm('Terima pendaftar ini?')">
-                        <i data-lucide="check" style="width:13px;height:13px;"></i> Terima
-                    </button>
-                </form>
-                <form method="POST" action="admin_ppdb.php" style="display:inline;">
-                    <input type="hidden" name="action" value="status">
-                    <input type="hidden" name="id" value="<?php echo (int)$row['id']; ?>">
-                    <input type="hidden" name="status" value="Ditolak">
-                    <button type="submit" class="btn-ppdb btn-ppdb-tolak" onclick="return confirm('Tolak pendaftar ini?')">
-                        <i data-lucide="x" style="width:13px;height:13px;"></i> Tolak
-                    </button>
-                </form>
-                <form method="POST" action="admin_ppdb.php" style="display:inline;">
-                    <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="id" value="<?php echo (int)$row['id']; ?>">
-                    <button type="submit" class="btn-ppdb btn-ppdb-delete" onclick="return confirm('Hapus data ini permanen?')">
-                        <i data-lucide="trash-2" style="width:13px;height:13px;"></i> Hapus Permanen
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <?php $no++; endwhile;
-    else: ?>
-    <div class="ppdb-empty">
-        <div class="ppdb-empty-icon"><i data-lucide="inbox" style="width:28px;height:28px;"></i></div>
-        <p style="font-weight:600;">Belum ada data pendaftaran</p>
-        <p style="font-size:.85rem;">Data akan muncul setelah ada yang mendaftar melalui halaman PPDB.</p>
-    </div>
-    <?php endif; ?>
+    </div><!-- /admin-card -->
 
     <!-- Pagination -->
     <?php if ($total_pages > 1): ?>
-    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3 mb-4">
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-4 mb-4">
         <?php for ($p=1; $p<=$total_pages; $p++): ?>
         <a href="admin_ppdb.php?page=<?php echo $p; ?>&status=<?php echo urlencode($status_filter); ?>" class="tab-btn <?php echo $p===$page?'active':''; ?>"><?php echo $p; ?></a>
         <?php endfor; ?>
@@ -299,11 +249,125 @@ $today=$hari[date('w')].', '.date('d F Y');
 </div><!-- /admin-content -->
 </div><!-- /admin-wrapper -->
 
+<!-- MODAL DETAIL PENDAFTAR -->
+<div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-content-premium">
+            <div class="modal-header text-white modal-header-premium">
+                <div>
+                    <span id="det-no"></span>
+                    <h5 class="modal-title fw-bold" id="det-nama"></h5>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-premium">
+                <div class="row g-4">
+                    <!-- Left: Personal Student Data -->
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <div class="detail-section-title">
+                                <i data-lucide="user"></i> Data Calon Siswa
+                            </div>
+                            
+                            <div class="detail-label">NISN</div>
+                            <div class="detail-value" id="det-nisn"></div>
+                            
+                            <div class="detail-label">Jenis Kelamin</div>
+                            <div class="detail-value" id="det-jk"></div>
+                            
+                            <div class="detail-label">Tempat, Tanggal Lahir</div>
+                            <div class="detail-value" id="det-ttl"></div>
+                            
+                            <div class="detail-label">Agama</div>
+                            <div class="detail-value" id="det-agama"></div>
+                            
+                            <div class="detail-label">Asal TK / RA</div>
+                            <div class="detail-value" id="det-tk"></div>
+                            
+                            <div class="detail-label">Tanggal Registrasi</div>
+                            <div class="detail-value text-muted" id="det-tgl-daftar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Family Data -->
+                    <div class="col-md-6">
+                        <div class="detail-box">
+                            <div class="detail-section-title">
+                                <i data-lucide="users"></i> Data Orang Tua / Wali
+                            </div>
+                            
+                            <div class="detail-label">Nama Ayah</div>
+                            <div class="detail-value" id="det-ayah"></div>
+                            
+                            <div class="detail-label">Nama Ibu</div>
+                            <div class="detail-value" id="det-ibu"></div>
+                            
+                            <div class="detail-label">Pekerjaan Orang Tua</div>
+                            <div class="detail-value" id="det-kerja"></div>
+                            
+                            <div class="detail-label">Nomor HP / WhatsApp</div>
+                            <div class="detail-value">
+                                <a id="det-hp-link" href="" target="_blank" class="fw-bold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.949h.004c4.368 0 7.927-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.594ZM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.69-4.836c-.2-.1-.1.185-.596-.347-.1-.1-.3-.15-.5-.05l-.1.085c-.2.2-.4.45-.6.65-.1.1-.3.1-.5 0a5.17 5.17 0 0 1-1.39-1.06 6.19 6.19 0 0 1-.92-1.28c-.1-.2 0-.3.1-.4l.3-.35c.1-.1.1-.2.1-.3s0-.3-.1-.5l-.3-.7c-.2-.4-.3-.4-.5-.4s-.4 0-.6.2c-.15.2-.5.55-.5 1.3s.55 1.5 1.25 2.1c.7.6 1.8 1.5 2.8 1.9.4.15.75.2 1 .15.3-.05 1-.4 1.15-.8s.15-.8.1-.85c-.05-.05-.2-.15-.4-.25"/>
+                                    </svg>
+                                    <span id="det-hp-text"></span>
+                                </a>
+                            </div>
+                            
+                            <div class="detail-label">Status Kelulusan</div>
+                            <div class="mt-1">
+                                <span id="det-status" class="ppdb-badge"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alamat Lengkap -->
+                <div class="detail-alamat-box">
+                    <div class="detail-section-title">
+                        <i data-lucide="map-pin"></i> Alamat Tempat Tinggal
+                    </div>
+                    <div id="det-alamat"></div>
+                </div>
+            </div>
+            
+            <div class="modal-footer modal-footer-premium">
+                <form method="POST" action="admin_ppdb.php">
+                    <input type="hidden" name="action" value="status">
+                    <input type="hidden" name="id" class="action-id-input" value="">
+                    <input type="hidden" name="status" value="Diterima">
+                    <button type="submit" class="btn btn-success fw-bold px-4 py-2.5 rounded-pill btn-success-premium" onclick="return confirm('Terima pendaftar ini?')">
+                        <i data-lucide="check"></i> Terima
+                    </button>
+                </form>
+                
+                <form method="POST" action="admin_ppdb.php">
+                    <input type="hidden" name="action" value="status">
+                    <input type="hidden" name="id" class="action-id-input" value="">
+                    <input type="hidden" name="status" value="Ditolak">
+                    <button type="submit" class="btn btn-danger fw-bold px-4 py-2.5 rounded-pill btn-danger-premium" onclick="return confirm('Tolak pendaftar ini?')">
+                        <i data-lucide="x"></i> Tolak
+                    </button>
+                </form>
+                
+                <form method="POST" action="admin_ppdb.php" class="form-delete">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="id" class="action-id-input" value="">
+                    <button type="submit" class="btn btn-outline-danger fw-bold px-4 py-2.5 rounded-pill btn-outline-danger-premium" onclick="return confirm('Hapus data ini permanen?')">
+                        <i data-lucide="trash-2"></i> Hapus
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- MODAL TAMBAH -->
 <div class="modal fade" id="modalCreate" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header" style="background:#1a1a2e;">
+            <div class="modal-header modal-header-create">
                 <h5 class="modal-title text-white">Tambah Pendaftar PPDB</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
@@ -347,6 +411,63 @@ const sidebar=document.getElementById('admin-sidebar');
 const overlay=document.getElementById('sidebarOverlay');
 if(toggle&&sidebar){toggle.addEventListener('click',()=>{sidebar.classList.toggle('open');if(overlay)overlay.classList.toggle('show');})}
 if(overlay){overlay.addEventListener('click',()=>{sidebar.classList.remove('open');overlay.classList.remove('show');})}
+
+// Dynamic Modal Population for Detail Viewer
+const modalDetail = document.getElementById('modalDetail');
+if (modalDetail) {
+    modalDetail.addEventListener('show.bs.modal', function(event) {
+        const button = event.relatedTarget;
+        
+        // Extract data-attributes
+        const id = button.getAttribute('data-id');
+        const no = button.getAttribute('data-no');
+        const nama = button.getAttribute('data-nama');
+        const nisn = button.getAttribute('data-nisn');
+        const jk = button.getAttribute('data-jk');
+        const ttl = button.getAttribute('data-ttl');
+        const agama = button.getAttribute('data-agama');
+        const tk = button.getAttribute('data-tk');
+        const alamat = button.getAttribute('data-alamat');
+        const ayah = button.getAttribute('data-ayah');
+        const ibu = button.getAttribute('data-ibu');
+        const kerja = button.getAttribute('data-kerja');
+        const hp = button.getAttribute('data-hp');
+        const status = button.getAttribute('data-status');
+        const tglDaftar = button.getAttribute('data-tgl-daftar');
+
+        // Populate modal text content
+        document.getElementById('det-no').textContent = no;
+        document.getElementById('det-nama').textContent = nama;
+        document.getElementById('det-nisn').textContent = nisn ? nisn : '—';
+        document.getElementById('det-jk').textContent = jk;
+        document.getElementById('det-ttl').textContent = ttl;
+        document.getElementById('det-agama').textContent = agama;
+        document.getElementById('det-tk').textContent = tk ? tk : '—';
+        document.getElementById('det-tgl-daftar').textContent = tglDaftar;
+        
+        document.getElementById('det-ayah').textContent = ayah;
+        document.getElementById('det-ibu').textContent = ibu ? ibu : '—';
+        document.getElementById('det-kerja').textContent = kerja ? kerja : '—';
+        
+        // WhatsApp Link & text
+        const hpLink = document.getElementById('det-hp-link');
+        const cleanHp = hp.replace(/[^0-9]/g, '');
+        hpLink.href = `https://wa.me/${cleanHp}`;
+        document.getElementById('det-hp-text').textContent = hp;
+
+        document.getElementById('det-alamat').textContent = alamat;
+        
+        // Status badge
+        const badge = document.getElementById('det-status');
+        badge.textContent = status;
+        badge.className = 'ppdb-badge ' + (status === 'Diterima' ? 'badge-diterima' : (status === 'Ditolak' ? 'badge-ditolak' : 'badge-menunggu'));
+
+        // Assign ID to inputs for post actions
+        document.querySelectorAll('.action-id-input').forEach(input => {
+            input.value = id;
+        });
+    });
+}
 </script>
 </body>
 </html>

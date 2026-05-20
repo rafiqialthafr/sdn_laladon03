@@ -165,11 +165,11 @@ include 'header.php';
             <div class="col-md-6 col-lg-3">
                 <div class="content-card text-center h-100">
                     <div class="card-icon-wrap violet mx-auto mb-3">
-                        <i data-lucide="tent" style="width:28px;height:28px;"></i>
+                        <i data-lucide="layers" style="width:28px;height:28px;"></i>
                     </div>
-                    <h5 class="fw-bold mb-3">Ekstrakurikuler Aktif</h5>
-                    <p class="text-muted small mb-0">Mewadahi bakat siswa melalui kegiatan Pramuka dan Bela Diri Karate
-                        yang berprestasi.</p>
+                    <h5 class="fw-bold mb-3">Fasilitas Lengkap</h5>
+                    <p class="text-muted small mb-0">Perpustakaan, Ruang Kelas Nyaman, dan Fasilitas Pendukung
+                        Lainnya.</p>
                 </div>
             </div>
         </div>

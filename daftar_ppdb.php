@@ -69,132 +69,7 @@ if (isset($_COOKIE['sukses_ppdb']) && $_COOKIE['sukses_ppdb'] == '1') {
 include 'header.php';
 ?>
 
-<style>
-    /* PPDB Form Custom Styles */
-    .ppdb-section-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--navy);
-        border-left: 4px solid var(--gold);
-        padding-left: 12px;
-        margin: 32px 0 20px;
-    }
 
-    .ppdb-section-title:first-child {
-        margin-top: 0;
-    }
-
-    .form-label {
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--navy-mid);
-    }
-
-    .form-control,
-    .form-select {
-        border-radius: 12px;
-        border: 1.5px solid var(--gray-border);
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        transition: all var(--transition-base);
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-        border-color: var(--gold);
-        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.15);
-    }
-
-    .required {
-        color: #dc2626;
-    }
-
-    .alert-ppdb-error {
-        background: #fef2f2;
-        border: 1px solid #fca5a5;
-        color: #991b1b;
-        border-radius: 12px;
-        padding: 16px 20px;
-        margin-bottom: 24px;
-        font-weight: 500;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .info-ppdb {
-        background: rgba(255, 215, 0, 0.05);
-        border: 1px solid rgba(255, 215, 0, 0.3);
-        border-radius: 12px;
-        padding: 20px;
-        font-size: 0.9rem;
-        color: var(--navy-mid);
-        margin-bottom: 32px;
-    }
-
-    .info-ppdb ul {
-        margin: 8px 0 0;
-        padding-left: 20px;
-    }
-
-    .info-ppdb li {
-        margin-bottom: 6px;
-    }
-
-    /* Success State */
-    .ppdb-success-wrap {
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    .icon-ok-wrap {
-        width: 80px;
-        height: 80px;
-        background: #dcfce7;
-        color: #16a34a;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 24px;
-        font-size: 2rem;
-    }
-
-    .no-daftar-box {
-        background: #f8f9fa;
-        border: 2px dashed #cbd5e1;
-        border-radius: 16px;
-        padding: 24px;
-        display: inline-block;
-        margin: 24px 0;
-    }
-
-    .no-daftar-box .label {
-        font-size: 0.8rem;
-        color: #64748b;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-
-    .no-daftar-box .nomor {
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--navy);
-        letter-spacing: 2px;
-        margin-top: 8px;
-    }
-
-    /* Tombol PPDB — override kuning terang */
-    .btn-gold-primary {
-        background: #FFD700;
-        box-shadow: 0 4px 16px rgba(255, 215, 0, 0.45);
-    }
-
-    .btn-gold-primary:hover {
-        background: #FFC107;
-        box-shadow: 0 8px 24px rgba(255, 215, 0, 0.55);
-    }
-</style>
 
 <!-- Page Header -->
 <section class="page-header">
@@ -205,9 +80,7 @@ include 'header.php';
     <div class="container">
         <div class="row page-header-inner">
             <div class="col-12 text-center">
-                <h1 class="page-header-title"><i data-lucide="clipboard-edit"
-                        style="width:36px;height:36px;vertical-align:middle;margin-right:10px;margin-bottom:6px;"></i>Pendaftaran
-                    PPDB</h1>
+                <h1 class="page-header-title"><i data-lucide="clipboard-edit"></i>Pendaftaran PPDB</h1>
                 <p class="page-header-subtitle">SDN Laladon 03 - Tahun Ajaran
                     <?php echo date('Y') . '/' . (date('Y') + 1); ?>
                 </p>
@@ -223,53 +96,46 @@ include 'header.php';
 
                 <?php if ($success): ?>
                     <!-- SUCCESS STATE -->
-                    <div class="content-card p-4 p-md-5 ppdb-success-wrap">
+                    <div class="content-card daftar-ppdb-card ppdb-success-wrap p-4 p-md-5">
                         <div class="icon-ok-wrap">
-                            <i data-lucide="check" style="width:40px;height:40px;"></i>
+                            <i data-lucide="check" class="success-heading-icon"></i>
                         </div>
-                        <h3 style="color:#15803d;font-weight:800;font-size:1.6rem;margin-bottom:1rem;">Pendaftaran Berhasil!
-                        </h3>
-                        <p class="text-muted mb-0">Pendaftaran PPDB Anda telah kami terima. Simpan nomor pendaftaran
-                            berikut:</p>
+                        <h3 class="success-heading">Pendaftaran Berhasil!</h3>
+                        <p class="text-muted mb-0">Pendaftaran PPDB Anda telah kami terima. Simpan nomor pendaftaran berikut:</p>
                         <div class="no-daftar-box">
                             <div class="label">NOMOR PENDAFTARAN</div>
                             <div class="nomor"><?php echo htmlspecialchars($no_pendaftaran); ?></div>
                         </div>
-                        <p class="text-muted" style="font-size:0.95rem;max-width:480px;margin:0 auto 32px;line-height:1.6;">
-                            Nomor ini digunakan untuk mengecek status pendaftaran Anda. Pihak sekolah akan menghubungi Anda
-                            melalui nomor HP yang didaftarkan.
+                        <p class="text-muted success-message-text">
+                            Nomor ini digunakan untuk mengecek status pendaftaran Anda. Pihak sekolah akan menghubungi Anda melalui nomor HP yang didaftarkan.
                         </p>
                         <div class="d-flex gap-3 justify-content-center flex-wrap">
                             <a href="daftar_ppdb.php?action=reset" class="btn btn-gold-primary">
-                                <i data-lucide="rotate-ccw" style="width:18px;height:18px;"></i>
-                                Daftar Lagi
+                                <i data-lucide="rotate-ccw"></i>Daftar Lagi
                             </a>
                             <a href="cek_ppdb.php" class="btn btn-gold-outline">
-                                <i data-lucide="search" style="width:18px;height:18px;margin-right:8px;"></i>
-                                Cek Status Pendaftaran
+                                <i data-lucide="search"></i>Cek Status Pendaftaran
                             </a>
                         </div>
                     </div>
 
                 <?php else: ?>
                     <!-- FORM STATE -->
-                    <div class="content-card p-4 p-md-5">
+                    <div class="content-card daftar-ppdb-card p-4 p-md-5">
 
                         <?php if ($error): ?>
                             <div class="alert-ppdb-error">
-                                <i data-lucide="alert-triangle" style="width:24px;height:24px;flex-shrink:0;"></i>
+                                <i data-lucide="alert-triangle"></i>
                                 <span><?php echo htmlspecialchars($error); ?></span>
                             </div>
                         <?php endif; ?>
 
                         <div class="info-ppdb">
-                            <div style="font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;">
-                                <i data-lucide="info" style="width:18px;height:18px;color:var(--gold-amber);"></i>
-                                Petunjuk Pengisian:
+                            <div class="info-ppdb-title-wrap">
+                                <i data-lucide="info"></i>Petunjuk Pengisian:
                             </div>
                             <ul>
-                                <li>Isi semua kolom yang bertanda <span class="required">*</span> dengan lengkap dan benar.
-                                </li>
+                                <li>Isi semua kolom yang bertanda <span class="required">*</span> dengan lengkap dan benar.</li>
                                 <li>Pastikan nomor HP orang tua aktif &mdash; akan dihubungi oleh pihak sekolah.</li>
                                 <li>Simpan nomor pendaftaran yang muncul setelah mendaftar.</li>
                             </ul>
@@ -381,10 +247,8 @@ include 'header.php';
                             </div>
 
                             <div class="d-flex justify-content-end mt-5">
-                                <button type="submit" class="btn btn-gold-primary border-0 w-100 w-sm-auto"
-                                    style="padding:15px 36px;">
-                                    <i data-lucide="send" style="width:18px;height:18px;margin-right:8px;"></i>
-                                    Kirim Pendaftaran
+                                <button type="submit" class="btn btn-gold-primary border-0 w-100 w-sm-auto">
+                                    <i data-lucide="send"></i>Kirim Pendaftaran
                                 </button>
                             </div>
 

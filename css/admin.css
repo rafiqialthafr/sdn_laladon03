@@ -1629,3 +1629,280 @@ body.login-page {
             color: #d97706;
         }
     
+
+/* ==========================================================================
+   PPDB STYLES (SEPARATED FROM INLINE / INTERNAL BLOCKS)
+   ========================================================================== */
+
+.tab-btn {
+    padding: .4rem 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: .78rem;
+    font-weight: 600;
+    color: #64748b;
+    text-decoration: none;
+    transition: all .2s;
+}
+.tab-btn:hover {
+    border-color: #fbbf24;
+    color: #d97706;
+}
+.tab-btn.active {
+    background: #1a1a2e;
+    color: #fff;
+    border-color: #1a1a2e;
+}
+
+/* Status badges in PPDB */
+.badge-menunggu {
+    background: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fcd34d;
+}
+.badge-diterima {
+    background: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #86efac;
+}
+.badge-ditolak {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+.ppdb-badge {
+    padding: .25rem .75rem;
+    border-radius: 20px;
+    font-size: .75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Premium Detail Sheet in PPDB */
+.detail-label {
+    font-size: .75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: .15rem;
+}
+.detail-value {
+    font-size: .92rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: .85rem;
+}
+.detail-value.empty {
+    color: #cbd5e1;
+    font-weight: 400;
+    font-style: italic;
+}
+.detail-section-title {
+    font-size: .8rem;
+    font-weight: 800;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: .4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+.detail-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid #edf2f7;
+    height: 100%;
+}
+.detail-alamat-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid #edf2f7;
+    margin-top: 1.25rem;
+}
+
+/* Detail Gold Button - Strictly NO !important (Using high specificity Parent-Child rule) */
+.admin-table tbody tr td .action-wrap .btn-detail-gold {
+    font-size: .73rem;
+    font-weight: 700;
+    color: #3d1f00;
+    background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+    border: none;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.2);
+    transition: all 0.2s ease;
+}
+.admin-table tbody tr td .action-wrap .btn-detail-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(255, 193, 7, 0.35);
+    background: linear-gradient(135deg, #ffe033 0%, #ffca28 100%);
+    color: #3d1f00;
+}
+.admin-table tbody tr td .action-wrap .btn-detail-gold:active {
+    transform: translateY(0);
+}
+
+/* Custom Overrides for PPDB Admin Table cells and modal overlays */
+.admin-table th:first-child {
+    width: 50px;
+}
+.admin-table th.th-action {
+    width: 130px;
+}
+.admin-table tbody td:first-child {
+    color: #94a3b8;
+    font-weight: 600;
+}
+.admin-table tbody td.col-reg-no {
+    font-family: monospace;
+    font-weight: 700;
+    color: #1e293b;
+}
+.admin-table tbody td.col-name {
+    font-weight: 700;
+    color: #0f172a;
+}
+.admin-table tbody td span.gender-text {
+    font-weight: 500;
+}
+.admin-table tbody td span.gender-text i {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+.admin-table tbody td span.gender-text i.gender-male {
+    color: #3b82f6;
+}
+.admin-table tbody td span.gender-text i.gender-female {
+    color: #ec4899;
+}
+
+/* Modal styling custom overrides for PPDB details */
+.modal-dialog .modal-content-premium {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+.modal-content-premium .modal-header-premium {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 1.25rem 1.5rem;
+}
+.modal-header-premium #det-no {
+    font-family: monospace;
+    font-weight: 800;
+    color: #fcd34d;
+    font-size: .85rem;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: .15rem;
+}
+.modal-header-premium .modal-title {
+    font-size: 1.15rem;
+    margin: 0;
+}
+.modal-content-premium .modal-body-premium {
+    padding: 1.75rem;
+}
+.detail-box #det-tgl-daftar {
+    font-size: .82rem;
+}
+.detail-box #det-hp-link {
+    color: #16a34a;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.detail-section-title i,
+.detail-alamat-box i {
+    width: 15px;
+    height: 15px;
+    color: #d97706;
+}
+.detail-alamat-box #det-alamat {
+    font-size: .95rem;
+    font-weight: 600;
+    color: #2d3748;
+    line-height: 1.75;
+}
+.modal-content-premium .modal-footer-premium {
+    background: #fafafa;
+    border-top: 1px solid #f1f5f9;
+    padding: 1.25rem 1.75rem;
+    justify-content: flex-start;
+    gap: .5rem;
+}
+.modal-footer-premium form {
+    display: inline;
+}
+.modal-footer-premium form.form-delete {
+    margin-left: auto;
+}
+.modal-footer-premium .btn-success-premium {
+    font-size: .82rem;
+    border: none;
+    box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
+}
+.modal-footer-premium .btn-danger-premium {
+    font-size: .82rem;
+    border: none;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
+}
+.modal-footer-premium .btn-outline-danger-premium {
+    font-size: .82rem;
+}
+.modal-footer-premium button i {
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+#modalCreate .modal-header-create {
+    background: #1a1a2e;
+}
+
+/* Breadcrumb style overrides */
+.page-breadcrumb a {
+    color: #94a3b8;
+    text-decoration: none;
+}
+.page-breadcrumb a:hover {
+    color: #64748b;
+}
+
+/* Excel export button style */
+.page-header .btn-export-excel {
+    font-size: .8rem;
+    border: none;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.page-header .btn-export-excel:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+/* Admin Card header text */
+.admin-card-header small {
+    color: #94a3b8;
+}
+
+/* General lucide icon sizes for clean inline separation */
+.i-xs { width: 13px; height: 13px; }
+.i-sm { width: 14px; height: 14px; }
+.i-md { width: 16px; height: 16px; }
+.i-lg { width: 18px; height: 18px; }
+.i-xl { width: 22px; height: 22px; }
+.i-2xl { width: 24px; height: 24px; }
+.i-3xl { width: 28px; height: 28px; }
+.i-4xl { width: 36px; height: 36px; }
+
+    

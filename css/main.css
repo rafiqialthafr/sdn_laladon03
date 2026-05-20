@@ -3208,3 +3208,571 @@ footer a:hover {
     line-height: 1.7;
     font-weight: 500;
 }
+
+/* ==========================================================================
+   CEK PPDB PAGE STYLES (SEPARATED FROM INLINE / INTERNAL BLOCKS)
+   ========================================================================== */
+.cek-ppdb-card .form-control {
+    border-radius: 12px;
+    border: 1.5px solid var(--gray-border);
+    padding: 14px 20px;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    text-transform: uppercase;
+}
+.cek-ppdb-card .form-control:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.15);
+}
+
+.cek-ppdb-card .detail-row {
+    display: flex;
+    border-bottom: 1px solid #f3f4f6;
+    padding: 16px 0;
+}
+.cek-ppdb-card .detail-row:last-child { border-bottom: none; }
+
+.cek-ppdb-card .detail-label {
+    width: 200px;
+    min-width: 160px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gray-mid);
+}
+.cek-ppdb-card .detail-value {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 500;
+}
+.cek-ppdb-card .detail-value.registration-no {
+    font-family: monospace;
+    color: var(--gold-amber);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.cek-ppdb-card .not-found-box {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 16px;
+}
+.cek-ppdb-card .not-found-box i {
+    width: 48px;
+    height: 48px;
+    color: #fca5a5;
+    margin: 0 auto;
+}
+.cek-ppdb-card .not-found-box p {
+    color: #991b1b;
+    font-weight: 600;
+    margin: 16px 0 0;
+}
+.cek-ppdb-card .not-found-box p span.hint-text {
+    font-weight: 400;
+    color: #b91c1c;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.cek-ppdb-card .status-badge {
+    display: inline-block;
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.cek-ppdb-card .status-badge.diterima { background: #dcfce7; color: #15803d; border: 1.5px solid #86efac; }
+.cek-ppdb-card .status-badge.ditolak { background: #fef2f2; color: #b91c1c; border: 1.5px solid #fca5a5; }
+.cek-ppdb-card .status-badge.menunggu { background: #fffbeb; color: #92400e; border: 1.5px solid #fde68a; }
+
+.cek-ppdb-card .status-badge i {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+/* Custom Page Header Icon override */
+.page-header-title svg,
+.page-header-title i {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 12px;
+    margin-bottom: 0;
+}
+
+/* Override button for PPDB */
+.cek-ppdb-card .btn-gold-primary {
+    background: #FFD700;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.45);
+    padding: 14px 28px;
+}
+.cek-ppdb-card .btn-gold-primary:hover {
+    background: #FFC107;
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.55);
+}
+
+.cek-ppdb-card label {
+    font-size: 0.95rem;
+    color: var(--navy-mid);
+}
+
+.cek-ppdb-card hr {
+    margin: 40px 0;
+    border-color: #e5e7eb;
+}
+
+.cek-ppdb-card .status-title-wrap {
+    margin-bottom: 24px;
+}
+.cek-ppdb-card .status-label-title {
+    font-size: 0.85rem;
+    color: var(--gray-mid);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.cek-ppdb-card .status-badge-container {
+    margin-top: 12px;
+}
+
+/* Info and Alert boxes inside Cek PPDB status results */
+.cek-ppdb-card .info-alert-box {
+    margin-top: 32px;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 12px;
+}
+.cek-ppdb-card .info-alert-box.status-waiting {
+    background: #fffbeb;
+    border: 1.5px solid #fde68a;
+    color: #92400e;
+}
+.cek-ppdb-card .info-alert-box.status-approved {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    color: #15803d;
+}
+.cek-ppdb-card .info-alert-box.status-rejected {
+    background: #fef2f2;
+    border: 1.5px solid #fca5a5;
+    color: #b91c1c;
+}
+.cek-ppdb-card .info-alert-box i {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.cek-ppdb-card .card-footer-note {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--gray-mid);
+}
+.cek-ppdb-card .card-footer-note a {
+    color: var(--gold-amber);
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 4px;
+}
+.cek-ppdb-card .card-footer-note a i {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   DAFTAR PPDB PAGE STYLES (SEPARATED FROM INLINE / INTERNAL BLOCKS)
+   ========================================================================== */
+.daftar-ppdb-card .ppdb-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    border-left: 4px solid var(--gold);
+    padding-left: 12px;
+    margin: 32px 0 20px;
+}
+.daftar-ppdb-card .ppdb-section-title:first-child {
+    margin-top: 0;
+}
+
+.daftar-ppdb-card .form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--navy-mid);
+}
+
+.daftar-ppdb-card .form-control,
+.daftar-ppdb-card .form-select {
+    border-radius: 12px;
+    border: 1.5px solid var(--gray-border);
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    transition: all var(--transition-base);
+}
+.daftar-ppdb-card .form-control:focus,
+.daftar-ppdb-card .form-select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.15);
+}
+
+.daftar-ppdb-card .required {
+    color: #dc2626;
+}
+
+.daftar-ppdb-card .alert-ppdb-error {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.daftar-ppdb-card .alert-ppdb-error i {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.daftar-ppdb-card .info-ppdb {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--navy-mid);
+    margin-bottom: 32px;
+}
+.daftar-ppdb-card .info-ppdb ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+.daftar-ppdb-card .info-ppdb li {
+    margin-bottom: 6px;
+}
+.daftar-ppdb-card .info-ppdb-title-wrap {
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.daftar-ppdb-card .info-ppdb-title-wrap i {
+    width: 18px;
+    height: 18px;
+    color: var(--gold-amber);
+}
+
+/* Success State */
+.daftar-ppdb-card.ppdb-success-wrap {
+    text-align: center;
+    padding: 40px 20px;
+}
+.daftar-ppdb-card .icon-ok-wrap {
+    width: 80px;
+    height: 80px;
+    background: #dcfce7;
+    color: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 2rem;
+}
+.daftar-ppdb-card .success-heading-icon {
+    width: 40px;
+    height: 40px;
+}
+.daftar-ppdb-card .success-heading {
+    color: #15803d;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.daftar-ppdb-card .success-message-text {
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+}
+
+.daftar-ppdb-card .no-daftar-box {
+    background: #f8f9fa;
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    padding: 24px;
+    display: inline-block;
+    margin: 24px 0;
+}
+.daftar-ppdb-card .no-daftar-box .label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.daftar-ppdb-card .no-daftar-box .nomor {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+/* Override button for PPDB */
+.daftar-ppdb-card .btn-gold-primary {
+    background: #FFD700;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.45);
+}
+.daftar-ppdb-card .btn-gold-primary:hover {
+    background: #FFC107;
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.55);
+}
+.daftar-ppdb-card button[type="submit"] {
+    padding: 15px 36px;
+}
+.daftar-ppdb-card .btn i {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   EKSKUL PAGE STYLES (SEPARATED FROM INLINE / INTERNAL BLOCKS)
+   ========================================================================== */
+.ekskul-page-section .filter-btn-group {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ekskul-page-section .filter-btn {
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+    border: 1px solid transparent;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.ekskul-page-section .filter-btn:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: var(--gold-amber);
+}
+.ekskul-page-section .filter-btn.active {
+    background: linear-gradient(135deg, var(--gold, #FFD700) 0%, var(--gold-dark, #FFC107) 100%);
+    color: #3d1f00;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.35);
+}
+
+.ekskul-page-section .ekskul-card-item {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ekskul-page-section .ekskul-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.ekskul-page-section .ekskul-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 215, 0, 0.35);
+}
+
+.ekskul-page-section .ekskul-card.featured {
+    border: 2px solid rgba(255, 215, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.08);
+}
+.ekskul-page-section .ekskul-card.featured:hover {
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+.ekskul-page-section .ekskul-card-image {
+    height: 250px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+.ekskul-page-section .ekskul-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.ekskul-page-section .ekskul-card:hover .ekskul-card-image img {
+    transform: scale(1.06);
+}
+
+.ekskul-page-section .ekskul-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.ekskul-page-section .ekskul-badge i {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.ekskul-page-section .badge-wajib {
+    background: linear-gradient(135deg, #FFF3CD 0%, #FFE082 100%);
+    color: var(--gold-amber, #855b00);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+}
+.ekskul-page-section .badge-pilihan {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid rgba(71, 85, 105, 0.15);
+}
+
+.ekskul-page-section .ekskul-card-body {
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+}
+
+.ekskul-page-section .ekskul-icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: -3.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    border: 3px solid #ffffff;
+}
+.ekskul-page-section .ekskul-icon-box i {
+    width: 24px;
+    height: 24px;
+}
+
+.ekskul-page-section .bg-orange-gradient { background: linear-gradient(135deg, #f97316, #ea580c); }
+.ekskul-page-section .bg-red-gradient    { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.ekskul-page-section .bg-blue-gradient   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.ekskul-page-section .bg-gold-gradient   { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.ekskul-page-section .bg-green-gradient  { background: linear-gradient(135deg, #10b981, #059669); }
+.ekskul-page-section .bg-violet-gradient { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+
+.ekskul-page-section .ekskul-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--navy, #0f172a);
+    margin-bottom: 0.75rem;
+    transition: color 0.25s ease;
+}
+.ekskul-page-section .ekskul-card:hover .ekskul-title {
+    color: var(--gold-amber, #e8900a);
+}
+
+.ekskul-page-section .ekskul-text {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--gray-mid, #64748b);
+    margin-bottom: 1.75rem;
+    text-align: justify;
+}
+
+.ekskul-page-section .ekskul-info-list {
+    border-top: 1px dashed rgba(0,0,0,0.08);
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.ekskul-page-section .ekskul-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.88rem;
+    color: #475569;
+}
+.ekskul-page-section .ekskul-info-item i {
+    color: var(--gold-dark, #FFC107);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.ekskul-page-section .ekskul-info-item strong {
+    color: var(--navy, #0f172a);
+    min-width: 110px;
+}
+
+.ekskul-page-section .empty-state-icon {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.5;
+}
+
+/* Fade-in Animation for filtering */
+.ekskul-page-section .ekskul-card-item.fade-out {
+    opacity: 0;
+    transform: scale(0.9);
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+}
+.ekskul-page-section .ekskul-card-item.fade-in {
+    animation: cardFadeIn 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@media (max-width: 576px) {
+    .ekskul-page-section .ekskul-card-image {
+        height: 200px;
+    }
+    .ekskul-page-section .ekskul-card-body {
+        padding: 2rem 1.25rem;
+    }
+    .ekskul-page-section .ekskul-info-item {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+    .ekskul-page-section .ekskul-info-item strong {
+        width: 100%;
+    }
+}
+
+
+
+
